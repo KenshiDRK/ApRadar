@@ -1,0 +1,29 @@
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\bin\Release\ApRadarChat.exe.config
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\bin\Release\ApRadarChat.exe
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\bin\Release\ApRadarChat.pdb
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\bin\Release\ApRadarChat.xml
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\bin\Release\Contracts.dll
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ResolveAssemblyReference.cache
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ApRadarChat.ChannelPassDialog.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ApRadarChat.ChatForm.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ApRadarChat.CreateChannelDialog.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ApRadarChat.Resources.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ResGen.read.1.tlog
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ResGen.write.1.tlog
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ApRadarChat.exe
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ApRadarChat.xml
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\ApRadarChat\obj\Release\ApRadarChat.pdb
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\bin\Release\ApRadarChat.exe.config
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\bin\Release\ApRadarChat.exe
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\bin\Release\ApRadarChat.pdb
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\bin\Release\ApRadarChat.xml
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\bin\Release\Contracts.dll
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.vbprojResolveAssemblyReference.cache
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.ChannelPassDialog.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.ChatForm.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.CreateChannelDialog.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.Resources.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.vbproj.GenerateResource.Cache
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.exe
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.xml
+C:\Users\Jacinto\Desktop\ApRadar-master\ApRadarChat\obj\Release\ApRadarChat.pdb

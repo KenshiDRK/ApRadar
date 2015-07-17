@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="services.apradar.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="services.apradar.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="services.apradar.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="VersionInfo">
+        <xsd:all>
+          <xsd:element name="MapPackVersion" type="xsd:date" />
+          <xsd:element name="MapIniVersion" type="xsd:date" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ValidationResult">
+        <xsd:all>
+          <xsd:element name="Valid" type="xsd:boolean" />
+          <xsd:element name="ActivationCount" type="xsd:int" />
+          <xsd:element name="ExpirationDate" type="xsd:date" />
+          <xsd:element name="ResultMessage" type="xsd:string" />
+          <xsd:element name="ErrorMessage" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ChatLoginResult">
+        <xsd:all>
+          <xsd:element name="CanChat" type="xsd:boolean" />
+          <xsd:element name="UserID" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FileList">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="FileEx">
+        <xsd:all>
+          <xsd:element name="FileName" type="xsd:string" />
+          <xsd:element name="FileSize" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ValidationInfo">
+        <xsd:all>
+          <xsd:element name="ValidationResult" type="xsd:string" />
+          <xsd:element name="ActivationCount" type="xsd:int" />
+          <xsd:element name="ExpirationDate" type="xsd:date" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="DetailedFileList">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:FileEx[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ComputerKeys">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckMapVersionRequest" />
+  <wsdl:message name="CheckMapVersionResponse">
+    <wsdl:part name="return" type="tns:VersionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ActivateRequest">
+    <wsdl:part name="ComputerKey" type="xsd:string" />
+    <wsdl:part name="UserName" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ActivateResponse">
+    <wsdl:part name="return" type="tns:ValidationResult" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateRequest">
+    <wsdl:part name="ComputerKey" type="xsd:string" />
+    <wsdl:part name="UserName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateResponse">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+    <wsdl:part name="Pssword" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserResponse">
+    <wsdl:part name="return" type="tns:ComputerKeys" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserExRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="ComputerKey" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserExResponse">
+    <wsdl:part name="return" type="tns:ValidationInfo" />
+  </wsdl:message>
+  <wsdl:message name="ValidateChatUserRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateChatUserResponse">
+    <wsdl:part name="return" type="tns:ChatLoginResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckChatAdminRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckChatAdminResponse">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CheckChatBanRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckChatBanResponse">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="PromoteToAdminRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="PromoteToAdminResponse">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DemoteAdminRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="DemoteAdminResponse">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="BanUserRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+    <wsdl:part name="Reason" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="BanUserResponse">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="RemoveBanRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="RemoveBanResponse">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetFileListRequest" />
+  <wsdl:message name="GetFileListResponse">
+    <wsdl:part name="return" type="tns:FileList" />
+  </wsdl:message>
+  <wsdl:message name="GetFileListExRequest" />
+  <wsdl:message name="GetFileListExResponse">
+    <wsdl:part name="return" type="tns:DetailedFileList" />
+  </wsdl:message>
+  <wsdl:message name="SetMapVersionRequest">
+    <wsdl:part name="FileDate" type="xsd:string" />
+    <wsdl:part name="UpdateType" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="SetMapVersionResponse">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetApRadarVersionRequest" />
+  <wsdl:message name="GetApRadarVersionResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsRequest" />
+  <wsdl:message name="GetNewsResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="ValidationServicePortType">
+    <wsdl:operation name="CheckMapVersion">
+      <wsdl:input message="tns:CheckMapVersionRequest" />
+      <wsdl:output message="tns:CheckMapVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <wsdl:input message="tns:ActivateRequest" />
+      <wsdl:output message="tns:ActivateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate">
+      <wsdl:input message="tns:DeactivateRequest" />
+      <wsdl:output message="tns:DeactivateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input message="tns:ValidateUserRequest" />
+      <wsdl:output message="tns:ValidateUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserEx">
+      <wsdl:input message="tns:ValidateUserExRequest" />
+      <wsdl:output message="tns:ValidateUserExResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateChatUser">
+      <wsdl:input message="tns:ValidateChatUserRequest" />
+      <wsdl:output message="tns:ValidateChatUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckChatAdmin">
+      <wsdl:input message="tns:CheckChatAdminRequest" />
+      <wsdl:output message="tns:CheckChatAdminResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckChatBan">
+      <wsdl:input message="tns:CheckChatBanRequest" />
+      <wsdl:output message="tns:CheckChatBanResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PromoteToAdmin">
+      <wsdl:input message="tns:PromoteToAdminRequest" />
+      <wsdl:output message="tns:PromoteToAdminResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DemoteAdmin">
+      <wsdl:input message="tns:DemoteAdminRequest" />
+      <wsdl:output message="tns:DemoteAdminResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="BanUser">
+      <wsdl:input message="tns:BanUserRequest" />
+      <wsdl:output message="tns:BanUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBan">
+      <wsdl:input message="tns:RemoveBanRequest" />
+      <wsdl:output message="tns:RemoveBanResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <wsdl:input message="tns:GetFileListRequest" />
+      <wsdl:output message="tns:GetFileListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListEx">
+      <wsdl:input message="tns:GetFileListExRequest" />
+      <wsdl:output message="tns:GetFileListExResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMapVersion">
+      <wsdl:input message="tns:SetMapVersionRequest" />
+      <wsdl:output message="tns:SetMapVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApRadarVersion">
+      <wsdl:input message="tns:GetApRadarVersionRequest" />
+      <wsdl:output message="tns:GetApRadarVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNews">
+      <wsdl:input message="tns:GetNewsRequest" />
+      <wsdl:output message="tns:GetNewsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidationServiceBinding" type="tns:ValidationServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="CheckMapVersion">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/CheckMapVersion" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/Activate" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/Deactivate" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/ValidateUser" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserEx">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/ValidateUserEx" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateChatUser">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/ValidateChatUser" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChatAdmin">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/CheckChatAdmin" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChatBan">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/CheckChatBan" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PromoteToAdmin">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/PromoteToAdmin" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DemoteAdmin">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/DemoteAdmin" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanUser">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/BanUser" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBan">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/RemoveBan" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/GetFileList" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListEx">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/GetFileListEx" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMapVersion">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/SetMapVersion" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApRadarVersion">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/GetApRadarVersion" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNews">
+      <soap:operation soapAction="http://services.apradar.com/validationservice.php/GetNews" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="services.apradar.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValidationService">
+    <wsdl:port name="ValidationServicePort" binding="tns:ValidationServiceBinding">
+      <soap:address location="http://services.apradar.com/validationservice.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ApRadarChat
+</name>
+</assembly>
+<members>
+<member name="P:ApRadarChat.WebService.VersionInfo.MapPackVersion">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.VersionInfo.MapIniVersion">
+	<remarks/>
+</member><member name="T:ApRadarChat.WebService.VersionInfo">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.FileEx.FileName">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.FileEx.FileSize">
+	<remarks/>
+</member><member name="T:ApRadarChat.WebService.FileEx">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ChatLoginResult.CanChat">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ChatLoginResult.UserID">
+	<remarks/>
+</member><member name="T:ApRadarChat.WebService.ChatLoginResult">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ValidationInfo.ValidationResult">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ValidationInfo.ActivationCount">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ValidationInfo.ExpirationDate">
+	<remarks/>
+</member><member name="T:ApRadarChat.WebService.ValidationInfo">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ValidationResult.Valid">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ValidationResult.ActivationCount">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ValidationResult.ExpirationDate">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ValidationResult.ResultMessage">
+	<remarks/>
+</member><member name="P:ApRadarChat.WebService.ValidationResult.ErrorMessage">
+	<remarks/>
+</member><member name="T:ApRadarChat.WebService.ValidationResult">
+	<remarks/>
+</member><member name="P:ApRadarChat.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ApRadarChat.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ApRadarChat.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
