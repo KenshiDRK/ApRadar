@@ -1,0 +1,12 @@
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\Web.Downloader\bin\Debug\Web.Downloader.dll.config
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\Web.Downloader\bin\Debug\Web.Downloader.dll
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\Web.Downloader\bin\Debug\Web.Downloader.pdb
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\Web.Downloader\obj\Debug\Web.Downloader.dll
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\Web.Downloader\obj\Debug\Web.Downloader.pdb
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\Web.Downloader\obj\Debug\Web.Downloader.csprojResolveAssemblyReference.cache
+C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\bin\Debug\Web.Downloader.dll.config
+C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\bin\Debug\Web.Downloader.dll
+C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\bin\Debug\Web.Downloader.pdb
+C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\obj\Debug\Web.Downloader.csprojResolveAssemblyReference.cache
+C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\obj\Debug\Web.Downloader.dll
+C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\obj\Debug\Web.Downloader.pdb
