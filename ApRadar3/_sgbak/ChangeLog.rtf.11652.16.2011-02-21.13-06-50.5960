@@ -1,0 +1,176 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fswiss\fprq2\fcharset0 Calibri;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fnil\fprq2\fcharset2 Wingdings;}{\f3\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red255\green0\blue0;\red0\green0\blue255;}
+{\*\generator Msftedit 5.41.21.2509;}\viewkind4\uc1\pard\b\f0\fs22 ApRadar 3\b0  \i\'a92006-2010 ApneaSoft \par
+\i0 All rights reserved.\par
+\par
+\b\fs28 Notes\par
+\b0\par
+\i\fs22 Map Radar\par
+\i0\par
+\cf1\b\i Zooming: \par
+\b0\i0 To zoom in the mapped radar, hold shift and use the mouse wheel or Use Page Up and Page Down\par
+(Page Up and Page Down will increment the zoom by 0.25, holding the shift key while pressing Page Up or Page Down will increment the zoom level by 1)\par
+\par
+To reset the zoom level to 1, click the Home key while the Map Radar has focus.\par
+\cf0\par
+\b\fs28 Change log\line\par
+\b0\i\fs22 3.3.0.0\par
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent0{\pntxtb\'B7}}\fi-360\li720\i0 Added Alpha Blending to both radars\par
+{\pntext\f3\'B7\tab}Added feature to always show target\par
+{\pntext\f3\'B7\tab}Added new color settings\par
+{\pntext\f3\'B7\tab}Added more transparency settings to Mapped Radar\par
+{\pntext\f3\'B7\tab}Removed proportion constraint on Mapped Radar\par
+{\pntext\f3\'B7\tab}Fixed issue with a memory leak when in low population zones\par
+{\pntext\f3\'B7\tab}Fixed Show Party Members to accurately show only party and alliance members\par
+{\pntext\f3\'B7\tab}Fixed MapRadar Filter Panel not coming to front when MapRadar was selected\par
+{\pntext\f3\'B7\tab}Fixed bug where zooming would not work when Filter Panel had focus\par
+{\pntext\f3\'B7\tab}Various tweaks and optimizations to the memory scanner\par
+\pard\i\par
+3.2.0.9\par
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent0{\pntxtb\'B7}}\fi-360\li720\i0 Fixed bug in 3.2.0.8 where mobs would not diaplay when selected on radars\par
+\pard\i\par
+3.2.0.8\par
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent0{\pntxtb\'B7}}\fi-360\li720\i0 Fixed crashing issue with FFXI Remote Chat\i\par
+\i0{\pntext\f3\'B7\tab}Fixed graphics related crashes in radar\i\par
+\i0{\pntext\f3\'B7\tab}Added ability to color new mob types\i\line\b\i0 NPC Types\b0\i\line\i0 NPC, Mob, NM (Pro Only), Camped Mobs (Pro Only), Link Mobs (Pro Only)\i\line\b\i0 PC Types\b0\i\line\i0 PC, Party Members, Alliance Members\i\par
+\i0{\pntext\f3\'B7\tab}Added single form for setting all colors\i\par
+\pard\li360\par
+\pard 3.2.0.7\par
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent0{\pntxtb\'B7}}\fi-360\li720\i0 Fixed issue with Elitemmo Network validation not validating properly\par
+\pard\i\par
+3.2.0.6\par
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent0{\pntxtb\'B7}}\fi-360\li720\i0 Fixed mob array for the changes that came out in the mini update.\i\line\par
+\pard 3.2.0.5\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed Party members bug and added party members only feature to the overlay radar.\par
+\f1\'b7\tab\f0 Various bug fixes and code optimizations.\par
+\pard\par
+\i 3.2.0.1\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Linked Radars (Beta).  Now you can create links with your friends running ApRadar so that you can see the mobs in your range and their range.  This feature is still in beta stage and all feedback is welcomed and appreciated.\par
+\f1\'b7\tab\f0 Major rewrite of memory scanning code to adopt the watcher pattern\par
+\f1\'b7\tab\f0 Added global memory scan refresh rate\par
+\f1\'b7\tab\f0 Added all new Abyssea Zones\par
+\f1\'b7\tab\f0 Minor tweaks to both radars\par
+\pard\par
+\i 3.1.1.6\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Minor bug fixes (Thanks for the error reports \f2 J\f0 )\par
+\pard\par
+\i 3.1.1.4 \endash  3.1.1.5\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Update to fix map updater\par
+\pard\par
+\i 3.1.1.2 - 3.1.1.3\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Updates in preparation for Linked Radars\par
+\pard\i\par
+3.1.1.1\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Updated Spawn alerts to include a spawn tracker\par
+\f1\'b7\tab\f0 Added out of range spawn detection to Spawn alerts\par
+\f1\'b7\tab\f0 Customizable sounds now available in spawn alerts\par
+\f1\'b7\tab\f0 Prepped for upcoming linked radars feature\par
+\pard\i\par
+3.1.1.0\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Added Abyssea zones to the zone and DAT list\par
+\f1\'b7\tab\f0 Added Spawn alerts and global spawn watch list\par
+\pard\i\par
+3.1.0.0\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Updated ToD Timers to correctly count up from 0\par
+\f1\'b7\tab\f0 Added Remote FFXI Chat Feature\line Allows for users to chat in FFXI remotely using the Remote Chat Client\par
+\pard\i\par
+3.0.0.39\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Added feature to display either solid circles or rings in the mapped radar\par
+\f1\'b7\tab\f0 Updated to work with latest EliteMMO Key\par
+\f1\'b7\tab\f0 Changed the method of storing and parsing ToD dates to attempt to fix the bug where ToD timers are not showing on the radar\par
+\pard\li720\par
+\pard\i 3.0.0.38\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed bug in the filters where only the first ID was being applied\par
+\pard\par
+\i 3.0.0.37\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed bug in camping mode that was preventing the TOD's from saving and displaying correctly on the next load.\par
+\pard\par
+\i 3.0.0.34 - 3.0.0.36\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed issue where Nyzul Isle lamps were not displaying correctly for pro users.\par
+\f1\'b7\tab\f0 Fixed bug in Map Radar that was causing the map to not display.\par
+\pard\par
+\i 3.0.0.33\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Updated downloader to download the new map packs as a zip file to increase download speeds and lower bandwidth usage\par
+\pard\par
+\i 3.0.0.31 - 3.0.0.32\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed bug in Camped mob timers where they were inaccurately showing the time\par
+\f1\'b7\tab\f0 Fixed radars to correctly apply the smoothing mode, text rendering and compositions quality on startup\par
+\f1\'b7\tab\f0 Added ApRadar News RSS Reader to the ApBar\par
+\f1\'b7\tab\f0 Added /nobar mode.  This will start ApRadar without the ApBar.  All controls are done from the tray icon. The Nobar launcher is included in the All Programs folder.\par
+\pard\par
+\i 3.0.0.30\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Added Item searching to ApRadar chat.  Type /check <ItemName> or /c <ItemName> and chat will return you the latest sale info from FFXIAH for your server.  You can set your server in the main ApRadar settings panel.\par
+\f1\'b7\tab\f0 Fixed bug in Mapped Radar where it was not finding the maps directory properly\par
+\f1\'b7\tab\f0 Added ability to remove header bar information from the overlay radar\par
+\f1\'b7\tab\f0 Updates for the configuration to support new features coming in ApRadar 3.1\par
+\pard\par
+\i 3.0.0.27 - 3.0.0.29\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Updates to Chat. Added channels.  Users can now define public or private channels.\par
+\pard\par
+\i 3.0.0.25 - 3.0.0.26\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed Camping mode\par
+\f1\'b7\tab\f0 Added ApRadar Chat channel. Chat with other ApRadar users directly from ApRadar. This is still in beta and is only available to pro subscribers at this time.  After some more field testing I will release to all users.  You will require an ApRadar forums account in order to log into ApRadar chat.\par
+\pard\par
+\i 3.0.0.24\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Addressed issue with Map Updater\par
+\pard\par
+\i 3.0.0.19 - 3.0.0.20\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Camping mode is now enabled form the menu in the bar.\par
+\f1\'b7\tab\f0 Added a setting to automatically start in camping mode\par
+\f1\'b7\tab\f0 both radars now have the option to show camped mobs\par
+\f1\'b7\tab\f0 ToD browser was improved\par
+\f1\'b7\tab\f0 Added the seconds to the ToD in the ToD browser\par
+\f1\'b7\tab\f0 Camped mobs will now show in a light green (Setting will be added later to select the camped mob color (I was tired ))\par
+\f1\'b7\tab\f0 Added a refresh button to the ToD browser to refresh the list without having to toggle between dead and all mobs\par
+\f1\'b7\tab\f0 ToD browser will automatically select the current zone when opened\par
+\pard\par
+\i 3.0.0.18\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed a bug where certain maps were being displayed incorrectly.  Special thanks to Sean for pointing out this flaw.\par
+\pard\par
+\i 3.0.0.17\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed bug in camping mode.  Camped mobs will now properly save and are viewable in the ToD Browser.  The Browser will not update in real time, but will update when you change or reselect the zone.\par
+\f1\'b7\tab\f0 Fixed bug in Overlay Radar that was causing the FPS hit.  Should only see a minimal effect on fps now.\par
+\f1\'b7\tab\f0 Added complete bar menu to the notify icon.  Radars can now be launched from the icon\par
+\f1\'b7\tab\f0 Added feature: will now save your open radars when closing.  Any radars that are open when you close the application will be reopened when you restart ApRadar\par
+\pard\par
+\i 3.0.0.16\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed bug where the radar was moving to the back when you selected it\par
+\f1\'b7\tab\f0 Fixed bug where the app bar would end up hidden behind FFXI when running in full screen\par
+\pard\par
+\i 3.0.0.15\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Added feature to disable topmost for radars when FFXI is not in focus\par
+\pard\par
+\i 3.0.0.14\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed bug in Map Radar where certain settings were not being saved.  Font, Position, Transparency and show filter panel will now save.  \par
+\f1\'b7\tab\f0 Fixed filters to properly filter by any part of the mob or pc name\par
+\f1\'b7\tab\f0 Fixed NM Color selection in map radar\par
+\f1\'b7\tab\f0 Fixed filter panel to keep it on top when stay on top is selected in the map radar\par
+\f1\'b7\tab\f0 Overlay radar will now save the font\par
+\f1\'b7\tab\f0 Fixed the docking to properly work on pcs with dual monitor displays\par
+\f1\'b7\tab\f0 Added setting to auto save radar settings on close. This will save the radar's last state to the default settings file when you close the radar.\par
+\pard\par
+\i 3.0.0.13\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Fixed some bugs in the core code.\par
+\pard\par
+\i 3.0.0.12\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Added Theme support and 3 default themes. Theme support has introduced the ability to dock on the top or bottom of the screen. (for a tutorial on how to create your own theme, or to post your theme for others to use, visit {\field{\*\fldinst{HYPERLINK "http://forums.apradar.com"}}{\fldrslt{\ul\cf2 http://forums.apradar.com}}}\f0\fs22 )\par
+\f1\'b7\tab\f0 Fixed bug in map radar where certain settings were not being saved\par
+\f1\'b7\tab\f0 Now the On Top, Show Filter Panel, Disable Dragging, Disable Docking and Click Through settings will be saved properly\par
+\f1\'b7\tab\f0 Added the ability to zoom in the map radar without the mouse.  Now you can zoom with the mouse or by using Page Up and Page Down. To Reset the zoom level use Home\par
+\f1\'b7\tab\f0 Fixed regex filters\par
+\f1\'b7\tab\f0 Improvements to the bar module to support faster docking and dual monitor support.\par
+\pard\par
+\i 3.0.0.10 - 3.0.0.11\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Auto update feature fixed\par
+\f1\'b7\tab\f0 minor UI and other updates\par
+\pard\par
+\i 3.0.0.1 - 3.0.0.9\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Maintenance release to address the auto update issue\par
+\pard\par
+\i 3.0.0.0\par
+\pard\fi-360\li720\i0\f1\'b7\tab\f0 Initial release\par
+\pard\par
+\par
+  \par
+}
+ 

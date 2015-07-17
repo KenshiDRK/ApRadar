@@ -1,0 +1,8 @@
+﻿Public Class ChannelPassDialog
+
+    Private Sub ChannelPassDialog_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        BackColor = ThemeHandler.FormBackgroundColor
+        ForeColor = ThemeHandler.FormForeColor
+        HeaderPanel.BackgroundImage = ThemeHandler.HeaderImage
+    End Sub
+End Class

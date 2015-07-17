@@ -1,0 +1,226 @@
+﻿Imports System.IO
+Imports FFXIMemory
+
+Public Class DatItemBrowser
+    Inherits ResizableForm
+
+    Private _dock As DockingClass
+    Private _animator As FormAnimator
+    Private _items As List(Of Item)
+    Private _datPath As String = ""
+
+    Private _iof As ItemOverlayForm
+    Private ReadOnly Property IOF As ItemOverlayForm
+        Get
+            If _iof Is Nothing OrElse _iof.IsDisposed Then
+                _iof = New ItemOverlayForm
+            End If
+            Return _iof
+        End Get
+    End Property
+
+    Private Sub DatItemBrowser_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ApplyTheme(Me)
+        ApplyTheme(IOF)
+        Me.pnlProgress.BackColor = Me.BackColor
+        _dock = New DockingClass(Me)
+        Me.cboJob.DataSource = [Enum].GetValues(GetType(Job))
+        Me.cboRace.DataSource = [Enum].GetValues(GetType(Race))
+        Me.cboSlot.DataSource = [Enum].GetValues(GetType(EquipmentSlot))
+        _animator = New FormAnimator(Me)
+        _animator.FadeIn(500)
+    End Sub
+
+    Private Sub HeaderPanel_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles HeaderPanel.MouseDown, lblHeder.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            _dock.StartDockDrag(e.X, e.Y)
+        End If
+    End Sub
+
+    Private Sub HeaderPanel_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles HeaderPanel.MouseMove, lblHeder.MouseMove
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            _dock.UpdateDockDrag(New UpdateDockDragArgs(e.X, e.Y))
+        End If
+    End Sub
+
+    Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cboType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboType.SelectedIndexChanged
+        LoadItems(Me.cboType.Text.Replace(" ", ""))
+    End Sub
+
+    Private Sub LoadItems(ByVal Type As String)
+        Dim id As Integer = FFXIMemory.FFXI.ItemDats(Type)
+        _datPath = FFXIMemory.FFXI.GetFilePath(id)
+        If _datPath <> String.Empty Then
+            'Now lets load up some data
+            _items = New List(Of Item)
+            Me.pnlProgress.Visible = True
+            If bwFileScanner.IsBusy Then
+                bwFileScanner.CancelAsync()
+            Else
+                bwFileScanner.RunWorkerAsync()
+            End If
+
+
+        End If
+    End Sub
+
+    Private Sub bwFileScanner_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles bwFileScanner.DoWork
+        Dim br As New BinaryReader(IO.File.OpenRead(_datPath))
+        If br.BaseStream.Length Mod &HC00 <> 0 OrElse br.BaseStream.Length < &HC00 OrElse br.BaseStream.Position <> 0 Then
+            'Just exit with nothing in the array because there is an erro with the file
+            Return
+        Else
+            Dim T As Item.iType
+            Item.DeduceType(br, T)
+            Dim ItemCount As Long = br.BaseStream.Length / &HC00
+            Dim currentItem As Integer = 0
+            Dim i As Item
+            While br.BaseStream.Position < br.BaseStream.Length
+                If bwFileScanner.CancellationPending Then
+                    e.Cancel = True
+                    _items.Clear()
+                    Exit While
+                End If
+                i = New Item
+                If Not i.Read(br, T) Then
+                    _items.Clear()
+                    Exit While
+                End If
+                If i.GetFieldValue("name") <> "." AndAlso i.GetFieldValue("name") <> "" Then
+                    _items.Add(i)
+                End If
+
+                currentItem += 1
+                bwFileScanner.ReportProgress(currentItem / ItemCount * 100, String.Format("Scanning entry {0} of {1}", currentItem, ItemCount))
+                If br.BaseStream.Length = &HC00 AndAlso T = Item.iType.Currency Then
+                    Exit While
+                End If
+            End While
+        End If
+    End Sub
+
+    Private Sub bwFileScanner_ProgressChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ProgressChangedEventArgs) Handles bwFileScanner.ProgressChanged
+        Me.lblStatusMessage.Text = String.Format("{0} {1}%", e.UserState.ToString, e.ProgressPercentage)
+        Me.pbLoading.Value = e.ProgressPercentage
+    End Sub
+
+    Private Sub bwFileScanner_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bwFileScanner.RunWorkerCompleted
+        If e.Cancelled Then
+            bwFileScanner.RunWorkerAsync()
+        Else
+            _items.Sort()
+            Me.LevelDataGridViewTextBoxColumn.Visible = Me.cboType.SelectedIndex < 2
+            Dim sl As New SortableBindingList(Of Item)(_items)
+            Me.dgItems.DataSource = sl
+            Me.lblItemCount.Text = String.Format("{0} Items found", _items.Count)
+            'Me.lbItems.DataSource = _items
+            Me.pnlProgress.Visible = False
+        End If
+    End Sub
+
+    Private Sub cmdApplyFilter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdApplyFilter.Click
+        If Not _items Is Nothing Then
+            Dim newItems As IQueryable(Of Item) = _items.AsQueryable
+            If Me.txtName.Text.Trim <> String.Empty Then
+                If Me.txtName.Text.StartsWith("%") Then
+                    newItems = newItems.Where(Function(c) c.Name.ToLower.EndsWith(Me.txtName.Text.Trim.ToLower.Replace("%", "")) OrElse c.GetFieldText("log-name-singular").ToLower.EndsWith(Me.txtName.Text.Trim.ToLower.Replace("%", "")))
+                ElseIf Me.txtName.Text.EndsWith("%") Then
+                    newItems = newItems.Where(Function(c) c.Name.ToLower.StartsWith(Me.txtName.Text.Trim.ToLower.Replace("%", "")) OrElse c.GetFieldText("log-name-singular").ToLower.StartsWith(Me.txtName.Text.Trim.ToLower.Replace("%", "")))
+                Else
+                    newItems = newItems.Where(Function(c) c.Name.ToLower = Me.txtName.Text.Trim.ToLower OrElse c.GetFieldText("log-name-singular").ToLower = Me.txtName.Text.Trim.ToLower)
+                End If
+            End If
+            If Me.cboJob.SelectedIndex > -1 Then
+                newItems = newItems.Where(Function(c) (c.Jobs And Me.cboJob.SelectedValue) = Me.cboJob.SelectedValue OrElse c.Jobs = Job.All)
+            End If
+
+            If Me.cboRace.SelectedIndex > -1 Then
+                newItems = newItems.Where(Function(c) (c.Races And Me.cboRace.SelectedValue) = Me.cboRace.SelectedValue OrElse c.Races = Race.All)
+            End If
+
+            If Me.cboSlot.SelectedIndex > -1 Then
+                newItems = newItems.Where(Function(c) (c.Slots And Me.cboSlot.SelectedValue) = Me.cboSlot.SelectedValue OrElse c.Slots = EquipmentSlot.All)
+            End If
+            Dim min, max As Integer
+            If Integer.TryParse(Me.txtLevelMin.Text, min) AndAlso Integer.TryParse(Me.txtLevelMax.Text, max) Then
+                newItems = newItems.Where(Function(c) c.Level >= min AndAlso c.Level <= max)
+            End If
+            Dim sl As New SortableBindingList(Of Item)(newItems.ToList)
+            Me.lblItemCount.Text = String.Format("{0} Items found", newItems.Count)
+            Me.dgItems.DataSource = sl
+        End If
+    End Sub
+
+    Private Sub cmdClearFilter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdClearFilter.Click
+        Me.txtName.Text = String.Empty
+        Me.cboJob.SelectedIndex = -1
+        Me.cboRace.SelectedIndex = -1
+        Me.cboSlot.SelectedIndex = -1
+        Me.txtLevelMin.Text = 1
+        Me.txtLevelMax.Text = 99
+        Dim sl As New SortableBindingList(Of Item)(_items)
+        Me.lblItemCount.Text = String.Format("{0} Items found", _items.Count)
+        Me.dgItems.DataSource = sl
+    End Sub
+
+    Private Sub dgItems_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgItems.MouseLeave
+        IOF.Hide()
+    End Sub
+
+    Private Sub dgItems_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles dgItems.MouseMove
+        Dim rowIndex As Integer = Me.dgItems.HitTest(e.X, e.Y).RowIndex
+        If rowIndex > -1 Then
+            Dim selectedItem As Item = TryCast(Me.dgItems.Rows(rowIndex).DataBoundItem, Item)
+            If selectedItem IsNot Nothing Then
+                IOF.pbIcon.Image = selectedItem.GetIcon
+
+                If selectedItem.GetFieldValue("type") = ItemType.Weapon Then
+                    IOF.lblItemName.Text = String.Format("{0} [{1} dps]", selectedItem.GetFieldText("name"),
+                                                         selectedItem.GetFieldText("dps"))
+                Else
+                    IOF.lblItemName.Text = selectedItem.GetFieldText("name")
+                End If
+                If selectedItem.GetFieldValue("type") = ItemType.Armor OrElse selectedItem.GetFieldValue("type") = ItemType.Weapon Then 'Item.iType.Armor OrElse selectedItem.GetFieldValue("type") = Item.iType.Weapon Then
+                    
+                    If selectedItem.HasField("max-charges") AndAlso selectedItem.GetFieldValue("max-charges") > 0 Then
+                        IOF.lblDescription.Text = String.Format("[{1}] {2}{0}{3}{0}Lv {4} {5}", ControlChars.NewLine,
+                                                           selectedItem.GetFieldText("slots"),
+                                                           selectedItem.GetFieldText("races").Replace("All", "All Races"),
+                                                           selectedItem.GetFieldText("description").Replace("≺Element: ", "").Replace("≻", ""),
+                                                           selectedItem.GetFieldText("level"),
+                                                           selectedItem.GetFieldText("jobs").Replace("All", "All Jobs"))
+                        IOF.lblDescription.Margin = New Padding(3, 0, 3, 15)
+                        IOF.lblReuse.Visible = True
+                        IOF.lblReuse.Text = String.Format("<{0}/{0} {1}/[{2}, {1}]>",
+                                                           selectedItem.GetFieldText("max-charges"),
+                                                           selectedItem.GetFieldText("use-delay"),
+                                                           selectedItem.GetFieldText("reuse-delay"))
+                    Else
+                        IOF.lblDescription.Text = String.Format("[{1}] {2}{0}{3}{0}Lv {4} {5}", ControlChars.NewLine,
+                                                           selectedItem.GetFieldText("slots"),
+                                                           selectedItem.GetFieldText("races").Replace("All", "All Races"),
+                                                           selectedItem.GetFieldText("description").Replace("≺Element: ", "").Replace("≻", ""),
+                                                           selectedItem.GetFieldText("level"),
+                                                           selectedItem.GetFieldText("jobs").Replace("All", "All Jobs"))
+                        IOF.lblDescription.Margin = New Padding(3, 0, 3, 0)
+                        IOF.lblReuse.Visible = False
+                        IOF.lblReuse.Text = ""
+                    End If
+                Else
+                    IOF.lblDescription.Text = selectedItem.GetFieldText("description")
+                End If
+            End If
+            IOF.Location = Me.PointToScreen(New Point(dgItems.Left + e.X + 10, dgItems.Top + e.Y + 10))
+            If Not IOF.Visible Then
+                IOF.Show()
+            End If
+            Me.dgItems.Focus()
+        Else
+            IOF.Hide()
+        End If
+    End Sub
+End Class

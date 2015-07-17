@@ -1,0 +1,7 @@
+﻿Public Class VersionUpdateDialog
+    Public Sub New(ByVal CurrentVersion As String, ByVal AvailableVersion As String)
+        InitializeComponent()
+        Me.lblVersions.Text = String.Format("{0}{1}{2}", CurrentVersion, Environment.NewLine, AvailableVersion)
+        Me.lblVersions.Left = Me.cmdCancel.Right - Me.lblVersions.Width
+    End Sub
+End Class

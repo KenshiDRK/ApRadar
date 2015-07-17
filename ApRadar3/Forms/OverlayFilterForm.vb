@@ -1,0 +1,96 @@
+﻿Public Class OverlayFilterForm
+    Private _dock As DockingClass
+    Private _animator As FormAnimator
+
+    Friend Event PCFilterChanged(ByVal Filter As String)
+    Friend Event NPCFilterChanged(ByVal Filter As String)
+
+    Friend Event PCFilterTypeChanged(ByVal Type As FilterType)
+    Friend Event NPCFilterTypeChanged(ByVal Type As FilterType)
+
+    Private Sub OverlayFilterForm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        _animator.FadeOut(250)
+    End Sub
+
+    Private Sub OverlayFilterForm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        ThemeHandler.ApplyTheme(Me)
+        _dock = New DockingClass(Me)
+        _dock.UseDocking = True
+        _animator = New FormAnimator(Me)
+        _animator.FadeIn(250)
+    End Sub
+
+    Private Sub HeaderPanel_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles HeaderPanel.MouseDown, lblHeder.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            _dock.StartDockDrag(e.X, e.Y)
+        End If
+    End Sub
+
+    Private Sub HeaderPanel_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles HeaderPanel.MouseMove, lblHeder.MouseMove
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            _dock.UpdateDockDrag(New UpdateDockDragArgs(e.X, e.Y))
+        End If
+    End Sub
+
+    Private Sub blnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles blnClose.Click
+        Me.Close()
+    End Sub
+
+    Friend WriteOnly Property NPCFilterType() As FilterType
+        Set(ByVal value As FilterType)
+            Select Case value
+                Case FilterType.None
+                    Me.rbNPCNone.Checked = True
+                Case FilterType.RegEx
+                    Me.rbNPCRegEx.Checked = True
+                Case FilterType.Reverse
+                    Me.rbNPCReverse.Checked = True
+                Case FilterType.Standard
+                    Me.rbNPCStandard.Checked = True
+            End Select
+        End Set
+    End Property
+
+    Friend WriteOnly Property NPCFilter() As String
+        Set(ByVal value As String)
+            Me.txtNpcFilter.Text = value
+        End Set
+    End Property
+
+    Friend WriteOnly Property PCFilterType() As FilterType
+        Set(ByVal value As FilterType)
+            Select Case value
+                Case FilterType.None
+                    Me.rbPCNone.Checked = True
+                Case FilterType.RegEx
+                    Me.rbPCRegEx.Checked = True
+                Case FilterType.Reverse
+                    Me.rbNPCReverse.Checked = True
+                Case FilterType.Standard
+                    Me.rbPCStandard.Checked = True
+            End Select
+        End Set
+    End Property
+
+    Friend WriteOnly Property PCFilter() As String
+        Set(ByVal value As String)
+            Me.txtPCFilter.Text = value
+        End Set
+    End Property
+
+    Private Sub npcFilterType_Changed(ByVal sender As Object, ByVal e As System.EventArgs) Handles rbNPCNone.CheckedChanged, rbNPCStandard.CheckedChanged, rbNPCReverse.CheckedChanged, rbNPCRegEx.CheckedChanged
+        RaiseEvent NPCFilterTypeChanged(CType(sender, RadioButton).Tag)
+    End Sub
+
+    Private Sub txtNpcFilter_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNpcFilter.TextChanged
+        RaiseEvent NPCFilterChanged(Me.txtNpcFilter.Text)
+    End Sub
+
+    Private Sub pcFilterType_Changed(ByVal sender As Object, ByVal e As System.EventArgs) Handles rbPCNone.CheckedChanged, rbPCStandard.CheckedChanged, rbPCReverse.CheckedChanged, rbPCRegEx.CheckedChanged
+        RaiseEvent PCFilterTypeChanged(CType(sender, RadioButton).Tag)
+    End Sub
+
+    Private Sub txtPCFilter_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPCFilter.TextChanged
+        RaiseEvent PCFilterChanged(Me.txtPCFilter.Text)
+    End Sub
+End Class

@@ -1,0 +1,138 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="AutoHide" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SearchProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wiki</Value>
+    </Setting>
+    <Setting Name="MapPackVersion" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2008-10-11</Value>
+    </Setting>
+    <Setting Name="MapIniVersion" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2009-02-12</Value>
+    </Setting>
+    <Setting Name="CheckVersionAtStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CheckMapUpdates" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CheckAppUpdates" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TextRendering" Type="System.Drawing.Text.TextRenderingHint" Scope="User">
+      <Value Profile="(Default)">SystemDefault</Value>
+    </Setting>
+    <Setting Name="SmoothingMode" Type="System.Drawing.Drawing2D.SmoothingMode" Scope="User">
+      <Value Profile="(Default)">HighSpeed</Value>
+    </Setting>
+    <Setting Name="CompositingQuality" Type="System.Drawing.Drawing2D.CompositingQuality" Scope="User">
+      <Value Profile="(Default)">HighSpeed</Value>
+    </Setting>
+    <Setting Name="Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Pandemonium</Value>
+    </Setting>
+    <Setting Name="ShowPosition" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShowZoneTimer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShowClock" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CurrentTheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Monitor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Primary</Value>
+    </Setting>
+    <Setting Name="AutoSaveRadarSettings" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MapOpen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="OverlayOpen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CampingMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowNews" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Say" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Info</Value>
+    </Setting>
+    <Setting Name="Shout" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightCoral</Value>
+    </Setting>
+    <Setting Name="Tell" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Violet</Value>
+    </Setting>
+    <Setting Name="Emote" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Yellow</Value>
+    </Setting>
+    <Setting Name="ChatFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Arial, 9pt</Value>
+    </Setting>
+    <Setting Name="FlashWindow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="HideAltTab" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="LastRSSDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2009-01-01</Value>
+    </Setting>
+    <Setting Name="AutomaticNewsUpdates" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NewsCheckInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="MaxNewsItems" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="RemoteChatMessage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="StartSpawnAlerts" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UseAlertTimeout" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AlertSound" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Exclamation</Value>
+    </Setting>
+    <Setting Name="SupressToast" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowTracker" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableOutOfRange" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PlayAlertOnSpawn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RefreshRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="CheckForBetaReleases" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="BetaRelease" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ebf639a4-f2ff-4bdb-8657-367b2b05dc8c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ah.apneasoft.com/AHParser.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AHParser.xsd" MetadataType="Schema" ID="57083aab-c7c8-4d01-973c-060e502430b7" SourceId="1" SourceUrl="http://ah.apneasoft.com/AHParser.svc?xsd=xsd2" />
+    <MetadataFile FileName="AHParser1.xsd" MetadataType="Schema" ID="d0d11daa-3af8-4839-9696-21ffeb4d4f67" SourceId="1" SourceUrl="http://ah.apneasoft.com/AHParser.svc?xsd=xsd1" />
+    <MetadataFile FileName="AHParser2.xsd" MetadataType="Schema" ID="234f4664-7479-4ef1-939d-70c5a29b9b67" SourceId="1" SourceUrl="http://ah.apneasoft.com/AHParser.svc?xsd=xsd0" />
+    <MetadataFile FileName="AHParser.wsdl" MetadataType="Wsdl" ID="c303a995-d02a-4ace-b9f2-14ee255fe699" SourceId="1" SourceUrl="http://ah.apneasoft.com/AHParser.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AHParser.disco" MetadataType="Disco" ID="f4c74ec4-6956-4355-89ad-32b1001edf19" SourceId="1" SourceUrl="http://ah.apneasoft.com/AHParser.svc?disco" />
+    <MetadataFile FileName="AHParser1.wsdl" MetadataType="Wsdl" ID="7140adf1-2381-41ed-8db9-a5ad2b83a21c" SourceId="1" SourceUrl="http://ah.apneasoft.com/AHParser.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

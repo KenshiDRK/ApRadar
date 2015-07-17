@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ah.apneasoft.com/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ah.apneasoft.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ah.apneasoft.com/Imports">
+      <xsd:import schemaLocation="http://ah.apneasoft.com/AHParser.svc?xsd=xsd0" namespace="http://ah.apneasoft.com/" />
+      <xsd:import schemaLocation="http://ah.apneasoft.com/AHParser.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://ah.apneasoft.com/AHParser.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AHService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAHParser_CheckItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckItem" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckItemByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckItemByID" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckItemByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckItemByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckStack_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStack" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckStack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckStackByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStackByID" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckStackByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStackByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckItemHasStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckItemHasStock" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckItemHasStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckItemHasStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckStackHasStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStackHasStock" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_CheckStackHasStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStackHasStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetItemLastSale_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemLastSale" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetItemLastSale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemLastSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetStackLastSale_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStackLastSale" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetStackLastSale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStackLastSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetItemSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemSales" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetItemSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetStackSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStackSales" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetStackSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStackSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetItemStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemStock" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetItemStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetStackStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStackStock" />
+  </wsdl:message>
+  <wsdl:message name="IAHParser_GetStackStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStackStockResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAHParser">
+    <wsdl:operation name="CheckItem">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckItem" message="tns:IAHParser_CheckItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckItemResponse" message="tns:IAHParser_CheckItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckItemByID">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckItemByID" message="tns:IAHParser_CheckItemByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckItemByIDResponse" message="tns:IAHParser_CheckItemByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStack">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckStack" message="tns:IAHParser_CheckStack_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckStackResponse" message="tns:IAHParser_CheckStack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStackByID">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckStackByID" message="tns:IAHParser_CheckStackByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckStackByIDResponse" message="tns:IAHParser_CheckStackByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckItemHasStock">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckItemHasStock" message="tns:IAHParser_CheckItemHasStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckItemHasStockResponse" message="tns:IAHParser_CheckItemHasStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStackHasStock">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckStackHasStock" message="tns:IAHParser_CheckStackHasStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/CheckStackHasStockResponse" message="tns:IAHParser_CheckStackHasStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemLastSale">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/GetItemLastSale" message="tns:IAHParser_GetItemLastSale_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/GetItemLastSaleResponse" message="tns:IAHParser_GetItemLastSale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStackLastSale">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/GetStackLastSale" message="tns:IAHParser_GetStackLastSale_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/GetStackLastSaleResponse" message="tns:IAHParser_GetStackLastSale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemSales">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/GetItemSales" message="tns:IAHParser_GetItemSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/GetItemSalesResponse" message="tns:IAHParser_GetItemSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStackSales">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/GetStackSales" message="tns:IAHParser_GetStackSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/GetStackSalesResponse" message="tns:IAHParser_GetStackSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemStock">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/GetItemStock" message="tns:IAHParser_GetItemStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/GetItemStockResponse" message="tns:IAHParser_GetItemStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStackStock">
+      <wsdl:input wsaw:Action="http://ah.apneasoft.com/IAHParser/GetStackStock" message="tns:IAHParser_GetStackStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://ah.apneasoft.com/IAHParser/GetStackStockResponse" message="tns:IAHParser_GetStackStock_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

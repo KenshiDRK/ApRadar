@@ -1,0 +1,39 @@
+﻿Public Class UnhandledErrorDialog
+    Inherits ResizableForm
+    Private _ex As Exception
+
+    Public Sub New(ByVal ex As Exception)
+        InitializeComponent()
+        _ex = ex
+        Me.lblMessage.Text = String.Format(Me.lblMessage.Text, ex.Message)
+    End Sub
+
+    Private Sub cmdSend_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSend.Click
+        Try
+            Dim message As String = "An unhandled system error has occured in ApRadar v" & My.Application.Info.Version.ToString & ControlChars.NewLine & _
+                                   _ex.StackTrace & ControlChars.NewLine & ControlChars.NewLine & _
+                                   _ex.Message & ControlChars.NewLine
+            For i As Integer = 0 To _ex.Data.Count - 1
+                message &= (_ex.Data.Item(i) & ControlChars.NewLine)
+            Next
+            message &= (ControlChars.NewLine & "System Information:" & ControlChars.NewLine)
+            message &= ("OS: " & My.Computer.Info.OSFullName & ControlChars.NewLine)
+            message &= ("OS Platform: " & My.Computer.Info.OSPlatform & ControlChars.NewLine)
+            message &= ("OS Version: " & My.Computer.Info.OSVersion & ControlChars.NewLine)
+            message &= ("Physical Memory: " & My.Computer.Info.TotalPhysicalMemory & " Available: " & My.Computer.Info.AvailablePhysicalMemory & ControlChars.NewLine)
+            message &= ("Virtual Memory: " & My.Computer.Info.TotalVirtualMemory & " Available: " & My.Computer.Info.AvailableVirtualMemory & ControlChars.NewLine)
+            MailHandler.SendMessage("bhmahler@gmail.com", "ApRadar Errors <noreply@apradar.com>", "ApRadar 3 Error", message)
+        Catch ex As Exception
+
+        End Try
+        Me.Dispose()
+    End Sub
+
+    Private Sub cmdCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCancel.Click
+        Me.Dispose()
+    End Sub
+
+    Private Sub UnhandledErrorDialog_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ApplyTheme(Me)
+    End Sub
+End Class

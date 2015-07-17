@@ -1,0 +1,357 @@
+﻿Imports System.Drawing
+Imports System.Drawing.Drawing2D
+Imports DataLibrary
+Imports DataLibrary.ApRadarDataset
+
+Public Class MobDataForm
+#Region " MEMBER VARIABLES "
+    Private _grayPen As Pen
+    Private _animator As FormAnimator
+    Private _isloadingItems As Boolean
+    Private _mobFound As Boolean
+    Private _parent As AppBarForm
+    Private _direction As SlideDirection
+#End Region
+
+#Region " PROPERTIES "
+    Private _mobID As Integer
+    Public Property MobID() As Integer
+        Get
+            Return _mobID
+        End Get
+        Set(ByVal value As Integer)
+            If value <> _mobID Then
+                _mobID = value
+                LoadMobInfo()
+            End If
+        End Set
+    End Property
+
+    Private _zone As Integer
+    Public Property Zone() As Integer
+        Get
+            Return _zone
+        End Get
+        Set(ByVal value As Integer)
+            _zone = value
+        End Set
+    End Property
+
+    Public ReadOnly Property MobFound() As Boolean
+        Get
+            Return _mobFound
+        End Get
+    End Property
+
+    Public WriteOnly Property SlidePositon() As Point
+        Set(ByVal value As Point)
+            Me.Location = value
+        End Set
+    End Property
+
+    Private ReadOnly Property GrayPen() As Pen
+        Get
+            If _grayPen Is Nothing Then
+                _grayPen = New Pen(Color.Gray, 2)
+            End If
+            Return _grayPen
+        End Get
+    End Property
+#End Region
+
+#Region " CONSTRUCTOR "
+    Public Sub New(ByVal Parent As AppBarForm)
+        InitializeComponent()
+        _animator = New FormAnimator(Me)
+        _parent = Parent
+        If ThemeHandler.ActiveTheme.DockPosition = DockMode.TOP Then
+            _direction = SlideDirection.Down
+        Else
+            _direction = SlideDirection.Up
+        End If
+        Me.cmdSpawnAlert.Enabled = GlobalSettings.IsProEnabled
+    End Sub
+#End Region
+
+#Region " CONTROLS "
+
+    Private Sub cmdEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdEdit.Click
+        Me.RollUp()
+        _parent.DataForm.Show()
+        _parent.DataForm.SetMob(_zone, _mobID)
+    End Sub
+
+    Private Sub lstItems_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstItems.SelectedIndexChanged
+        If Not _isloadingItems AndAlso Me.lstItems.SelectedIndex > -1 Then
+            Dim itemID As Integer = Me.lstItems.SelectedValue
+            Dim item = (From items In DataAccess.MobData.Items Where _
+                        items.ItemID = itemID).FirstOrDefault
+            If Not item Is Nothing Then
+                BuildItemDisplay(item)
+                'If Me.lblInfo.Height > 67 Then
+                '    '249
+                '    Me.Height = 250 + lblInfo.Height - 67
+                'Else
+                '    Me.Height = 250
+                'End If
+            Else
+                ClearItemInfo()
+                Me.Height = 250
+            End If
+        End If
+    End Sub
+
+    Private Sub MobDataForm_ForeColorChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.ForeColorChanged
+        UpdateControlColors(Me)
+    End Sub
+
+    Private Sub MobDataForm_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
+        Me.BackColor = ThemeHandler.FormBackgroundColor
+        Me.ForeColor = ThemeHandler.FormForeColor
+        
+        _animator.SlideOut(150, _direction)
+        lstItems.Focus()
+    End Sub
+#End Region
+
+#Region " PUBLIC METHODS "
+    Public Sub SlideOut()
+        If ThemeHandler.ActiveTheme.DockPosition = DockMode.Top Then
+            _direction = SlideDirection.Down
+        Else
+            _direction = SlideDirection.Up
+        End If
+        Me.Show()
+    End Sub
+
+    Public Sub RollUp()
+        _animator.RollUp(150, _direction)
+    End Sub
+#End Region
+
+#Region " PRIVATE MEMBERS "
+    Private Sub LoadMobInfo()
+        Dim mob = (From mobs In DataAccess.MobData.Mobs Where _
+                   mobs.MobPK = MobID).FirstOrDefault
+        If Not mob Is Nothing Then
+            _mobFound = True
+            Me.lblMobName.Text = mob.MobName
+            If Not mob.IsFamilyNull Then
+                Me.lblFamily.Text = mob.Family
+            Else
+                Me.lblFamily.Text = String.Empty
+            End If
+
+            If Not mob.IsJobNull Then
+                Me.lblJob.Text = mob.Job
+            Else
+                Me.lblJob.Text = String.Empty
+            End If
+            If Not mob.IsMinLevelNull And Not mob.IsMaxLevelNull Then
+                Me.lblLevel.Text = String.Format("{0}-{1}", mob.MinLevel, mob.MaxLevel)
+            ElseIf Not mob.IsMinLevelNull And mob.IsMaxLevelNull Then
+                Me.lblLevel.Text = String.Format("{0}-{1}", mob.MinLevel, mob.MinLevel)
+            ElseIf mob.IsMinLevelNull And Not mob.IsMaxLevelNull Then
+                Me.lblLevel.Text = String.Format("{0}-{1}", mob.MaxLevel, mob.MaxLevel)
+            Else
+                Me.lblLevel.Text = String.Empty
+            End If
+
+            'Behavior
+            Me.lblBehavior.Text = GetBehavior(mob)
+            'Detection
+            Me.lblDetection.Text = GetDetection(mob)
+            'weakness
+            If Not mob.IsWeaknessesNull Then
+                Me.lblWeakness.Text = mob.Weaknesses
+            Else
+                Me.lblWeakness.Text = String.Empty
+            End If
+            'Resistnce
+            If Not mob.IsResistancesNull Then
+                Me.lblResistances.Text = mob.Resistances
+            Else
+                Me.lblResistances.Text = String.Empty
+            End If
+            'Immunities
+            If Not mob.IsImmunitiesNull Then
+                Me.lblImmune.Text = mob.Immunities
+            Else
+                Me.lblImmune.Text = String.Empty
+            End If
+            'stolen
+            If Not mob.IsStolenNull Then
+                Me.lblStolen.Text = mob.Stolen
+            Else
+                Me.lblStolen.Text = String.Empty
+            End If
+            'comments
+            If Not mob.IsNotesNull Then
+                Me.lblComments.Text = mob.Notes
+            Else
+                Me.lblComments.Text = String.Empty
+            End If
+            'drops
+            _isloadingItems = True
+            LoadMobItems(MobID)
+            _isloadingItems = False
+            If lstItems.Items.Count > 0 Then
+                lstItems.SelectedIndex = 0
+            End If
+        Else
+            ClearLabels()
+            _mobFound = False
+        End If
+    End Sub
+
+    Private Function GetBehavior(ByVal Mob As MobsRow) As String
+        Dim output As String = String.Empty
+        If Mob.Aggressive Then
+            output = "Aggressive"
+        End If
+        If Mob.Links Then
+            If output = String.Empty Then
+                output = "Links"
+            Else
+                output &= ", Links"
+            End If
+        End If
+        Return output
+    End Function
+
+    Private Function GetDetection(ByVal Mob As MobsRow) As String
+        Dim output As String = String.Empty
+        If Mob.DetectsSight Then
+            output = "S"
+        End If
+        If Mob.DetectsSound Then
+            If output = String.Empty Then
+                output = "H"
+            Else
+                output &= ", H"
+            End If
+        End If
+        If Mob.DetectsMagic Then
+            If output = String.Empty Then
+                output = "M"
+            Else
+                output &= ", M"
+            End If
+        End If
+        If Mob.DetectsLowHP Then
+            If output = String.Empty Then
+                output = "↓HP"
+            Else
+                output &= ", ↓HP"
+            End If
+        End If
+        If Mob.DetectsHealing Then
+            If output = String.Empty Then
+                output = "Heal"
+            Else
+                output &= ", Heal"
+            End If
+        End If
+        If Mob.TracksScent Then
+            If output = String.Empty Then
+                output = "Sc"
+            Else
+                output &= ", Sc"
+            End If
+        End If
+        If Mob.TrueSight Then
+            If output = String.Empty Then
+                output = "T(S)"
+            Else
+                output &= ", T(S)"
+            End If
+        End If
+        If Mob.TrueSound Then
+            If output = String.Empty Then
+                output = "T(H)"
+            Else
+                output &= ", T(H)"
+            End If
+        End If
+        Return output
+    End Function
+
+    Private Sub LoadMobItems(ByVal MobId As Integer)
+        ClearItemInfo()
+        Dim items = (From Item In DataAccess.MobData.Items Join _
+                     im In DataAccess.MobData.ItemsToMobs On _
+                     Item.ItemID Equals im.ItemID Where _
+                     im.MobPK = MobId _
+                     Order By Item.ItemName _
+                     Select New With {Item.ItemID, Item.ItemName}).ToArray
+        If Not items Is Nothing Then
+            Me.lstItems.BeginUpdate()
+            Me.lstItems.ValueMember = "ItemID"
+            Me.lstItems.DisplayMember = "ItemName"
+            Me.lstItems.DataSource = items
+            Me.lstItems.SelectedIndex = -1
+            Me.lstItems.EndUpdate()
+        End If
+    End Sub
+
+    Private Function GetTime(ByVal Seconds As Integer) As String
+        Dim output As String
+        Dim time As New TimeSpan(0, 0, Seconds)
+        If time.Hours > 0 Then
+            output = String.Format("{0}:{1}:{2}", time.Hours, time.Minutes.ToString("00"), time.Seconds.ToString("00"))
+        Else
+            output = String.Format("{0}:{1}", time.Minutes, time.Seconds.ToString("00"))
+        End If
+        Return output
+    End Function
+
+    Private Sub BuildItemDisplay(ByVal Item As ItemsRow)
+        Me.picIcon.Image = GetImage(Item.Icon)
+        Me.lblItemName.Text = Item.ItemName
+        Me.picRare.Visible = Item.Rare
+        Me.picEx.Visible = Item.Ex
+        Dim info As New System.Text.StringBuilder
+        If Item.Slots <> String.Empty Then
+            info.Append(String.Format("[{0}] {1}", Item.Slots, Item.Races))
+            info.Append(Environment.NewLine)
+        End If
+        info.Append(Item.Description)
+        info.Append(Environment.NewLine)
+        If Item.ItemLevel > 0 Then
+            info.Append(String.Format("Lv.{0} {1}", Item.ItemLevel, Item.Jobs))
+        End If
+        If Item.MaxCharges > 0 Then
+            info.Append(Environment.NewLine)
+            info.Append("                           ")
+            info.Append(String.Format("<{0}/{0} {1}/[{2}, {1}]>", Item.MaxCharges, GetTime(Item.UseDelay), GetTime(Item.ReuseDelay)))
+        End If
+        Me.lblInfo.Text = info.ToString
+    End Sub
+
+    Private Function GetImage(ByVal Base64 As String) As Bitmap
+        Dim imgBytes As Byte() = Convert.FromBase64String(Base64)
+        Dim ms As New IO.MemoryStream(imgBytes, False)
+        Return New Bitmap(ms)
+    End Function
+
+    Private Sub ClearItemInfo()
+        Me.picIcon.Image = Nothing
+        Me.picEx.Visible = False
+        Me.picRare.Visible = False
+        Me.lblItemName.Text = String.Empty
+        Me.lblInfo.Text = String.Empty
+    End Sub
+
+    Private Sub ClearLabels()
+        For Each ctl As Control In Me.Controls
+            If TypeOf ctl Is Label AndAlso ctl.Name.StartsWith("lbl") Then
+                ctl.Text = String.Empty
+            End If
+        Next
+    End Sub
+#End Region
+
+    Private Sub cmdSpawnAlert_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSpawnAlert.Click
+        _parent.AddTargetedMobToWatch()
+    End Sub
+End Class

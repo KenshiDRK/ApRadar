@@ -1,0 +1,249 @@
+﻿Imports System.Net
+Imports ApRadar3.WebService
+Imports Ionic.Zip
+
+Public Class FileDownloadDialog
+    Private _dock As DockingClass
+    Private _fileList As List(Of String)
+    Private _localPath As String
+    Private _downloadCount As Integer
+    Private _totalFiles As Integer
+    Private _animator As FormAnimator
+    Private _cancelPending As Boolean
+    Private _isMapUpdate As Boolean
+    Private _fileListEx As List(Of FileEx)
+    Private _currentFile As String
+    Private _totalDownloaded As Int64
+    Private _elapsed As Integer
+    Private _isMapPack As Boolean
+    Private _extractCount As Integer
+
+    Private WithEvents _wc As WebClient
+    Private ReadOnly Property Downloader() As WebClient
+        Get
+            If _wc Is Nothing Then
+                _wc = New WebClient
+            End If
+            Return _wc
+        End Get
+    End Property
+
+    Private WithEvents _zip As ZipFile
+
+    Private Delegate Sub ZipProgressCallback(ByVal e As ZipProgressEventArgs)
+
+#Region " CONSTRUCTOR "
+    Public Sub New(ByVal Files As String(), ByVal LocalPath As String, ByVal IsMapUpdate As Boolean)
+        InitializeComponent()
+        _fileList = New List(Of String)(Files)
+        _localPath = LocalPath
+        _totalFiles = _fileList.Count
+        lblMethod.Text = String.Format("Downloading File: {0} of {1}", 0, _totalFiles)
+        _isMapUpdate = IsMapUpdate
+    End Sub
+
+    Public Sub New(ByVal FilesEx As FileEx(), ByVal LocalPath As String, ByVal IsMapUpdate As Boolean)
+        InitializeComponent()
+        _fileListEx = New List(Of FileEx)(FilesEx)
+        _localPath = LocalPath
+        _totalFiles = _fileListEx.Count
+        lblMethod.Text = String.Format("Downloading File: {0} of {1}", 0, _totalFiles)
+        _isMapUpdate = IsMapUpdate
+    End Sub
+
+    ''' <summary>
+    ''' This constructor is used for downloading the full map pack
+    ''' </summary>
+    ''' <param name="IsMapPack"></param>
+    ''' <remarks></remarks>
+    Public Sub New(ByVal IsMapPack As Boolean)
+        InitializeComponent()
+        _localPath = IO.Path.GetTempPath
+        _isMapPack = True
+        _totalFiles = 1
+        _isMapUpdate = IsMapPack
+        _fileList = New List(Of String)
+        _fileList.Add("latest_map_pack.zip")
+        lblMethod.Text = String.Format("Downloading File: {0} of {1}", 0, _totalFiles)
+    End Sub
+#End Region
+
+#Region " FORM ACTIONS "
+
+    Private Sub FileDownloadDialog_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If Not _wc Is Nothing Then
+            _wc.Dispose()
+        End If
+        _animator.FadeOut(500)
+    End Sub
+
+    Private Sub FileDownloadDialog_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        HeaderPanel.BackgroundImage = ThemeHandler.HeaderImage
+        HeaderPanel.ForeColor = ThemeHandler.BarForeColor
+        BackColor = ThemeHandler.FormBackgroundColor
+        ForeColor = ThemeHandler.FormForeColor
+        _animator = New FormAnimator(Me)
+        _animator.FadeIn(500)
+        _dock = New DockingClass(Me)
+        
+
+        If _isMapPack Then
+            pbDownloadProgress.Maximum = 100
+        Else
+            pbDownloadProgress.Maximum = _totalFiles
+        End If
+        _totalDownloaded = 0
+        _elapsed = 0
+        dlSpeedTimer.Start()
+        If Not _fileList Is Nothing AndAlso _fileList.Count > 0 Then
+            DownloadFile(_fileList(0))
+        End If
+        'dlSpeedTimer.Stop()
+    End Sub
+#End Region
+
+#Region " CONTROLS "
+    Private Sub HeaderPanel_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles HeaderPanel.MouseDown, lblHeder.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            _dock.StartDockDrag(e.X, e.Y)
+        End If
+    End Sub
+
+    Private Sub HeaderPanel_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles HeaderPanel.MouseMove, lblHeder.MouseMove
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            _dock.UpdateDockDrag(New UpdateDockDragArgs(e.X, e.Y))
+        End If
+    End Sub
+
+    Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
+        Close()
+    End Sub
+#End Region
+
+#Region " PRIVATE METHODS "
+    Private Sub DownloadFile(ByVal FileName As String)
+        'Build the url of the file
+        Dim url As String
+        If _isMapUpdate Then
+            url = String.Format("http://services.apneasoft.com/maps/{0}", FileName)
+        Else
+            url = String.Format("http://services.apneasoft.com/files/{0}", FileName)
+        End If
+        url = UrlEncode(url)
+        _downloadCount += 1
+
+        Dim localFile As String = String.Format("{0}\{1}", _localPath, FileName)
+        'Set the status message
+        _currentFile = FileName
+        lblStatus.Text = String.Format("File: {0}", FileName)
+        lblMethod.Text = String.Format("Downloading File: {0} of {1}", _downloadCount, _totalFiles)
+        'Download the file
+        _elapsed = 1
+        Downloader.DownloadFileAsync(New Uri(url), localFile)
+    End Sub
+
+    Private Shared Function UrlEncode(ByVal url As String) As String
+        Dim sb As New System.Text.StringBuilder
+        For Each b As Byte In System.Text.Encoding.Default.GetBytes(url)
+            If Not Char.IsLetterOrDigit(Chr(b)) AndAlso Not Char.IsPunctuation(Chr(b)) AndAlso Chr(b) <> "/"c Then
+                sb.Append(String.Format("%{0}", b.ToString("X2")))
+            Else
+                sb.Append(Chr(b))
+            End If
+        Next
+        Return sb.ToString
+    End Function
+#End Region
+
+#Region " DOWNLOADER EVENTS "
+    Private Sub DownloadProgressChanged(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs) Handles _wc.DownloadProgressChanged
+        _totalDownloaded = e.BytesReceived
+        Dim remainingTime As Integer
+        Dim rate As Integer = Math.Round(_totalDownloaded / 1024 / _elapsed, 1)
+        remainingTime = (e.TotalBytesToReceive - e.BytesReceived) / (rate * 1024)
+        Dim ts As New TimeSpan(0, 0, remainingTime)
+        If _isMapPack Then
+            pbDownloadProgress.Value = e.ProgressPercentage
+            lblStatus.Text = String.Format("File: {0}{3}{1}Mb of {2}Mb {5}%{3}{4}kb/sec {6:00}:{7:00}:{8:00} remaining", _currentFile, Math.Round(e.BytesReceived / 1048576, 1).ToString("0.0"), _
+                                              Math.Round(e.TotalBytesToReceive / 1048576, 1), ControlChars.NewLine, rate, _
+                                              CInt(e.BytesReceived / e.TotalBytesToReceive * 100), ts.Hours, ts.Minutes, ts.Seconds)
+        Else
+            lblStatus.Text = String.Format("File: {0}{3}{1}Mb of {2}Mb {5}%{3}{4}kb/sec {6:00}:{7:00}:{8:00} remaining", _currentFile, Math.Round(e.BytesReceived / 1048576, 1).ToString("0.0"), _
+                                              Math.Round(e.TotalBytesToReceive / 1024, 1), ControlChars.NewLine, rate, _
+                                              CInt(e.BytesReceived / e.TotalBytesToReceive * 100), ts.Hours, ts.Minutes, ts.Seconds)
+            '"File: {0}{3}{1}kb of {2}kb {5}%{3}{4}kb/sec", _currentFile, Math.Round(e.BytesReceived / 1024, 1), Math.Round(e.TotalBytesToReceive / 1024, 1), ControlChars.NewLine, Math.Round(_totalDownloaded / 1024 / _elapsed, 1))
+        End If
+
+    End Sub
+
+    Private Sub DownloadProgressCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs) Handles _wc.DownloadFileCompleted
+        If _cancelPending Then
+            DialogResult = Windows.Forms.DialogResult.Cancel
+        Else
+            If _isMapPack Then
+                'Now lets unpack the maps
+                lblMethod.Text = "Extracting File:"
+                PictureBox1.Image = My.Resources.Extract
+                Dim t As New Threading.Thread(AddressOf ZipThread)
+                t.Start()
+            Else
+                pbDownloadProgress.Value = _downloadCount
+                _fileList.RemoveAt(0)
+                If _fileList.Count = 0 Then
+                    DialogResult = Windows.Forms.DialogResult.OK
+                Else
+                    DownloadFile(_fileList(0))
+                End If
+            End If
+        End If
+    End Sub
+#End Region
+
+#Region " ZIP THREAD "
+    Private Sub ZipThread()
+        _zip = ZipFile.Read(_localPath & "latest_map_pack.zip")
+        Dim extractPath As String = String.Format("{0}\Maps", Application.StartupPath)
+        _zip.ExtractAll(extractPath, ExtractExistingFileAction.OverwriteSilently)
+    End Sub
+#End Region
+
+#Region " ZIP EVETNS "
+    Private Sub Zip_ProgressChanged(ByVal sender As Object, ByVal e As ZipProgressEventArgs) Handles _zip.ExtractProgress
+        ZipProgress(e)
+    End Sub
+
+    Private Sub ZipProgress(ByVal e As ZipProgressEventArgs)
+        If InvokeRequired Then
+            Invoke(New ZipProgressCallback(AddressOf ZipProgress), e)
+        Else
+            Select Case e.EventType
+                Case ZipProgressEventType.Extracting_AfterExtractAll
+                    _zip.Dispose()
+                    'LEts delete the zip archive to clean up
+                    IO.File.Delete(_localPath & "\latest_map_pack.zip")
+                    'Then return OK as our result
+                    DialogResult = Windows.Forms.DialogResult.OK
+                Case ZipProgressEventType.Extracting_EntryBytesWritten
+                    If e.TotalBytesToTransfer > 0 Then
+                        pbDownloadProgress.Value = CInt(e.BytesTransferred / e.TotalBytesToTransfer * 100)
+                    End If
+                Case ZipProgressEventType.Extracting_BeforeExtractEntry
+                    lblStatus.Text = String.Format("File: {0}", e.CurrentEntry.FileName)
+                    _extractCount += 1
+                    lblMethod.Text = String.Format("Extracting File: {0} of {1}", _extractCount, e.EntriesTotal)
+                Case Else
+
+            End Select
+        End If
+    End Sub
+#End Region
+    Private Sub cmdCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCancel.Click
+        _cancelPending = True
+    End Sub
+
+    Private Sub dlSpeedTimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dlSpeedTimer.Tick
+        If _totalDownloaded > 0 Then
+            _elapsed += 1
+        End If
+    End Sub
+End Class

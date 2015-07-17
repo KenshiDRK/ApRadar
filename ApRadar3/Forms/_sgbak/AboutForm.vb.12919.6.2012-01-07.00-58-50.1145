@@ -1,0 +1,71 @@
+﻿Public Class AboutForm
+    Private _sof As FormAnimator
+    Private _dock As DockingClass
+
+    Private Sub AboutForm_ForeColorChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.ForeColorChanged
+        UpdateControlColors(Me)
+    End Sub
+
+    Private Sub AboutForm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        'Roll up the form
+        _sof.FadeOut(500)
+    End Sub
+
+    Private Sub AboutForm_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+        If e.Control AndAlso e.Alt AndAlso e.Shift AndAlso e.KeyCode = Keys.F1 Then
+            Using ckd As New ComputerKeyDialog()
+                ckd.ShowDialog()
+            End Using
+        End If
+    End Sub
+
+    Private Sub AboutForm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        ThemeHandler.ApplyTheme(Me)
+        LoadStats()
+        _sof = New FormAnimator(Me)
+        _dock = New DockingClass(Me)
+        _dock.UseDocking = True
+        _sof.FadeIn(500)
+    End Sub
+
+    Private Sub HeaderPanel_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles HeaderPanel.MouseDown, lblHeder.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            _dock.StartDockDrag(e.X, e.Y)
+        End If
+    End Sub
+
+    Private Sub HeaderPanel_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles HeaderPanel.MouseMove, lblHeder.MouseMove
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            _dock.UpdateDockDrag(New UpdateDockDragArgs(e.X, e.Y))
+        End If
+    End Sub
+
+    Private Sub blnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles blnClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub LoadStats()
+        Dim Mobs As Integer = (From c In DataLibrary.DataAccess.MobData.Mobs).Count
+        Dim items As Integer = (From c In DataLibrary.DataAccess.MobData.Items).Count
+        Dim pcs As Integer = (From c In DataLibrary.DataAccess.MobData.PC).Count
+        Dim synths As Integer = (From c In DataLibrary.DataAccess.MobData.Synths).Count
+        Me.lblStats.Text = String.Format("{1}{0}{2}{0}{3}{0}{4}", Environment.NewLine, Mobs, pcs, items, synths)
+        Me.lblMapPack.Text = String.Format("{0}{1}{2}", My.Settings.MapPackVersion.ToShortDateString, Environment.NewLine, My.Settings.MapIniVersion.ToShortDateString)
+        If GlobalSettings.IsProEnabled Then
+            Me.lblRegistration.ForeColor = Color.Lime
+            Me.lblRegistration.Text = String.Format("{0}{1}{2}{1}{3}", GlobalSettings.LicenseUser, Environment.NewLine, GlobalSettings.ExpirationDate.ToShortDateString, GlobalSettings.ActivationCount)
+        Else
+        Me.lblRegistration.Text = "Unregistered"
+        Me.lblRegistration.ForeColor = Color.Red
+        End If
+        Me.lblVersions.Text = My.Application.Info.Version.ToString
+        'If My.Settings.BetaRelease Then
+        '    Me.lblVersions.Text &= " BETA"
+        'End If
+
+        Me.lblMapPack.Left = Me.GroupBox1.Right - Me.lblMapPack.Width
+        Me.lblRegistration.Left = Me.GroupBox1.Right - Me.lblRegistration.Width
+        Me.lblStats.Left = Me.GroupBox1.Right - Me.lblStats.Width
+        Me.lblVersions.Left = Me.GroupBox1.Right - Me.lblVersions.Width
+    End Sub
+End Class

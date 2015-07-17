@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{28B33E75-FB60-4BE0-B939-08D7C29B7F4A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>ApRadar3.My.MyApplication</StartupObject>
+    <RootNamespace>ApRadar3</RootNamespace>
+    <AssemblyName>ApRadar3</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <SccProjectName>ApRadar3</SccProjectName>
+    <SccLocalPath>2~b9d35e94-9048-40b5-9da6-4f53f326a14b</SccLocalPath>
+    <SccAuxPath>http://rdp.apneasoft.com/VaultService</SccAuxPath>
+    <SccProvider>SourceGear Vault Visual Studio 2005 Client:{7BE9CE03-56BF-4682-9C06-78C68B134B30}</SccProvider>
+    <ApplicationIcon>RadarRound.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ApRadar3.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>BasicCorrectnessRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>Full</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ApRadar3.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.8.4.30, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\AHParser.vb" />
+    <Compile Include="Classes\AppBar.vb" />
+    <Compile Include="Classes\ApplicationEvents.vb" />
+    <Compile Include="Classes\AppBarManager.vb" />
+    <Compile Include="Classes\AudioManager.vb" />
+    <Compile Include="Classes\Chat.vb" />
+    <Compile Include="Classes\CraftingSkills.vb" />
+    <Compile Include="Classes\CryptoProvider.vb" />
+    <Compile Include="Classes\DatChecker.vb" />
+    <Compile Include="Classes\DockingClass.vb" />
+    <Compile Include="Classes\DownloadFiles.vb" />
+    <Compile Include="Classes\Encrypt.vb" />
+    <Compile Include="Classes\Enumerations.vb" />
+    <Compile Include="Classes\FormAnimator.vb" />
+    <Compile Include="Classes\GlobalSettings.vb" />
+    <Compile Include="Classes\HuntMobCollection.vb" />
+    <Compile Include="Classes\InputManager.vb" />
+    <Compile Include="Classes\LicenseEncryptor.vb" />
+    <Compile Include="Classes\LicenseFile.vb" />
+    <Compile Include="Classes\MailHandler.vb" />
+    <Compile Include="Classes\RSS.vb" />
+    <Compile Include="Classes\UpdateDockDragArgs.vb" />
+    <Compile Include="Custom Controls\FeedViewer.Designer.vb">
+      <DependentUpon>FeedViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\FeedViewer.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\LayeredForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\ResizableForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\RSSToolStrip.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Serializer.vb" />
+    <Compile Include="Classes\SubClassHandler.vb" />
+    <Compile Include="Classes\Theme.vb" />
+    <Compile Include="Classes\ThemeHandler.vb" />
+    <Compile Include="Classes\Windower.vb" />
+    <Compile Include="Custom Controls\ExRichTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\RangeEditor.vb" />
+    <Compile Include="Custom Controls\RecipeControl.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\TabControlEx.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ActivateProDialog.Designer.vb">
+      <DependentUpon>ActivateProDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ActivateProDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddItemDialog.Designer.vb">
+      <DependentUpon>AddItemDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AddItemDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ChannelPassDialog.Designer.vb">
+      <DependentUpon>ChannelPassDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ChannelPassDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ChatSettingsDialog.Designer.vb">
+      <DependentUpon>ChatSettingsDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ChatSettingsDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DatCheckDialog.Designer.vb">
+      <DependentUpon>DatCheckDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DatCheckDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ErrorDialog.Designer.vb">
+      <DependentUpon>ErrorDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ErrorDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\IniViewerDialog.Designer.vb">
+      <DependentUpon>IniViewerDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\IniViewerDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RemoteChatMessageDialog.Designer.vb">
+      <DependentUpon>RemoteChatMessageDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\RemoteChatMessageDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RssViewerDialog.Designer.vb">
+      <DependentUpon>RssViewerDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\RssViewerDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\CreateChannelDialog.Designer.vb">
+      <DependentUpon>CreateChannelDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CreateChannelDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FileDownloadDialog.Designer.vb">
+      <DependentUpon>FileDownloadDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FileDownloadDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\IniFixDialog.Designer.vb">
+      <DependentUpon>IniFixDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\IniFixDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RangesForm.Designer.vb">
+      <DependentUpon>RangesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\RangesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SelectProcessDialog.Designer.vb">
+      <DependentUpon>SelectProcessDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SelectProcessDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SpawnAlertDialog.Designer.vb">
+      <DependentUpon>SpawnAlertDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SpawnAlertDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\UnhandledErrorDialog.Designer.vb">
+      <DependentUpon>UnhandledErrorDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\UnhandledErrorDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\VersionUpdateDialog.Designer.vb">
+      <DependentUpon>VersionUpdateDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\VersionUpdateDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutForm.Designer.vb">
+      <DependentUpon>AboutForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AboutForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppBarForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppBarForm.Designer.vb">
+      <DependentUpon>AppBarForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\CustomRenderer.vb" />
+    <Compile Include="Classes\Office2007ColorTable.vb" />
+    <Compile Include="Classes\Office2007Helper.vb" />
+    <Compile Include="Classes\Office2007Renderer.vb" />
+    <Compile Include="Forms\BrowserForm.Designer.vb">
+      <DependentUpon>BrowserForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BrowserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChatForm.Designer.vb">
+      <DependentUpon>ChatForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChatForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DebugForm.Designer.vb">
+      <DependentUpon>DebugForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DebugForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LinkedRadarsForm.Designer.vb">
+      <DependentUpon>LinkedRadarsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LinkedRadarsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MobAlertPickerForm.Designer.vb">
+      <DependentUpon>MobAlertPickerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MobAlertPickerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewsViewerForm.Designer.vb">
+      <DependentUpon>NewsViewerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewsViewerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NMListEditor.Designer.vb">
+      <DependentUpon>NMListEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NMListEditor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OverlayFilterForm.Designer.vb">
+      <DependentUpon>OverlayFilterForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OverlayFilterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OverlayRadar2.Designer.vb">
+      <DependentUpon>OverlayRadar2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OverlayRadar2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RemoteChatServerForm.Designer.vb">
+      <DependentUpon>RemoteChatServerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RemoteChatServerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SpawnTrackerForm.Designer.vb">
+      <DependentUpon>SpawnTrackerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SpawnTrackerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ToastForm.Designer.vb">
+      <DependentUpon>ToastForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ToastForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TodBrowserForm.Designer.vb">
+      <DependentUpon>TodBrowserForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TodBrowserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataBrowserForm.Designer.vb">
+      <DependentUpon>DataBrowserForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataBrowserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FilterForm.Designer.vb">
+      <DependentUpon>FilterForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FilterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MappedRadarForm.Designer.vb">
+      <DependentUpon>MappedRadarForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MappedRadarForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MobDataForm.Designer.vb">
+      <DependentUpon>MobDataForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MobDataForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OverlayRadarForm.Designer.vb">
+      <DependentUpon>OverlayRadarForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OverlayRadarForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PCInfoForm.Designer.vb">
+      <DependentUpon>PCInfoForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PCInfoForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RecipeSearchForm.Designer.vb">
+      <DependentUpon>RecipeSearchForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RecipeSearchForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.Designer.vb">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\AppBarModule.vb" />
+    <Compile Include="Modules\MainModule.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Service References\EliteValidation\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Custom Controls\FeedViewer.resx">
+      <DependentUpon>FeedViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ActivateProDialog.resx">
+      <DependentUpon>ActivateProDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AddItemDialog.resx">
+      <DependentUpon>AddItemDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ChannelPassDialog.resx">
+      <DependentUpon>ChannelPassDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ChatSettingsDialog.resx">
+      <DependentUpon>ChatSettingsDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DatCheckDialog.resx">
+      <DependentUpon>DatCheckDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\IniViewerDialog.resx">
+      <DependentUpon>IniViewerDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\RemoteChatMessageDialog.resx">
+      <DependentUpon>RemoteChatMessageDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\RssViewerDialog.resx">
+      <DependentUpon>RssViewerDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\CreateChannelDialog.resx">
+      <DependentUpon>CreateChannelDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FileDownloadDialog.resx">
+      <DependentUpon>FileDownloadDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\IniFixDialog.resx">
+      <DependentUpon>IniFixDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\RangesForm.resx">
+      <DependentUpon>RangesForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SelectProcessDialog.resx">
+      <DependentUpon>SelectProcessDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SpawnAlertDialog.resx">
+      <DependentUpon>SpawnAlertDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\UnhandledErrorDialog.resx">
+      <DependentUpon>UnhandledErrorDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VersionUpdateDialog.resx">
+      <DependentUpon>VersionUpdateDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AboutForm.resx">
+      <DependentUpon>AboutForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppBarForm.resx">
+      <DependentUpon>AppBarForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BrowserForm.resx">
+      <DependentUpon>BrowserForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChatForm.resx">
+      <DependentUpon>ChatForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DebugForm.resx">
+      <DependentUpon>DebugForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LinkedRadarsForm.resx">
+      <DependentUpon>LinkedRadarsForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MobAlertPickerForm.resx">
+      <DependentUpon>MobAlertPickerForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewsViewerForm.resx">
+      <DependentUpon>NewsViewerForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NMListEditor.resx">
+      <DependentUpon>NMListEditor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OverlayFilterForm.resx">
+      <DependentUpon>OverlayFilterForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OverlayRadar2.resx">
+      <DependentUpon>OverlayRadar2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RemoteChatServerForm.resx">
+      <DependentUpon>RemoteChatServerForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SpawnTrackerForm.resx">
+      <DependentUpon>SpawnTrackerForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ToastForm.resx">
+      <DependentUpon>ToastForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TodBrowserForm.resx">
+      <DependentUpon>TodBrowserForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataBrowserForm.resx">
+      <DependentUpon>DataBrowserForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FilterForm.resx">
+      <DependentUpon>FilterForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MappedRadarForm.resx">
+      <DependentUpon>MappedRadarForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MobDataForm.resx">
+      <DependentUpon>MobDataForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OverlayRadarForm.resx">
+      <DependentUpon>OverlayRadarForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PCInfoForm.resx">
+      <DependentUpon>PCInfoForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RecipeSearchForm.resx">
+      <DependentUpon>RecipeSearchForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChangeLog.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\EliteValidation\EliteValidation.wsdl" />
+    <None Include="Service References\EliteValidation\EliteValidation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EliteValidation\EliteValidation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebService\ApRadar3.WebService.ChatLoginResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ApRadar3.WebService.FileEx.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ApRadar3.WebService.ValidationInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ApRadar3.WebService.ValidationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ApRadar3.WebService.VersionInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\validationservice.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApRadar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApRadar_over.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BarBack_black.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackVista.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\MappedRadar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApRadar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.vbproj">
+      <Project>{43275FF0-8720-4383-AC83-B519D7A683B4}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFXIMemory\FFXIMemory.vbproj">
+      <Project>{5B4C4527-2086-4C63-95DA-E5827FDD9CF5}</Project>
+      <Name>FFXIMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RadarControls\RadarControls.vbproj">
+      <Project>{B78A3733-FEFE-48F3-B5B2-CD3B582B166E}</Project>
+      <Name>RadarControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SevenZip\SevenZip.csproj">
+      <Project>{CE57D2B3-CA44-47D0-9295-BEA361BDBBBB}</Project>
+      <Name>SevenZip</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico-ex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico-rare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_Earth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_Fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_Ice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_Light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_Lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_Water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_Wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\DataSources\DataLibrary.ApRadarDBDataSet.datasource" />
+    <None Include="Resources\Close16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EliteValidation\" />
+    <WCFMetadataStorage Include="Service References\WebService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangeLog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Exclamation.wav" />
+    <Content Include="RadarIcon.ico" />
+    <Content Include="RadarRound.ico" />
+    <None Include="Resources\Rss.png" />
+    <None Include="Resources\rssNew.png" />
+    <None Include="Resources\Download.png" />
+    <None Include="Resources\Extract.png" />
+    <None Include="Service References\WebService\configuration91.svcinfo" />
+    <None Include="Service References\WebService\configuration.svcinfo" />
+    <None Include="Service References\WebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Resources\Close16x16_Hover.png" />
+    <None Include="Service References\EliteValidation\EliteValidation.disco" />
+    <None Include="Service References\EliteValidation\configuration91.svcinfo" />
+    <None Include="Service References\EliteValidation\configuration.svcinfo" />
+    <None Include="Service References\EliteValidation\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Resources\PlayHS.png" />
+    <None Include="Resources\Skull&amp;Bones.png" />
+    <None Include="Resources\error.png" />
+    <Content Include="Themes\Carbon Fiber\images\carbonfiber.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Carbon Fiber\images\carbonfiber_33px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Carbon Fiber\images\formbg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Carbon Fiber\theme.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Satelite\images\header_bg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Satelite\images\satelite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Satelite\theme.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Black Pearl\images\tbg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Black Pearl\theme.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WindowerHelper.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="My Project\DataSources\DataLibrary.CampedMobsDataset+CampedMobsDataTable.datasource" />
+    <None Include="Resources\ffxiah.png" />
+    <None Include="Resources\RadarIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Custom Controls\CustomTabControl\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
