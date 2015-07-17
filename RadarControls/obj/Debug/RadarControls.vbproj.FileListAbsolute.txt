@@ -1,0 +1,56 @@
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\Data\ApRadarDB.sdf
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\Data\CampedMobs.dat
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\NMList.txt
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\RadarControls.dll.config
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\RadarControls.dll
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\RadarControls.pdb
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\RadarControls.xml
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\Contracts.dll
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\DataLibrary.dll
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\FFXIMemory.dll
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\DataLibrary.pdb
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\DataLibrary.xml
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\FFXIMemory.pdb
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\bin\Debug\FFXIMemory.xml
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.ColorPicker.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.ComboBoxDisplay.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.AlphaRadar.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.RadarDX.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.MobTrackerForm.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.SettingsForm.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.Resources.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.Radar.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.dll
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.xml
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.pdb
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.LayeredForm.resources
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.vbprojResolveAssemblyReference.cache
+C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\RadarControls\obj\Debug\RadarControls.vbproj.GenerateResource.Cache
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\Data\ApRadarDB.sdf
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\Data\CampedMobs.dat
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\NMList.txt
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\RadarControls.dll.config
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\RadarControls.dll
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\RadarControls.pdb
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\RadarControls.xml
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\Contracts.dll
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\DataLibrary.dll
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\FFXIMemory.dll
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\DataLibrary.pdb
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\DataLibrary.xml
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\FFXIMemory.pdb
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\bin\Debug\FFXIMemory.xml
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.vbprojResolveAssemblyReference.cache
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.ColorPicker.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.ComboBoxDisplay.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.AlphaRadar.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.LayeredForm.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.RadarDX.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.MobTrackerForm.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.SettingsForm.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.Resources.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.Radar.resources
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.vbproj.GenerateResource.Cache
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.dll
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.xml
+C:\Users\Jacinto\Desktop\ApRadar-master\RadarControls\obj\Debug\RadarControls.pdb
