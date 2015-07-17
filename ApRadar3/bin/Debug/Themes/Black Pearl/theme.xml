@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Theme>
+	<BarBackground>images\tbg.jpg</BarBackground>
+	<BarForeColor>#FFFFFF</BarForeColor>
+	<PCColor>LightSteelBlue</PCColor>
+	<NPCColor>Tomato</NPCColor>
+	<DockPosition>Top</DockPosition>
+	<HeaderBar>images\tbg.jpg</HeaderBar>
+	<FormBackgroundColor>#27282C</FormBackgroundColor>
+  <FormForeColor>#FFFFFF</FormForeColor>
+</Theme>

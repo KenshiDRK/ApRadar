@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Theme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<BarBackground>images\carbonfiber.png</BarBackground>
+	<BarForeColor>#FFFFFF</BarForeColor>
+	<PCColor>LightSteelBlue</PCColor>
+	<NPCColor>Red</NPCColor>
+	<DockPosition>Top</DockPosition>
+	<HeaderBar>images\carbonfiber_33px.png</HeaderBar>
+  <HeaderBGColor>#444444</HeaderBGColor>
+	<FormBackgroundColor>#7F807F</FormBackgroundColor>
+  <FormBGImage></FormBGImage>
+  <FormBGImageMode>Stretch</FormBGImageMode>
+  <FormForeColor>#FFFFFF</FormForeColor>
+  <FormH1Color>Green</FormH1Color>
+</Theme>
