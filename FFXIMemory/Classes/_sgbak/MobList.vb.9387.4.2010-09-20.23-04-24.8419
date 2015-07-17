@@ -1,0 +1,82 @@
+﻿Imports System.Runtime.Serialization
+Public Class MobList
+    Inherits DictionaryBase
+
+    Public Sub New()
+
+    End Sub
+
+    Public Enum MobStatus
+        Dead
+        Alive
+        OutOfRange
+    End Enum
+
+    Public Event MobStatusChanged(ByVal Mob As MobData, ByVal Status As MobStatus)
+
+    Public Overloads Sub Add(ByVal Mob As MobData)
+        'Check to see if this mob exists already
+        If Not Dictionary.Contains(Mob.ServerID) Then
+            'If not we add it
+            If Mob.MobType = MobData.MobTypes.NPC Then
+                RaiseEvent MobStatusChanged(Mob, IIf(CheckIsDead(Mob), MobStatus.Dead, MobStatus.Alive))
+            End If
+
+            Dictionary.Add(Mob.ServerID, Mob)
+        Else
+            Update(Mob)
+        End If
+    End Sub
+
+    Public Sub Update(ByVal Mob As MobData)
+        If Dictionary.Contains(Mob.ServerID) Then
+            If Mob.MobType = MobData.MobTypes.NPC Then
+                If CheckIsDead(Me(Mob.ServerID)) <> CheckIsDead(Mob) Then
+                    If CheckIsDead(Mob) Then
+                        Mob.MobIsDead = True
+                        Mob.DisplayMob = False
+                        RaiseEvent MobStatusChanged(Mob, MobStatus.Dead)
+                    Else
+                        Mob.MobIsDead = False
+                        Mob.DisplayMob = True
+                        RaiseEvent MobStatusChanged(Mob, MobStatus.Alive)
+                    End If
+                ElseIf CheckIsDead(Mob) AndAlso (Me(Mob.ServerID).PIcon = 0 And Mob.PIcon = 16) Then
+                    RaiseEvent MobStatusChanged(Mob, MobStatus.OutOfRange)
+                End If
+            End If
+            Dictionary.Item(Mob.ServerID) = Mob
+        Else
+            If Mob.MobType = MobData.MobTypes.NPC Then
+                RaiseEvent MobStatusChanged(Mob, IIf(CheckIsDead(Mob), MobStatus.Dead, MobStatus.Alive))
+            End If
+            Dictionary.Add(Mob.ServerID, Mob)
+        End If
+    End Sub
+
+    Public Overloads Sub Remove(ByVal Mob As MobData)
+        Me.Remove(Mob.ServerID)
+    End Sub
+
+    Public Overloads Sub Remove(ByVal MobID As Integer)
+        Dictionary.Remove(MobID)
+    End Sub
+
+    Public Function Item(ByVal MobId As Integer) As MobData
+        If Dictionary.Contains(MobId) Then
+            Return Dictionary.Item(MobId)
+        Else
+            Return Nothing
+        End If
+    End Function
+
+    Public Function ToList() As List(Of MobData)
+        Return New List(Of MobData)(Dictionary.Values)
+    End Function
+
+    Private Function CheckIsDead(ByVal Mob As MobData) As Boolean
+        If Not Mob Is Nothing Then
+            Return Mob.HP = 0 OrElse Mob.WarpInfo = 0
+        End If
+    End Function
+End Class

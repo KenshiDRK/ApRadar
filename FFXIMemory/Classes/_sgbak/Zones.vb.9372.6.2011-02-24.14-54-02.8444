@@ -1,0 +1,261 @@
+﻿Imports System.IO
+Imports System.Reflection
+Imports Microsoft.Win32
+Imports System.Text
+
+Public Class Zones
+
+#Region " CONSTRUCTOR "
+    Public Sub New()
+        LoadZoneList()
+    End Sub
+#End Region
+
+#Region " PROPERTIES "
+    Private _installPath As String = String.Empty
+    Public Property InstallPath() As String
+        Get
+            If _installPath = String.Empty Then
+                _installPath = GetInstallPath()
+            End If
+            Return _installPath
+        End Get
+        Set(ByVal value As String)
+            _installPath = value
+        End Set
+    End Property
+#End Region
+
+#Region " PUBLIC FUNCTIONS "
+    Public Function GetZoneName(ByVal ZoneId As Integer) As String
+        For Each zone In ZoneList
+            If zone.ZoneID = ZoneId Then
+                Return zone.ZoneName
+            End If
+        Next
+        Return "Unknown Zone"
+    End Function
+
+    Public Function GetMobName(ByVal ZoneId As Integer, ByVal MobID As Integer) As String
+        'For Each z As Zone In ZoneList
+        '    If z.ZoneID = ZoneId Then
+        '        Dim ml As List(Of MobData) = GetZoneMobList(z.Dats.ToArray)
+        '        For Each md As MobData In ml
+        '            If md.MobId = MobID Then
+        '                Return md.MobName
+        '            End If
+        '        Next
+        '    End If
+        'Next
+        Return "Unknown Mob"
+    End Function
+#End Region
+
+#Region " PRIVATE FUNCTIONS "
+    Private Sub LoadZoneList()
+        Dim xDoc As New Xml.XmlDocument
+        xDoc.LoadXml(GetResourceData("ZoneList.xml"))
+        Dim z As Zone
+        For Each node As Xml.XmlNode In xDoc.GetElementsByTagName("zone")
+            z = New Zone(node.Attributes("id").Value, node.Attributes("name").Value)
+            For Each dNode As Xml.XmlNode In node.ChildNodes
+                If dNode.InnerXml <> String.Empty Then
+                    z.Dats.Add(dNode.InnerXml)
+
+                End If
+            Next
+            ZoneList.Add(z)
+        Next
+        ZoneList.Sort()
+    End Sub
+
+    Private Function GetResourceData(ByVal Resource As String) As String
+        Dim Asm As [Assembly] = [Assembly].GetExecutingAssembly()
+
+        ' Resources are named using a fully qualified name.
+        Dim strm As Stream = Asm.GetManifestResourceStream( _
+        Asm.GetName().Name + "." + Resource)
+
+        ' Reads the contents of the embedded file.
+        Dim reader As StreamReader = New StreamReader(strm)
+        Dim contents As String = reader.ReadToEnd()
+        reader.Close()
+        reader.Dispose()
+        Return contents
+    End Function
+
+    ''' <summary>
+    ''' Gets Playonline Installation Folder Path
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function GetInstallPath() As String
+        Dim text1 As String = String.Empty
+        Dim key1 As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\PlayOnlineUS\InstallFolder")
+        If (key1 Is Nothing) Then
+            key1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\PlayOnlineEU\InstallFolder")
+        End If
+        If (key1 Is Nothing) Then
+            key1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\PlayOnline\InstallFolder")
+        End If
+        If (key1 Is Nothing) Then
+            key1 = Registry.LocalMachine.OpenSubKey("Software\Wow6432Node\PlayOnlineUS\InstallFolder")
+        End If
+        If (key1 Is Nothing) Then
+            key1 = Registry.LocalMachine.OpenSubKey("Software\Wow6432Node\PlayOnlineEU\InstallFolder")
+        End If
+        If (key1 Is Nothing) Then
+            key1 = Registry.LocalMachine.OpenSubKey("Software\Wow6432Node\PlayOnline\InstallFolder")
+        End If
+        If (((key1 IsNot Nothing)) AndAlso ((key1.GetValue("0001") IsNot Nothing))) Then
+            text1 = DirectCast(key1.GetValue("0001"), String)
+            Dim chrArray1 As Char() = New Char() {"\"c}
+            Return text1.TrimEnd(chrArray1)
+        End If
+        Return String.Empty
+    End Function
+
+    Public Function GetZoneMobList(ByVal ZoneID As Integer) As List(Of ZoneMobs)
+        Dim md As New List(Of ZoneMobs)
+        Dim fileData As List(Of Byte)
+        Dim idArray(3) As Byte
+        Dim nameArr(23) As Byte
+        Dim mobID As Integer
+        Dim serverId As Integer
+
+        Dim mobName As String
+        Dim baseValue As Byte
+        Dim isFirst As Boolean
+        Dim datPaths As New List(Of String)
+        Try
+
+            For Each z As Zone In ZoneList
+                If z.ZoneID = ZoneID Then
+                    datPaths = z.Dats
+                    Exit For
+                End If
+            Next
+            For Each dPath As String In datPaths
+                dPath = String.Format("{0}{1}", InstallPath, dPath)
+                fileData = New List(Of Byte)(IO.File.ReadAllBytes(dPath))
+                isFirst = True
+                For i As Integer = 28 To fileData.Count - 1 Step 28
+                    If i + 28 < fileData.Count Then
+                        mobName = GetString(fileData.ToArray, i)
+                        idArray(0) = fileData(i + 24)
+                        idArray(1) = fileData(i + 25)
+                        idArray(2) = fileData(i + 26)
+                        idArray(3) = fileData(i + 27)
+                        If isFirst Then
+                            baseValue = idArray(1)
+                            isFirst = False
+                        End If
+                        serverId = BitConverter.ToInt32(idArray, 0)
+                        idArray(1) = idArray(1) - baseValue
+                        mobID = BitConverter.ToInt16(idArray, 0)
+                        If mobName <> String.Empty Then
+                            md.Add(New ZoneMobs(mobName, mobID, serverId))
+                        End If
+                    End If
+                Next
+            Next
+
+        Catch ex As Exception
+            'Debug.Print(Ex.Message)
+        End Try
+        Return md
+    End Function
+
+    Public Function GetZoneMobCount(ByVal ZoneID As Integer) As Integer
+        Dim datPaths As New List(Of String)
+        Dim totalMobs As Integer = 0
+        Try
+
+            For Each z As Zone In ZoneList
+                If z.ZoneID = ZoneID Then
+                    datPaths = z.Dats
+                    Exit For
+                End If
+            Next
+            For Each dPath As String In datPaths
+                dPath = String.Format("{0}{1}", InstallPath, dPath)
+                Dim fInfo As New FileInfo(dPath)
+                totalMobs += (fInfo.Length / 28) - 1
+            Next
+        Catch ex As Exception
+            ''Debug.Print(Ex.Message)
+        End Try
+        Return totalMobs
+    End Function
+
+    Private Function GetString(ByVal Arr As Byte(), ByVal StartIndex As Integer) As String
+        Dim b As Byte
+        Dim nameArr As New List(Of Byte)
+        For i = 0 To 23
+            b = Arr(StartIndex + i)
+            If b <> 0 Then
+                nameArr.Add(b)
+            Else
+                Exit For
+            End If
+        Next
+        Return System.Text.Encoding.GetEncoding("shift-jis").GetString(nameArr.ToArray)
+    End Function
+#End Region
+
+#Region " PROPERTIES "
+    Private _zones As List(Of Zone)
+    Public ReadOnly Property ZoneList() As List(Of Zone)
+        Get
+            If _zones Is Nothing Then
+                _zones = New List(Of Zone)
+            End If
+            Return _zones
+        End Get
+    End Property
+#End Region
+
+#Region " SUBCLASSES "
+    Public Class Zone
+        Implements IComparable(Of Zone)
+
+        Public Sub New(ByVal Id As Integer, ByVal Name As String)
+            _zoneID = Id
+            _zoneName = Name
+        End Sub
+
+        Private _zoneID As Integer
+        Public Property ZoneID() As Integer
+            Get
+                Return _zoneID
+            End Get
+            Set(ByVal value As Integer)
+                _zoneID = value
+            End Set
+        End Property
+
+        Private _zoneName As String
+        Public Property ZoneName() As String
+            Get
+                Return _zoneName
+            End Get
+            Set(ByVal value As String)
+                _zoneName = value
+            End Set
+        End Property
+
+        Private _dats As List(Of String)
+        Public ReadOnly Property Dats() As List(Of String)
+            Get
+                If _dats Is Nothing Then
+                    _dats = New List(Of String)
+                End If
+                Return _dats
+            End Get
+        End Property
+
+        Public Function CompareTo(ByVal other As Zone) As Integer Implements System.IComparable(Of Zone).CompareTo
+            Return Me.ZoneName.CompareTo(other.ZoneName)
+        End Function
+    End Class
+#End Region
+End Class

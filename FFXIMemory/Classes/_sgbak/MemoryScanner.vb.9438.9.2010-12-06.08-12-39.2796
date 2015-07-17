@@ -1,0 +1,232 @@
+﻿Imports System.Threading
+
+Public MustInherit Class MemoryScanner
+    Private _memory As Memory
+    Private WithEvents _mobs As MobList
+
+    Private _watchers As List(Of IWatcher) = New List(Of IWatcher)
+    Private WithEvents _timer As Timers.Timer
+    Private _isScanning As Boolean
+    Private Property PointerBlock() As Byte()
+    Private _mobAddress As Integer
+    Private _mob As MobData
+    Private _lastMap As Byte = 0
+    Private _partyMembers As Dictionary(Of Byte, String)
+    Private _syncObj As New Object
+
+#Region " PROPERTIES "
+    Private _ffxi As FFXI
+    Public Property FFXI As FFXI
+        Get
+            Return _ffxi
+        End Get
+        Set(ByVal value As FFXI)
+            _ffxi = value
+            If (Not value Is Nothing AndAlso _watchers.Count > 0 AndAlso Not _timer.Enabled) Then
+                _timer.Start()
+                IsRunning = True
+            ElseIf value Is Nothing OrElse _watchers.Count = 0 Then
+                _timer.Stop()
+                IsRunning = False
+            End If
+        End Set
+    End Property
+    Public Property MyID() As Integer
+    Public Property TargetID() As Integer
+    Public Property CurrentMap() As Byte
+    Public Property IsRunning As Boolean
+    Private Property AttachedWatcherTypes As WatcherTypes
+#End Region
+
+#Region " ENUM "
+    <Flags()>
+    Public Enum WatcherTypes
+        All
+        MobList
+        MobStatus
+        ZoneChange
+        PartyMembers
+    End Enum
+#End Region
+
+    Public Sub New()
+        _timer = New Timers.Timer(100)
+        _mobs = New MobList()
+        _partyMembers = New Dictionary(Of Byte, String)
+    End Sub
+
+    Public Sub AttachWatcher(ByVal watcher As IWatcher)
+        'Add the watcher to the collection
+        _watchers.Add(watcher)
+        'If the scanner thread is not running, start it up
+        If Not _timer.Enabled AndAlso FFXI IsNot Nothing Then
+            _timer.Start()
+            IsRunning = True
+        End If
+        For Each watcher In _watchers
+            Me.AttachedWatcherTypes = Me.AttachedWatcherTypes Or watcher.Type
+        Next
+    End Sub
+
+    Public Sub DetachWatcher(ByVal watcher As IWatcher)
+        _watchers.Remove(watcher)
+        If _watchers.Count = 0 Then
+            _timer.Stop()
+            IsRunning = False
+        End If
+        For Each watcher In _watchers
+            Me.AttachedWatcherTypes = Me.AttachedWatcherTypes Or watcher.Type
+        Next
+    End Sub
+
+    Private Sub NotifyMobListUpdated(ByVal Mobs As MobList)
+        If Mobs IsNot Nothing Then
+            For Each watcher As IWatcher In _watchers
+                If watcher.Type And WatcherTypes.MobList = WatcherTypes.MobList OrElse watcher.Type And WatcherTypes.All = WatcherTypes.All Then
+                    watcher.MobListUpdated(Mobs)
+                End If
+            Next
+        End If
+    End Sub
+
+    Private Sub NotifyMobStatusChanged(ByVal Mob As MobData, ByVal Status As MobList.MobStatus)
+        For Each Watcher As IWatcher In _watchers
+            If Watcher.Type And WatcherTypes.MobStatus = WatcherTypes.MobStatus OrElse Watcher.Type And WatcherTypes.All = WatcherTypes.All Then
+                Watcher.MobStatusUpdated(Mob, Status)
+            End If
+        Next
+    End Sub
+
+    Private Sub NotifyZoneChanged(ByVal LastZone As Byte, ByVal NewZone As Byte)
+        For Each Watcher As IWatcher In _watchers
+            If Watcher.Type And WatcherTypes.ZoneChange = WatcherTypes.ZoneChange OrElse Watcher.Type And WatcherTypes.All = WatcherTypes.All Then
+                Watcher.ZoneUpdated(LastZone, NewZone)
+            End If
+        Next
+    End Sub
+
+    Private Sub NotifyPartyList(ByVal Members As String())
+        For Each Watcher As IWatcher In _watchers
+            If Watcher.Type And WatcherTypes.PartyMembers = WatcherTypes.PartyMembers OrElse Watcher.Type And WatcherTypes.All = WatcherTypes.All Then
+                Watcher.PartyListUpdated(Members)
+            End If
+        Next
+    End Sub
+
+    Private Sub _timer_elapsed(ByVal sender As Object, ByVal e As Timers.ElapsedEventArgs) Handles _timer.Elapsed
+        If Not _isScanning Then
+            Dim t As New Thread(AddressOf ScanningThread)
+            t.Start()
+        End If
+    End Sub
+
+    Private Sub _mobs_StatusChanged(ByVal Mob As MobData, ByVal Status As MobList.MobStatus) Handles _mobs.MobStatusChanged
+        NotifyMobStatusChanged(Mob, Status)
+    End Sub
+
+    Private Sub ScanningThread()
+        _isScanning = True
+        'Make sure we have an ffxi object
+        If Not FFXI Is Nothing AndAlso (Not FFXI.POL.HasExited AndAlso FFXI.IsGameLoaded) Then
+
+
+            '********************** MAP Handling ******************************
+            'Lets grab the current map
+            If _memory Is Nothing Then
+                _memory = New Memory(FFXI.POL, FFXI.MemLocs("MAPBASE"))
+            Else
+                _memory.Address = _ffxi.MemLocs("MAPBASE")
+            End If
+            CurrentMap = _memory.GetByte()
+            'If we are on a new map. lets clear the mob list 
+            If CurrentMap <> _lastMap Then
+                NotifyZoneChanged(_lastMap, CurrentMap)
+                _lastMap = CurrentMap
+                _mobs.Clear()
+            End If
+
+            If CurrentMap <> 0 Then
+                SyncLock (_syncObj)
+                    '********************** ID Handling *******************************
+                    'Firts thing we do is get our server id
+                    _memory.Address = FFXI.MemLocs("OWNPOSITION")
+                    MyID = _memory.GetInt32()
+                    _memory.Address = FFXI.MemLocs("NPCMAP") + 4 * MyID
+                    _memory.Address = _memory.GetInt32() + 120
+                    MyID = _memory.GetInt32()
+
+                    'Next lets grab our target's server id
+                    _memory.Address = FFXI.MemLocs("TARGETINFO")
+                    _memory.Address = _memory.GetInt32
+                    TargetID = _memory.GetInt32()
+                    _memory.Address = FFXI.MemLocs("NPCMAP") + 4 * TargetID
+                    _memory.Address = _memory.GetInt32() + 120
+                    TargetID = _memory.GetInt32()
+
+
+                    'Check to see if any of the attached watchers care about party members
+                    'and if they do, lets gather the party info
+                    If Me.AttachedWatcherTypes And WatcherTypes.PartyMembers = WatcherTypes.PartyMembers OrElse
+                        Me.AttachedWatcherTypes And WatcherTypes.All = WatcherTypes.All Then
+                        '******************** Alliance and Party Handling *****************
+                        _memory.Address = FFXI.MemLocs("ALLIANCEPOINTER") + 88
+                        Dim name As String
+                        Dim partyUpdated As Boolean
+                        For i = 0 To 4
+                            _memory.Address = i * 88 + 86
+                            If Convert.ToBoolean(_memory.GetByte()) = True Then
+                                _memory.Address = i * 88 + 6
+                                name = _memory.GetName()
+                                If _partyMembers.ContainsKey(i) Then
+                                    If _partyMembers(i) <> name Then
+                                        partyUpdated = True
+                                        _partyMembers(i) = name
+                                    End If
+                                Else
+                                    _partyMembers.Add(i, name)
+                                    partyUpdated = True
+                                End If
+                            End If
+                        Next
+
+                        If partyUpdated Then
+                            Dim members(_partyMembers.Count - 1) As String
+                            _partyMembers.Values.CopyTo(members, 0)
+                            NotifyPartyList(members)
+                            members = Nothing
+                        End If
+
+                    End If
+
+                    '********************** MOB Handling ******************************
+                    'Set the address to the base of NPCMAP
+                    _memory.Address = FFXI.MemLocs("NPCMAP")
+                    'Grab the block of pointers
+                    PointerBlock = _memory.GetByteArray(4 * 2048)
+                    'Run through the pointer block and get the mobs
+                    For i = 0 To UBound(PointerBlock) Step 4
+
+                        'Grab the mobs address pointer
+                        _mobAddress = BitConverter.ToInt32(PointerBlock, i)
+                        'Make sure the address is > 0 
+                        If _mobAddress > 0 Then
+                            'Create the mob object and add it to the list
+                            _mob = New MobData(FFXI.POL, _mobAddress, True)
+                            If Not _mob Is Nothing AndAlso _mob.ServerID <> 0 AndAlso _mob.ID > 0 AndAlso Not New String() {"", "NPC", "Furniture"}.Contains(_mob.Name.Trim) Then
+                                _mobs.Update(_mob)
+                            End If
+                        End If
+                    Next
+
+                End SyncLock
+                'Notify all the watchers of the new moblist
+                If _mobs IsNot Nothing Then
+                    NotifyMobListUpdated(_mobs)
+                End If
+            End If
+
+        End If
+        _isScanning = False
+    End Sub
+
+End Class

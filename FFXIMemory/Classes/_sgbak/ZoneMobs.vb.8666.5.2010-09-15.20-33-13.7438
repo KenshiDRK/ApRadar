@@ -1,0 +1,1096 @@
+﻿Imports System.Runtime.InteropServices
+Imports System.Drawing
+
+Public Class MobData
+
+#Region " MEMBER VARIABLES "
+    Private _isPacket As Boolean
+    'Private _mobPacket As NPCPacket
+    Private _mapID As Byte
+    Private _zones As Zones
+    Private _dataPreLoaded As Boolean = False
+#End Region
+
+#Region " CONSTRUCTORS "
+    Public Sub New(ByVal POL As Process, ByVal MobBase As Integer, ByVal PreloadData As Boolean)
+        _mobBase = MobBase
+        _pol = POL
+        _isPacket = False
+        If PreloadData Then
+            _dataPreLoaded = True
+            MobBlock = MemoryObject.GetByteArray(428)
+        End If
+    End Sub
+#End Region
+
+#Region " ENUMERATIONS "
+    Public Enum MobTypes
+        PC = 0
+        NPC = 1
+    End Enum
+
+    Public Enum MobOffsets
+        LastX = 4
+        LastY = 12
+        LastZ = 8
+        LastDirection = 24
+        X = 36
+        Y = 44
+        Z = 40
+        Direction = 56
+        ID = 116
+        ServerID = 120
+        Name = 124
+        WarpInfo = 160
+        Distance = 172
+        TP = 192
+        HP = 196
+        MobType = 198
+        Race = 199
+        AttackTimer = 201
+        Fade = 204
+        Hair = 212
+        Head = 214
+        Body = 216
+        Hands = 218
+        Legs = 220
+        Feet = 222
+        MainWeapon = 224
+        SubWeapon = 226
+        PIcon = 252
+        GIcon = 256
+        Speed = 292
+        Status = 308
+        Status2 = 312
+        ClaimedBy = 336
+        PetIndex = 426
+    End Enum
+#End Region
+
+#Region " STRUCTURES "
+    ''' <summary>
+    ''' Mob structure
+    ''' </summary>
+    <StructLayout(LayoutKind.Sequential)> _
+    Public Structure MobInfo
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=4)> _
+        Public Unknown1 As Byte() '0
+        Public LastX As Single '4
+        Public LastZ As Single '8
+        Public LastY As Single '12
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=8)> _
+        Public Unknown2 As Byte() '16
+        Public LastDirection As Single '24
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=8)> _
+        Public Unknown3 As Byte() '28
+        Public PosX As Single '36
+        Public PosZ As Single '40
+        Public PosY As Single '44
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=8)> _
+        Public Unknown4 As Byte() '48
+        '11-19-2007 Moved to 56 from 60
+        Public PosDirection As Single '56
+        '11-19-2007 added 4 bytes always 0
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=56)> _
+        Public Unknown5 As Byte() '60
+        Public ID As Integer '116
+        Public ServerCharId As Integer '120
+        <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=24)> _
+        Public MobName As String '124
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=12)> _
+        Public Unknown6 As Byte() '144
+        Public WarpInfo As Integer '160 WarpStruct Pointer
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=8)> _
+        Public Unknown7 As Byte() '164
+        Public distance As Single '172
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=16)> _
+        Public Unknown8 As Byte() '176
+        Public TP_Percent As Short '192
+        Public Unknown9 As Short '194
+        Public HP_Percent As Byte '196
+        Public Unknown10 As Byte '197
+        Public MobType As Byte '198
+        Public Race As Byte '199
+        Public Unknown11 As Byte '200
+        Public AttackTimer As Byte '201
+        Public Unknown12 As Short '202
+        Public Fade As Byte '204
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=7)> _
+        Public Unknown13 As Byte() '205
+        Public Hair As Short '212
+        Public Head As Short '214
+        Public Body As Short '216
+        Public Hands As Short '218
+        Public Legs As Short '220
+        Public Feet As Short '222
+        Public Main As Short '224
+        Public [Sub] As Short '226
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=24)> _
+        Public Unknown14 As Byte() '228
+        Public pIcon As Byte '252
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=3)> _
+        Public Unknown15 As Byte() '253 
+        Public gIcon As Short '256
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=34)> _
+        Public Unknown16 As Byte() '258
+        Public Speed As Single '292
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=12)> _
+        Public Unknown17 As Byte() '296
+        '294 -- 296 Mob Moving short 298 same -- 300 8 when not moving
+        Public Status As Integer '308
+        Public Status2 As Integer '312
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=20)> _
+        Public Unknown18 As Byte() '316
+        Public ClaimedBy As Integer '336
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=90)> _
+        Public Unknown19 As Byte() '340
+        Public PetIndex As Short '426
+    End Structure
+#End Region
+
+#Region " MEMORY PROPERTIES "
+    Private _memoryObject As Memory
+    ''' <summary>
+    ''' The memory object used to get the data for this mob
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property MemoryObject() As Memory
+        Get
+            If _memoryObject Is Nothing Then
+                _memoryObject = New Memory(POL, MobBase)
+            End If
+            Return _memoryObject
+        End Get
+    End Property
+
+    Private _mobBase As Integer
+    ''' <summary>
+    ''' The base address of the mobs structure
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property MobBase() As Integer
+        Get
+            Return _mobBase
+        End Get
+        Set(ByVal value As Integer)
+            _mobBase = value
+            If Not POL Is Nothing Then
+                MemoryObject.Address = value
+                MobBlock = MemoryObject.GetByteArray(428)
+            End If
+        End Set
+    End Property
+
+    Private _pol As Process
+    ''' <summary>
+    ''' The POL process to use for getting the mob data
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property POL() As Process
+        Get
+            Return _pol
+        End Get
+        Set(ByVal value As Process)
+            _pol = value
+            If MobBase > 0 Then
+                _memoryObject = New Memory(value, MobBase)
+                MobBlock = MemoryObject.GetByteArray(428)
+            End If
+        End Set
+    End Property
+
+    Private _mobBlock As Byte()
+    Private Property MobBlock() As Byte()
+        Get
+            Return _mobBlock
+        End Get
+        Set(ByVal value As Byte())
+            _mobBlock = value
+            'LoadData()
+        End Set
+    End Property
+
+    Private _lastX As Single
+    ''' <summary>
+    ''' Mobs last x coordinate
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property LastX() As Single
+        Get
+            'Return _lastX
+            If _dataPreLoaded Then
+                Return BitConverter.ToSingle(MobBlock, MobOffsets.LastX)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.LastX
+                Return MemoryObject.GetFloat
+            End If
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.LastX
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _lastY As Single
+    ''' <summary>
+    ''' Mobs last Y coordinate
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property LastY() As Single
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToSingle(MobBlock, MobOffsets.LastY)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.LastY
+                Return MemoryObject.GetFloat
+            End If
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.LastY
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _lastZ As Single
+    ''' <summary>
+    ''' mobs last Z coordinate
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property LastZ() As Single
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToSingle(MobBlock, MobOffsets.LastZ)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.LastZ
+                Return MemoryObject.GetFloat
+            End If
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.LastZ
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _lastDirection As Single
+    ''' <summary>
+    ''' Mobs last direction
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property LastDirection() As Single
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToSingle(MobBlock, MobOffsets.LastDirection)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.LastDirection
+                Return MemoryObject.GetFloat
+            End If
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.LastDirection
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _x As Single
+    ''' <summary>
+    ''' Mobs current x coordinate
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property X() As Single
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToSingle(MobBlock, MobOffsets.X)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.X
+                Return MemoryObject.GetFloat
+            End If
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.X
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _y As Single
+    ''' <summary>
+    ''' Mobs current Y coordinate
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Y() As Single
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToSingle(MobBlock, MobOffsets.Y)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.Y
+                Return MemoryObject.GetFloat
+            End If
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.Y
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _z As Single
+    ''' <summary>
+    ''' Mobs current Z coordinate
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Z() As Single
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToSingle(MobBlock, MobOffsets.Z)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.Z
+                Return MemoryObject.GetFloat
+            End If
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.Z
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _direction As Single
+    ''' <summary>
+    ''' Mobs current Direction
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Direction() As Single
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToSingle(MobBlock, MobOffsets.Direction)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.Direction
+                Return MemoryObject.GetFloat
+            End If
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.Direction
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _id As Integer
+    ''' <summary>
+    ''' Mobs array ID
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property ID() As Integer
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToInt32(MobBlock, MobOffsets.ID)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.ID
+                Return MemoryObject.GetInt32
+            End If
+        End Get
+        Set(ByVal value As Integer)
+            MemoryObject.Address = MobBase + MobOffsets.ID
+            MemoryObject.SetInt32(value)
+        End Set
+    End Property
+
+    Private _serverID As Integer
+    ''' <summary>
+    ''' Mobs Server ID
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property ServerID() As Integer
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToInt32(MobBlock, MobOffsets.ServerID)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.ServerID
+                Return MemoryObject.GetInt32
+            End If
+        End Get
+        Set(ByVal value As Integer)
+            MemoryObject.Address = MobBase + MobOffsets.ServerID
+            MemoryObject.SetInt32(value)
+        End Set
+    End Property
+
+    Private _name As String
+    ''' <summary>
+    ''' Mobs name
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property Name() As String
+        Get
+            If _dataPreLoaded Then
+                If ID = &H77 Then
+                    _name = String.Empty
+                End If
+                For i As Integer = MobOffsets.Name To MobBlock.Length - 1
+                    If MobBlock(i) = 0 Then
+                        _name = System.Text.Encoding.Default.GetString(MobBlock, MobOffsets.Name, i - MobOffsets.Name)
+                        Exit For
+                    End If
+                Next
+                Return _name
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.Name
+                Return MemoryObject.GetName
+            End If
+        End Get
+    End Property
+
+    Private _warpInfo As Integer
+    ''' <summary>
+    ''' Pointer to mobs warp structure
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property WarpInfo() As Integer
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToInt32(MobBlock, MobOffsets.WarpInfo)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.WarpInfo
+                Return MemoryObject.GetInt32
+            End If
+        End Get
+    End Property
+
+    Private _distance As Single
+    ''' <summary>
+    ''' Mobs distance from my position
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property Distance() As Single
+        Get
+            If _dataPreLoaded Then
+                Return Math.Sqrt(BitConverter.ToSingle(MobBlock, MobOffsets.Distance))
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.Distance
+                Return Math.Sqrt(MemoryObject.GetFloat)
+            End If
+        End Get
+    End Property
+
+    Private _tp As Short
+    ''' <summary>
+    ''' Mobs current tp percent
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property TP() As Short
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToInt16(MobBlock, MobOffsets.TP)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.TP
+                Return MemoryObject.GetShort
+            End If
+        End Get
+    End Property
+
+    Private _hp As Byte
+    ''' <summary>
+    ''' Mobs current HP percent
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property HP() As Byte
+        Get
+            If _dataPreLoaded Then
+                Return MobBlock(MobOffsets.HP)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.HP
+                Return MemoryObject.GetByte
+            End If
+        End Get
+    End Property
+
+    Private _mobType As Byte
+    ''' <summary>
+    ''' Mobs type 
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks>0=PC 1=NPC 2=MOB 3=Other</remarks>
+    Public ReadOnly Property MobType() As Byte
+        Get
+            If _dataPreLoaded Then
+                Return MobBlock(MobOffsets.MobType)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.MobType
+                Return MemoryObject.GetByte
+            End If
+        End Get
+    End Property
+
+    Private _race As Byte
+    ''' <summary>
+    ''' Mobs race
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Race() As Byte
+        Get
+            'Return _race
+            Return MobBlock(MobOffsets.Race)
+            'MemoryObject.Address = MobBase + MobOffsets.Race
+            'Return MemoryObject.GetByte
+        End Get
+        Set(ByVal value As Byte)
+            MemoryObject.Address = MobBase + MobOffsets.Race
+            MemoryObject.SetByte(value)
+        End Set
+    End Property
+
+    Private _attackTimer As Byte
+    ''' <summary>
+    ''' Mobs attack timer
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks>This is the countdown until the next swing of the mob</remarks>
+    Public ReadOnly Property AttackTimer() As Byte
+        Get
+            'Return _attackTimer
+            Return MobBlock(MobOffsets.AttackTimer)
+            'MemoryObject.Address = MobBase + MobOffsets.AttackTimer
+            'Return MemoryObject.GetByte
+        End Get
+    End Property
+
+    Private _fade As Byte
+    ''' <summary>
+    ''' Mobs fade value
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks>Not entirely sure what this is used for, more research is needed</remarks>
+    Public Property Fade() As Byte
+        Get
+            'Return _fade
+            Return MobBlock(MobOffsets.Fade)
+            'MemoryObject.Address = MobBase + MobOffsets.Fade
+            'Return MemoryObject.GetByte
+        End Get
+        Set(ByVal value As Byte)
+            MemoryObject.Address = MobBase + MobOffsets.Fade
+            MemoryObject.SetByte(value)
+        End Set
+    End Property
+
+    Private _hair As Short
+    ''' <summary>
+    ''' Mobs hair value
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Hair() As Short
+        Get
+            'Return _hair
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.Hair)
+            'MemoryObject.Address = MobBase + MobOffsets.Hair
+            'Return MemoryObject.GetShort()
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.Hair
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _head As Short
+    ''' <summary>
+    ''' Mobs head armor
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Head() As Short
+        Get
+            'Return _head
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.Head)
+            'MemoryObject.Address = MobBase + MobOffsets.Head
+            'Return MemoryObject.GetShort
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.Head
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _body As Short
+    ''' <summary>
+    ''' Mobs body armor
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Body() As Short
+        Get
+            'Return _body
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.Body)
+            'MemoryObject.Address = MobBase + MobOffsets.Body
+            'Return MemoryObject.GetShort
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.Body
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _hands As Short
+    ''' <summary>
+    ''' Mobs hand armor
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Hands() As Short
+        Get
+            'Return _hands
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.Hands)
+            'MemoryObject.Address = MobBase + MobOffsets.Hands
+            'Return MemoryObject.GetShort
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.Hands
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _legs As Short
+    ''' <summary>
+    ''' Mobs leg armor
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Legs() As Short
+        Get
+            'Return _legs
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.Legs)
+            'MemoryObject.Address = MobBase + MobOffsets.Legs
+            'Return MemoryObject.GetShort
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.Legs
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _feet As Short
+    ''' <summary>
+    ''' Mobs feet armor
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Feet() As Short
+        Get
+            'Return _feet
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.Feet)
+            'MemoryObject.Address = MobBase + MobOffsets.Feet
+            'Return MemoryObject.GetShort
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.Feet
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _mainWeapon As Short
+    ''' <summary>
+    ''' Mobs main weapon
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property MainWeapon() As Short
+        Get
+            'Return _mainWeapon
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.MainWeapon)
+            'MemoryObject.Address = MobBase + MobOffsets.MainWeapon
+            'Return MemoryObject.GetShort
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.MainWeapon
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _subWeapon As Short
+    ''' <summary>
+    ''' Mobs sub weapon
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property SubWeapon() As Short
+        Get
+            'Return _subWeapon
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.SubWeapon)
+            'MemoryObject.Address = MobBase + MobOffsets.SubWeapon
+            'Return MemoryObject.GetShort
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.SubWeapon
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _pIcon As Byte
+    ''' <summary>
+    ''' Mobs player icon
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property PIcon() As Byte
+        Get
+            If _dataPreLoaded Then
+                Return MobBlock(MobOffsets.PIcon)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.PIcon
+                Return MemoryObject.GetByte
+            End If
+        End Get
+        Set(ByVal value As Byte)
+            MemoryObject.Address = MobBase + MobOffsets.PIcon
+            MemoryObject.SetByte(value)
+        End Set
+    End Property
+
+    Private _gIcon As Short
+    ''' <summary>
+    ''' Mobs GM Icon
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property GIcon() As Short
+        Get
+            'Return _gIcon
+            Return BitConverter.ToInt16(MobBlock, MobOffsets.GIcon)
+            'MemoryObject.Address = MobBase + MobOffsets.GIcon
+            'Return MemoryObject.GetShort
+        End Get
+        Set(ByVal value As Short)
+            MemoryObject.Address = MobBase + MobOffsets.GIcon
+            MemoryObject.SetShort(value)
+        End Set
+    End Property
+
+    Private _speed As Single
+    ''' <summary>
+    ''' Mobs speed
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Speed() As Single
+        Get
+            'Return _speed
+            Return BitConverter.ToSingle(MobBlock, MobOffsets.Speed)
+            'MemoryObject.Address = MobBase + MobOffsets.Speed
+            'Return MemoryObject.GetFloat
+        End Get
+        Set(ByVal value As Single)
+            MemoryObject.Address = MobBase + MobOffsets.Speed
+            MemoryObject.SetFloat(value)
+        End Set
+    End Property
+
+    Private _status As Integer
+    ''' <summary>
+    ''' Mobs status
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Status() As Integer
+        Get
+            'Return _status
+            Return BitConverter.ToInt32(MobBlock, MobOffsets.Status)
+            'MemoryObject.Address = MobBase + MobOffsets.Status
+            'Return MemoryObject.GetInt32
+        End Get
+        Set(ByVal value As Integer)
+            MemoryObject.Address = MobBase + MobOffsets.Status
+            MemoryObject.SetInt32(value)
+        End Set
+    End Property
+
+    Private _status2 As Integer
+    ''' <summary>
+    ''' Mobs status2
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Status2() As Integer
+        Get
+            'Return _status2
+            'MemoryObject.Address = MobBase + MobOffsets.Status2
+            'Return MemoryObject.GetInt32
+        End Get
+        Set(ByVal value As Integer)
+            MemoryObject.Address = MobBase + MobOffsets.Status2
+            MemoryObject.SetInt32(value)
+        End Set
+    End Property
+
+    Private _claimedBy As Integer
+    ''' <summary>
+    ''' ServerId of the player that has the mob claimed
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property ClaimedBy() As Integer
+        Get
+            If _dataPreLoaded Then
+                Return BitConverter.ToInt32(MobBlock, MobOffsets.ClaimedBy)
+            Else
+                MemoryObject.Address = MobBase + MobOffsets.ClaimedBy
+                Return MemoryObject.GetInt32
+            End If
+
+        End Get
+    End Property
+
+    Private _petIndex As Short
+    ''' <summary>
+    ''' Mobs pet index
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property PetIndex() As Short
+        Get
+            'Return _petIndex
+            'MemoryObject.Address = MobBase + MobOffsets.PetIndex
+            'Return MemoryObject.GetShort
+        End Get
+    End Property
+#End Region
+
+#Region " MAP PROPERTIES "
+    Private _xDistance As Single
+    ''' <summary>
+    ''' The X Distance of the mob in relation to my position on the radar
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property XDistance() As Single
+        Get
+            Return _xDistance
+        End Get
+        Set(ByVal value As Single)
+            _xDistance = value
+        End Set
+    End Property
+
+    Private _yDistance As Single
+    ''' <summary>
+    ''' The Y Distance of the mob in relation to my position on the radar
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property YDistance() As Single
+        Get
+            Return _yDistance
+        End Get
+        Set(ByVal value As Single)
+            _yDistance = value
+        End Set
+    End Property
+
+    Private _zDistance As Single
+    ''' <summary>
+    ''' The Z Distance of the mob in relation to my position on the radar
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Property ZDistance() As Single
+        Get
+            Return _zDistance
+        End Get
+        Set(ByVal value As Single)
+            _zDistance = value
+        End Set
+    End Property
+
+    Private _degrees As Single
+    ''' <summary>
+    ''' The mobs degree rotation on the radar from 0 and in relation to my direction
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Degrees() As Single
+        Get
+            Return _degrees
+        End Get
+        Set(ByVal value As Single)
+            _degrees = value
+        End Set
+    End Property
+
+    Private _radius As Single
+    ''' <summary>
+    ''' The radius of the mobs rotation circle on the radar
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Radius() As Single
+        Get
+            Return _radius
+        End Get
+        Set(ByVal value As Single)
+            _radius = value
+        End Set
+    End Property
+
+    Private _mapX As Single
+    ''' <summary>
+    ''' The mobs X position on the radar
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property MapX() As Single
+        Get
+            Return _mapX
+        End Get
+        Set(ByVal value As Single)
+            _mapX = value
+        End Set
+    End Property
+
+    Private _mapY As Single
+    ''' <summary>
+    ''' the mobs Y position on the radar
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property MapY() As Single
+        Get
+            Return _mapY
+        End Get
+        Set(ByVal value As Single)
+            _mapY = value
+        End Set
+    End Property
+#End Region
+
+#Region " DISPLAY PROPERTIES "
+    Public Property DisplayMob As Boolean
+
+    Public Property MobIsDead As Boolean
+
+    Public Property IsFilteredOut As Boolean
+
+#End Region
+
+#Region " PRIVATE METHODS "
+    Private Sub LoadData()
+        'If _isPacket Then
+        '    _x = _mobPacket.X
+        '    _y = _mobPacket.Y
+        '    _z = _mobPacket.Z
+        '    _direction = _mobPacket.Direction
+        '    _hp = _mobPacket.HP
+        '    _id = _mobPacket.ID
+        '    _serverID = _mobPacket.ServerID
+        '    _mobType = MobTypes.NPC
+        '    _name = _zones.GetMobName(_mapID, _mobPacket.ServerID)
+        '    _warpInfo = 100
+        'Else
+        _lastX = BitConverter.ToSingle(MobBlock, MobOffsets.LastX)
+        _lastY = BitConverter.ToSingle(MobBlock, MobOffsets.LastY)
+        _lastZ = BitConverter.ToSingle(MobBlock, MobOffsets.LastZ)
+        _lastDirection = BitConverter.ToSingle(MobBlock, MobOffsets.LastDirection)
+        _x = BitConverter.ToSingle(MobBlock, MobOffsets.X)
+        _y = BitConverter.ToSingle(MobBlock, MobOffsets.Y)
+        _z = BitConverter.ToSingle(MobBlock, MobOffsets.Z)
+        _direction = BitConverter.ToSingle(MobBlock, MobOffsets.Direction)
+        _id = BitConverter.ToInt32(MobBlock, MobOffsets.ID)
+        _serverID = BitConverter.ToInt32(MobBlock, MobOffsets.ServerID)
+        For i As Integer = MobOffsets.Name To MobBlock.Length - 1
+            If MobBlock(i) = 0 Then
+                _name = System.Text.Encoding.Default.GetString(MobBlock, MobOffsets.Name, i - MobOffsets.Name)
+                Exit For
+            End If
+        Next
+        _warpInfo = BitConverter.ToInt32(MobBlock, MobOffsets.WarpInfo)
+        _distance = Math.Sqrt(BitConverter.ToSingle(MobBlock, MobOffsets.Distance))
+        _tp = BitConverter.ToInt16(MobBlock, MobOffsets.TP)
+        _hp = MobBlock(MobOffsets.HP)
+        If MobBlock(MobOffsets.MobType) > 0 Then
+            _mobType = MobTypes.NPC
+        Else
+            _mobType = MobTypes.PC
+        End If
+        _race = MobBlock(MobOffsets.Race)
+        _attackTimer = MobBlock(MobOffsets.AttackTimer)
+        _fade = MobBlock(MobOffsets.Fade)
+        _hair = BitConverter.ToInt16(MobBlock, MobOffsets.Hair)
+        _head = BitConverter.ToInt16(MobBlock, MobOffsets.Head)
+        _body = BitConverter.ToInt16(MobBlock, MobOffsets.Body)
+        _hands = BitConverter.ToInt16(MobBlock, MobOffsets.Hands)
+        _legs = BitConverter.ToInt16(MobBlock, MobOffsets.Legs)
+        _feet = BitConverter.ToInt16(MobBlock, MobOffsets.Feet)
+        _mainWeapon = BitConverter.ToInt16(MobBlock, MobOffsets.MainWeapon)
+        _subWeapon = BitConverter.ToInt16(MobBlock, MobOffsets.SubWeapon)
+        _pIcon = MobBlock(MobOffsets.PIcon)
+        _gIcon = BitConverter.ToInt16(MobBlock, MobOffsets.GIcon)
+        _speed = BitConverter.ToSingle(MobBlock, MobOffsets.Speed)
+        _status = BitConverter.ToInt32(MobBlock, MobOffsets.Status)
+        _status2 = BitConverter.ToInt32(MobBlock, MobOffsets.Status2)
+        _claimedBy = BitConverter.ToInt32(MobBlock, MobOffsets.ClaimedBy)
+        _petIndex = BitConverter.ToInt16(MobBlock, MobOffsets.PetIndex)
+        'End If
+    End Sub
+
+    Private Function GetDistance(ByVal ReferencePoint As Point, ByVal MobLocation As Point) As Single
+        Return Math.Sqrt((MobLocation.X - ReferencePoint.X) ^ 2 + (MobLocation.Y - ReferencePoint.Y) ^ 2)
+    End Function
+
+
+#End Region
+End Class

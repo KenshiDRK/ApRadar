@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B4C4527-2086-4C63-95DA-E5827FDD9CF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FFXIMemory</RootNamespace>
+    <AssemblyName>FFXIMemory</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>FFXIMemory.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>FFXIMemory.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\FFXI.vb" />
+    <Compile Include="Classes\FFXIEncoding.vb" />
+    <Compile Include="Classes\FFXIEncryption.vb" />
+    <Compile Include="Classes\FFXIResourceManager.vb" />
+    <Compile Include="Classes\Graphic.vb" />
+    <Compile Include="Classes\Item.vb" />
+    <Compile Include="Classes\NM.vb" />
+    <Compile Include="Classes\Serializer.vb" />
+    <Compile Include="Classes\Thing.vb" />
+    <Compile Include="Classes\Watcher.vb" />
+    <Compile Include="Enums.vb" />
+    <Compile Include="Interfaces\IItem.vb" />
+    <Compile Include="Interfaces\IWatcher.vb" />
+    <Compile Include="Classes\MemoryScanner.vb" />
+    <Compile Include="Classes\MobData.vb" />
+    <Compile Include="Classes\MobList.vb" />
+    <Compile Include="Classes\ZoneMobs.vb" />
+    <Compile Include="Classes\Zones.vb" />
+    <Compile Include="Classes\generic.vb" />
+    <Compile Include="Classes\MemLocs.vb" />
+    <Compile Include="Classes\Memory.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Classes\WindowsAPI.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConversionTables\00xx.dat" />
+    <EmbeddedResource Include="ConversionTables\81xx.dat" />
+    <EmbeddedResource Include="ConversionTables\82xx.dat" />
+    <EmbeddedResource Include="ConversionTables\83xx.dat" />
+    <EmbeddedResource Include="ConversionTables\84xx.dat" />
+    <EmbeddedResource Include="ConversionTables\85xx.dat" />
+    <EmbeddedResource Include="ConversionTables\86xx.dat" />
+    <EmbeddedResource Include="ConversionTables\87xx.dat" />
+    <EmbeddedResource Include="ConversionTables\88xx.dat" />
+    <EmbeddedResource Include="ConversionTables\89xx.dat" />
+    <EmbeddedResource Include="ConversionTables\8Axx.dat" />
+    <EmbeddedResource Include="ConversionTables\8Bxx.dat" />
+    <EmbeddedResource Include="ConversionTables\8Cxx.dat" />
+    <EmbeddedResource Include="ConversionTables\8Dxx.dat" />
+    <EmbeddedResource Include="ConversionTables\8Exx.dat" />
+    <EmbeddedResource Include="ConversionTables\8Fxx.dat" />
+    <EmbeddedResource Include="ConversionTables\90xx.dat" />
+    <EmbeddedResource Include="ConversionTables\91xx.dat" />
+    <EmbeddedResource Include="ConversionTables\92xx.dat" />
+    <EmbeddedResource Include="ConversionTables\93xx.dat" />
+    <EmbeddedResource Include="ConversionTables\94xx.dat" />
+    <EmbeddedResource Include="ConversionTables\95xx.dat" />
+    <EmbeddedResource Include="ConversionTables\96xx.dat" />
+    <EmbeddedResource Include="ConversionTables\97xx.dat" />
+    <EmbeddedResource Include="ConversionTables\98xx.dat" />
+    <EmbeddedResource Include="ConversionTables\99xx.dat" />
+    <EmbeddedResource Include="ConversionTables\9Axx.dat" />
+    <EmbeddedResource Include="ConversionTables\9Bxx.dat" />
+    <EmbeddedResource Include="ConversionTables\9Cxx.dat" />
+    <EmbeddedResource Include="ConversionTables\9Dxx.dat" />
+    <EmbeddedResource Include="ConversionTables\9Exx.dat" />
+    <EmbeddedResource Include="ConversionTables\9Fxx.dat" />
+    <EmbeddedResource Include="ConversionTables\E0xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E1xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E2xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E3xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E4xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E5xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E6xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E7xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E8xx.dat" />
+    <EmbeddedResource Include="ConversionTables\E9xx.dat" />
+    <EmbeddedResource Include="ConversionTables\EAxx.dat" />
+    <EmbeddedResource Include="ConversionTables\EBxx.dat" />
+    <EmbeddedResource Include="ConversionTables\ECxx.dat" />
+    <EmbeddedResource Include="ConversionTables\EDxx.dat" />
+    <EmbeddedResource Include="ConversionTables\EExx.dat" />
+    <EmbeddedResource Include="ConversionTables\EFxx.dat" />
+    <EmbeddedResource Include="ConversionTables\F0xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F1xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F2xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F3xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F4xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F5xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F6xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F7xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F8xx.dat" />
+    <EmbeddedResource Include="ConversionTables\F9xx.dat" />
+    <EmbeddedResource Include="ConversionTables\FAxx.dat" />
+    <EmbeddedResource Include="ConversionTables\FBxx.dat" />
+    <EmbeddedResource Include="ConversionTables\FCxx.dat" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\ZoneList.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\NotoriousMonsters.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
