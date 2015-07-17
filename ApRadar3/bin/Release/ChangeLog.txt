@@ -1,0 +1,108 @@
+﻿ApRadar 3 ©2006-2010 ApneaSoft All rights reserved.
+
+Notes
+Map Radar
+
+Zooming: 
+To zoom in the mapped radar, hold shift and use the mouse wheel 
+OR
+use Page Up and Page Down
+(Page Up and Page Down will increment the zoom byt 0.25, holding the shift key while pressing Page Up or Page Down will increment the zoom level by 1)
+
+To reset the zoom level to 1, click the Home key while the Map Radar has focus.
+
+Changelog
+3.0.0.38
+- Fixed bug in the filters where only the first ID was being applied
+
+3.0.0.37
+- Fixed bug in camping mode that was preventing the TOD's from saving and displaying correctly on the next load.
+
+3.0.0.34 - 3.0.0.36
+- Fixed issue where nyzul isle lamps were not displaying correctly for pro users.
+- Fixed bug in Map Radar that was causing the map to not display.
+
+3.0.0.33
+- Updated downloader to download the new map packs as a zip file to increase download speeds and lower bandwidth usage
+
+3.0.0.31 - 3.0.0.32
+- Fixed bug in Camped mob timers where they were inaccurately showing the time
+- Fixed radars to correctly apply the smoothig mode, text rendering and compositions quality on startup
+- Added ApRadar News RSS Reader to the ApBar
+- Added /nobar mode.  This will start ApRadar without the ApBar.  All controls are done from the tray icon
+  The Nobar launcher is included in the All Programs folder.
+
+3.0.0.30
+- Added Item searching to chat.  Type /check <ItemName> or /c <ItemName> and chat will return you the latest sale infro from FFXIAH for your server.  You can set your server in the main ApRadar settings panel.
+- Fixed bug in Mapped Radar where it was not finding the maps directory properly
+- Added ability to remove header bar information from the overlay radar
+- Updates for the configuration to support new features coming in ApRadar 3.1
+
+3.0.0.27 - 3.0.0.29
+- Updates to Chat. Added channels.  Users can now define public or private channels.
+
+3.0.0.25 - 3.0.0.26
+- Fixed Camping mode
+- Added ApRadar Chat channel. Chat with other ApRadar users directly from ApRadar. This is still in beta and is only available to pro subscribers at this time.  After some more field testing I will release to all users.  You will require an aprada forums account in order to log into ApRadar chat.
+
+3.0.0.24
+- Addresses issue with Map Updater
+
+3.0.0.19 - 3.0.0.20
+- Camping mode is now enabled form the menu in the bar.
+- Added a setting to automatically start in camping mode
+- both radars now have the option to show camped mobs
+- ToD browser was improved
+- Added the seconds to the ToD in the ToD browser
+- Camped mobs will now show in a light green (Setting will be added later to select the camped mob color (I was tired ))
+- Added a refresh button to the ToD browser to refresh the list without having to toggle between dead and all mobs
+- ToD browser will automatically select the current zone when opened
+
+3.0.0.18
+- Fixed a bug where certain maps were being displayed incorrectly.  Special thanks to Sean for pointing out this flaw.
+
+3.0.0.17
+- Fixed bug in camping mode.  Camped mobs will now properly save and are viewable in the ToD Browser.  The Browser will not update in real time, but will update when you change or reselect the zone.
+- Fixed bug in Overlay Radar that was causing the FPS hit.  Should only see a minimal affect on fps now.
+- Added complete bar menu to the notify icon.  Radars can now be launched from the icon
+- Added feature: will now save your open radars when closing.  Any radars that are open when you close the application will be reopened when you restart ApRadar
+
+3.0.0.16
+- Fixed bug where the radar was moving to the back when you selected it
+- Fixed bug where the app bar would end up hidden behind ffxi when running in full screen
+
+3.0.0.15
+- Added feature to disable topmost for radars when ffxi is not in focus
+
+3.0.0.14
+- Fixed bug in MapRadar where certain settings were not being saved.  Font, Position, Transparency and show filter panel will now save.  
+- Fixed filters to properly filter by any part of the mob or pc name
+- Fixed NM Color selection in map radar
+- Fixed filter panel to keep it on top when stay on top is selected in the map radar
+- Overlay radar will now save the font
+- Fixed the docking to properly work on pcs with dual monitor displays
+- Added setting to auto save radar settings on close. This will save the radar's last state to the default settings file when you close the radar.
+
+3.0.0.13
+- Fixed some bugs in the core code.
+
+3.0.0.12
+- Added Theme support and 3 default themes. Theme support has introduced the ability to dock on the top or bottom of the screen. (for a tutorial on how to create your own theme, or to post your theme for others to use, visit http://forums.apradar.com)
+- Fixed bug in map radar where certain settings were not being saved
+  Now the On Top, Show Filter Panel, Disbale Dragging, Disable Docking and Click Through settings will be saved properly
+- Added the ability to zoom in the map radar without the mouse.  Now you can zoome with the mouse or by using Page Up and Page Down. To Reset the zoom level use Home
+- Fixed regex filters
+- Improvements to the bar module to support faster docking and dual monitor support.
+
+3.0.0.10 - 3.0.0.11
+- Auto update feature fixed
+- minor UI and other udpates
+
+3.0.0.1 - 3.0.0.9
+- Maintenance release to address the auto update issue
+
+3.0.0.0
+- Initial release
+
+
+  
