@@ -1,0 +1,624 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+FFXIMemory
+</name>
+</assembly>
+<members>
+<member name="P:FFXIMemory.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:FFXIMemory.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:FFXIMemory.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:FFXIMemory.Memory.FindProcess(System.String)">
+	<summary>
+ Finds the first instance of a process by it's name
+ </summary>
+	<param name="pName">The name of the process</param>
+	<returns>Process object</returns>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.Memory.GetModule(System.String,System.Diagnostics.Process)">
+	<summary>
+ Gets a specified Process Module from a process by its name
+ </summary>
+	<param name="ModuleName">The module name</param>
+	<param name="ProcessInstance">The process to search</param>
+	<returns>Process Module</returns>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.Memory.GetModuleEndAddress(System.String,System.Diagnostics.Process)">
+	<summary>
+ Gets the end address of the specifed process module
+ </summary>
+	<param name="ModuleName">The module name</param>
+	<param name="ProcessInstance">The process to search</param>
+	<returns>The end point of the specified module</returns>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.Memory.getBaseAddress(System.Diagnostics.Process,System.String)">
+	<summary>
+ Gets the base address of the specified process module
+ </summary>
+	<param name="ProcessInstance">The proces instance to search</param>
+	<param name="ModuleName">The name of the module</param>
+	<remarks></remarks>
+</member><member name="T:FFXIMemory.ZoneMobs">
+	<summary>
+ Mob Data - String binding class
+ </summary>
+</member><member name="M:FFXIMemory.MobList.ToClonedArray">
+	<summary>
+ Creates a shallow copied array of the mobs in the list
+ </summary>
+	<returns>Array of MobData</returns>
+	<remarks></remarks>
+</member><member name="T:FFXIMemory.MobData.SpawnTypes">
+	<summary>
+ This is the type of model it is.  This is a bitflag so it can me a combination of many.
+ </summary>
+	<remarks>This may come in quite handy</remarks>
+</member><member name="T:FFXIMemory.MobData.MobInfo">
+	<summary>
+ Mob structure
+ </summary>
+</member><member name="P:FFXIMemory.MobData.MemoryObject">
+	<summary>
+ The memory object used to get the data for this mob
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.MobBase">
+	<summary>
+ The base address of the mobs structure
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.POL">
+	<summary>
+ The POL process to use for getting the mob data
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.LastX">
+	<summary>
+ Mobs last x coordinate
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.LastY">
+	<summary>
+ Mobs last Y coordinate
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.LastZ">
+	<summary>
+ mobs last Z coordinate
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.LastDirection">
+	<summary>
+ Mobs last direction
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.X">
+	<summary>
+ Mobs current x coordinate
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Y">
+	<summary>
+ Mobs current Y coordinate
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Z">
+	<summary>
+ Mobs current Z coordinate
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Direction">
+	<summary>
+ Mobs current Direction
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.ID">
+	<summary>
+ Mobs array ID
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.ServerID">
+	<summary>
+ Mobs Server ID
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Name">
+	<summary>
+ Mobs name
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.WarpInfo">
+	<summary>
+ Pointer to mobs warp structure
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Distance">
+	<summary>
+ Mobs distance from my position
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.TP">
+	<summary>
+ Mobs current tp percent
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.HP">
+	<summary>
+ Mobs current HP percent
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.MobType">
+	<summary>
+ Mobs type 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>0=PC 1=NPC 2=MOB 3=Other</remarks>
+</member><member name="P:FFXIMemory.MobData.Race">
+	<summary>
+ Mobs race
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.AttackTimer">
+	<summary>
+ Mobs attack timer
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>This is the countdown until the next swing of the mob</remarks>
+</member><member name="P:FFXIMemory.MobData.Face">
+	<summary>
+ Mobs fade value
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>Not entirely sure what this is used for, more research is needed</remarks>
+</member><member name="P:FFXIMemory.MobData.Hair">
+	<summary>
+ Mobs hair value
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Head">
+	<summary>
+ Mobs head armor
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Body">
+	<summary>
+ Mobs body armor
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Hands">
+	<summary>
+ Mobs hand armor
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Legs">
+	<summary>
+ Mobs leg armor
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Feet">
+	<summary>
+ Mobs feet armor
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.MainWeapon">
+	<summary>
+ Mobs main weapon
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.SubWeapon">
+	<summary>
+ Mobs sub weapon
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.PIcon">
+	<summary>
+ Mobs player icon
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.GIcon">
+	<summary>
+ Mobs GM Icon
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Speed">
+	<summary>
+ Mobs speed
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Status">
+	<summary>
+ Mobs status
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Status2">
+	<summary>
+ Mobs status2
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.ClaimedBy">
+	<summary>
+ ServerId of the player that has the mob claimed
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.PetIndex">
+	<summary>
+ Mobs pet index
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.XDistance">
+	<summary>
+ The X Distance of the mob in relation to my position on the radar
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.YDistance">
+	<summary>
+ The Y Distance of the mob in relation to my position on the radar
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.ZDistance">
+	<summary>
+ The Z Distance of the mob in relation to my position on the radar
+ </summary>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Degrees">
+	<summary>
+ The mobs degree rotation on the radar from 0 and in relation to my direction
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.Radius">
+	<summary>
+ The radius of the mobs rotation circle on the radar
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.MapX">
+	<summary>
+ The mobs X position on the radar
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MobData.MapY">
+	<summary>
+ the mobs Y position on the radar
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:FFXIMemory.MemoryScanner.ChatLine">
+	<summary>
+ Structure of the chatline
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FFXIMemory.MemoryScanner.ThreadItems">
+	<summary>
+ Unused atm
+ </summary>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.Scanner">
+	<summary>
+ Singleton property
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.IsGameLoaded">
+	<summary>
+ Checks to see if the game object has been initiated and that the game is running
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.FFXI">
+	<summary>
+ FFXI Property object
+ This holds the process info and memory locations 
+ and various game info
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.MyID">
+	<summary>
+ My current Zone ID
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.TargetID">
+	<summary>
+ The Id of my current target
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.CurrentMap">
+	<summary>
+ The id of the current map
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.IsRunning">
+	<summary>
+ Boolean used to determine if the scanner is currently 
+ running and scanning memory
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.AttachedWatcherTypes">
+	<summary>
+ The different watcher types that are attached
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.RefreshRate">
+	<summary>
+ The scanning rate interval.  The default is 200 ms
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>Anything less than 10 causes ridiculous memory consumption 
+ and therefore is dropped and 10 is the minimum set vaule.  100ms is 
+ an ideal interval for smooth movement and low memory consumption</remarks>
+</member><member name="T:FFXIMemory.MemoryScanner.ChatOffsets">
+	<summary>
+ Enumeration to hold the chat offset positions
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.AttachWatcher(FFXIMemory.Watcher)">
+	<summary>
+ Attaches a watcher to the scanners event queue
+ </summary>
+	<param name="watcher">The watcher to attach to the event queue</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.DetachWatcher(FFXIMemory.Watcher)">
+	<summary>
+ Detaches a watcher from the event queue
+ </summary>
+	<param name="watcher">The watcher to detach</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.EndScanning">
+	<summary>
+ Ends the scanning and detaches all watchers
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.CleanUpString(System.Byte[],System.String,FFXIMemory.MemoryScanner.ChatLine)">
+	<summary>
+ Cleans up the Linetext from the chatlog, removing any strange or unknown characters
+ </summary>
+	<param name="bytes">The bytes to perform clean up on</param>
+	<param name="ChatType">The chat line type</param>
+	<param name="li">the chatline structure</param>
+	<returns>String</returns>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.ConvertToJPText(System.String)">
+	<summary>
+ Converts a string to Shift-JIS format
+ </summary>
+	<param name="source">The source string to convert</param>
+	<returns>A string in Shift-JIS format</returns>
+	<remarks>This only works if the user has support for far eastern languages installed</remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.Watcher_TypeChanged(FFXIMemory.MemoryScanner.WatcherTypes)">
+	<summary>
+ Event handler for attached watchers TypeChanged event
+ </summary>
+	<param name="NewType">The new type that the watcher is using</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner._mobs_StatusChanged(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
+	<summary>
+ EventHandler for the MobList Mob StatusChanged Event.
+ </summary>
+	<param name="Mob">The Mob Object</param>
+	<param name="Status">The new status</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.NotifyMobListUpdated(FFXIMemory.MobList)">
+	<summary>
+ Method to notify all attached watchers that want it of an update to the Mob list
+ </summary>
+	<param name="Mobs">The updated mob list</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.NotifyMobStatusChanged(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
+	<summary>
+ Method to notify all attached watchers that want it of an update to a mobs status
+ </summary>
+	<param name="Mob">The mob object</param>
+	<param name="Status">The new status (Alive, Dead, OutOfRange)</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.NotifyZoneChanged(System.Int16,System.Int16)">
+	<summary>
+ Method to notify all attached watchers that the current zone has changed
+ </summary>
+	<param name="LastZone">The previous zone</param>
+	<param name="NewZone">The new zone</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner._timer_elapsed(System.Object,System.Timers.ElapsedEventArgs)">
+	<summary>
+ Handler for the timer elapsed event
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.ScanningThread">
+	<summary>
+ Method for scanning memory in the background
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FFXIMemory.MemoryScanner">
+	<summary>
+ Observer Pattern memory scanning implementation
+ </summary>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.IItem.TypeName">
+	<summary>Gets a name for this type of IThing.</summary>
+</member><member name="M:FFXIMemory.IItem.GetAllFields">
+	<summary>
+ Returns the full list of fields that can be supported by this IThing, with the guarantee that
+ no instance of this class will ever contain a field that is not in this list.
+ </summary>
+	<returns>A list of field names.</returns>
+</member><member name="M:FFXIMemory.IItem.GetFields">
+	<summary>
+ Returns the list of fields supported by this IThing instance.
+ </summary>
+	<returns>A list of field names.</returns>
+</member><member name="M:FFXIMemory.IItem.HasField(System.String)">
+	<summary>
+ Checks whether or not a field with the given name is available.
+ </summary>
+	<param name="Field">The name of the field to check.</param>
+	<returns>true if the field is available, false otherwise.</returns>
+</member><member name="M:FFXIMemory.IItem.GetFieldName(System.String)">
+	<summary>
+ Returns a descriptive name for the given field (suitable for use as label, for example).
+ </summary>
+	<param name="Field">The (internal) name of the field.</param>
+	<returns>The field's descriptive name.</returns>
+</member><member name="M:FFXIMemory.IItem.GetFieldText(System.String)">
+	<summary>
+ Returns the value of the given field in text form.
+ </summary>
+	<param name="Field">The name of the field.</param>
+	<returns>The field's value in text form.</returns>
+</member><member name="M:FFXIMemory.IItem.GetFieldValue(System.String)">
+	<summary>
+ Returns the value of the given field.
+ </summary>
+	<param name="Field">The name of the field.</param>
+	<returns>The field's value.</returns>
+</member><member name="M:FFXIMemory.IItem.Clear">
+	<summary>
+ Clears all fields of this IThing.
+ </summary>
+</member><member name="M:FFXIMemory.IItem.GetIcon">
+	<summary>
+ Returns an image that can serve as an icon for this IThing.
+ </summary>
+	<returns>The icon image, or null if no such image is available.</returns>
+</member><member name="M:FFXIMemory.IItem.Load(System.Xml.XmlElement)">
+	<summary>
+ Fills this IThing based on the given XML representation.
+ </summary>
+	<param name="Node">The XML representation to load.</param>
+</member><member name="M:FFXIMemory.IItem.Save(System.Xml.XmlDocument)">
+	<summary>
+ Saves this IThing in XML form (suitable for later Load()).
+ </summary>
+	<param name="Document">The XML document to use as context for the created XML representation.</param>
+	<returns>The created XML representation of this IThing.</returns>
+</member><member name="M:FFXIMemory.Watcher.MobListUpdated(FFXIMemory.MobList)">
+	<summary>
+ IWatcher MoblistUpdated Implementation
+ </summary>
+	<param name="Mobs">The Updated mob list</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.Watcher.MobStatusUpdated(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
+	<summary>
+ IWatcher MobStatusUpdated Implementatin
+ </summary>
+	<param name="Mob">The mob who's status has changed</param>
+	<param name="Status">The mobs new status</param>
+	<remarks></remarks>
+</member><member name="F:FFXIMemory.Thing.IconField_">
+	<summary>
+ Helper field; if set, it will be used by GetIcon to find and return an icon image.
+ </summary>
+</member><member name="M:FFXIMemory.FFXI.GetInstallPath">
+	<summary>
+ Gets Playonline Installation Folder Path
+ </summary>
+	<returns></returns>
+</member>
+</members>
+</doc>
