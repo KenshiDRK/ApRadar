@@ -1,0 +1,188 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+DataLibrary
+</name>
+</assembly>
+<members>
+<member name="T:DataLibrary.NMList.NotoriousMonstersDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.NMList.NotoriousMonstersRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.NMList.NotoriousMonstersRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.NMList">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="P:DataLibrary.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:DataLibrary.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:DataLibrary.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.CampedMobsDataset">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ItemsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ItemsToMobsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.MobsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.PCDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.SynthsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ToDDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ItemsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ItemsToMobsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.MobsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.PCRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.SynthsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ToDRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ItemsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ItemsToMobsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.MobsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.PCRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.SynthsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet.ToDRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.ItemsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.ItemsToMobsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.MobsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.PCTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.SynthsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.ToDTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(DataLibrary.ApRadarDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(DataLibrary.ApRadarDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(DataLibrary.ApRadarDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager.UpdateAll(DataLibrary.ApRadarDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+</members>
+</doc>

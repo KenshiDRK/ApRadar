@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CampedMobsDataset" targetNamespace="http://tempuri.org/CampedMobsDataset.xsd" xmlns:mstns="http://tempuri.org/CampedMobsDataset.xsd" xmlns="http://tempuri.org/CampedMobsDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CampedMobsDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="CampedMobsDataset" msprop:Generator_DataSetName="CampedMobsDataset" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CampedMobs" msprop:Generator_UserTableName="CampedMobs" msprop:Generator_RowDeletedName="CampedMobsRowDeleted" msprop:Generator_RowChangedName="CampedMobsRowChanged" msprop:Generator_RowClassName="CampedMobsRow" msprop:Generator_RowChangingName="CampedMobsRowChanging" msprop:Generator_RowEvArgName="CampedMobsRowChangeEvent" msprop:Generator_RowEvHandlerName="CampedMobsRowChangeEventHandler" msprop:Generator_TableClassName="CampedMobsDataTable" msprop:Generator_TableVarName="tableCampedMobs" msprop:Generator_RowDeletingName="CampedMobsRowDeleting" msprop:Generator_TablePropName="CampedMobs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ServerID" msprop:Generator_UserColumnName="ServerID" msprop:Generator_ColumnVarNameInTable="columnServerID" msprop:Generator_ColumnPropNameInRow="ServerID" msprop:Generator_ColumnPropNameInTable="ServerIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:short" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IsDead" msprop:Generator_UserColumnName="IsDead" msprop:Generator_ColumnVarNameInTable="columnIsDead" msprop:Generator_ColumnPropNameInRow="IsDead" msprop:Generator_ColumnPropNameInTable="IsDeadColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Zone" msprop:Generator_UserColumnName="Zone" msprop:Generator_ColumnVarNameInTable="columnZone" msprop:Generator_ColumnPropNameInRow="Zone" msprop:Generator_ColumnPropNameInTable="ZoneColumn" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="DeathTime" msprop:Generator_UserColumnName="DeathTime" msprop:Generator_ColumnVarNameInTable="columnDeathTime" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="DeathTime" msprop:Generator_ColumnPropNameInTable="DeathTimeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
