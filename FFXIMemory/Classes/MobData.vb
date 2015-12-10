@@ -70,30 +70,30 @@ Public Class MobData
         '4 byte integer added 3/26/2013
         Distance = 216
         ' -8 bytes here
-        PetTP = 236
-        HP = 240
-        MobType = 243 '198
-        Race = 244 '199
-        AttackTimer = 245
-        Face = 250
-        Hair = 260 '7/12/11 Start of 4 byte shift (not sure what they added)
-        Head = 262
-        Body = 264
-        Hands = 266
-        Legs = 268
-        Feet = 270
-        MainWeapon = 272
-        SubWeapon = 274
+        PetTP = 234 ' erased pet tp on dec 2015 update?
+        HP = 236
+        MobType = 238 '198
+        Race = 239 '199
+        AttackTimer = 240
+        Face = 252
+        Hair = 252 '7/12/11 Start of 4 byte shift (not sure what they added)
+        Head = 254
+        Body = 256
+        Hands = 258
+        Legs = 260
+        Feet = 262
+        MainWeapon = 264
+        SubWeapon = 266
         '12/12/12 Shifted -4 after render somewhere between these 2
-        PIcon = 300
-        GIcon = 304
-        Speed = 352
-        Status = 368
-        Status2 = 372
-        ClaimedBy = 396 'Was 340
-        SpawnType = 460 'Was 400
-        PCTarget = 500
-        PetIndex = 502
+        PIcon = 292
+        GIcon = 296
+        Speed = 344
+        Status = 360
+        Status2 = 364
+        ClaimedBy = 388 'Was 340
+        SpawnType = 452 'Was 400
+        PCTarget = 492
+        PetIndex = 494
     End Enum
 
 
@@ -318,118 +318,118 @@ Public Class MobData
         Public Unk08 As Integer '224
         Public Heading As Single '228
         Public PetOwnderID As Integer '232
-        Public PetTP As Integer '236
-        Public HP_Percent As Byte '240
-        Public Unk09 As Byte '241
-        Public Unk10 As Byte '242
-        Public MobType As Byte '243
-        Public Race As Byte '244
-        Public AttackTimer As Byte '245
-        Public Unk11 As Short '246
-        Public Unk12 As Short '248
-        Public Fade As Byte '250
-        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=9)> _
-        Public Unk13 As Byte() '251
-        Public Hair As Short '260
-        Public Head As Short '262
-        Public Body As Short '264
-        Public Hands As Short '266
-        Public Legs As Short '268
-        Public Feet As Short '270
-        Public MainWeapon As Short '272
-        Public SubWeapon As Short '274
-        Public Ranged As Short '276
+        Public HP_Percent As Byte '236
+        Public Unk09 As Byte '237
+        Public MobType As Byte '238
+        Public Race As Byte '239
+        Public AttackTimer As Byte '240
+        Public Unk10 As Short '241
+        Public Unk11 As byte '243
+        Public Fade As Byte '244
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=7)> _
+        Public Unk13 As Byte() '245
+        Public Hair As Short '252
+        Public Head As Short '254
+        Public Body As Short '256
+        Public Hands As Short '258
+        Public Legs As Short '260
+        Public Feet As Short '262
+        Public MainWeapon As Short '264
+        Public SubWeapon As Short '266
+        Public Ranged As Short '268
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=14)> _
-        Public Unk14 As Byte() '278
-        Public ActionWaitTimer1 As Short '292
-        Public ActionWaitTimer2 As Short '294
-        Public Flags1 As Integer '296
-        Public pIcon As Integer '300
-        Public gIcon As Integer '304
-        Public Flags4 As Integer '308
-        Public Flags5 As Integer '312
-        Public Unk15 As Single '316
-        Public Unk16 As Integer '320
-        Public Unk17 As Short '324
-        Public Unk18 As Integer '326
-        Public NpcSpeechLoop As Short '330
-        Public NPCSpeechFrame As Short '332
+        Public Unk14 As Byte() '270
+        Public ActionWaitTimer1 As Short '284
+        Public ActionWaitTimer2 As Short '286
+        Public Flags1 As Integer '288
+        Public pIcon As Integer '292
+        Public gIcon As Integer '296
+        Public Flags4 As Integer '300
+        Public Flags5 As Integer '304
+        Public Unk15 As Single '308
+        Public Unk16 As Integer '312
+        Public Unk17 As Short '316
+        Public Unk18 As Integer '318
+        Public NpcSpeechLoop As Short '322
+        Public NPCSpeechFrame As Short '324
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=18)> _
-        Public Unk19 As Byte() '334
-        Public Speed As Single '352
-        Public NPCWalkPos1 As Short '356
-        Public NPCWalkPos2 As Short '358
-        Public NPCWalkMode As Short '360
-        Public CostumeID As Short '362
+        Public Unk19 As Byte() '326
+        Public Speed As Single '344
+        Public NPCWalkPos1 As Short '348
+        Public NPCWalkPos2 As Short '350
+        Public NPCWalkMode As Short '352
+        Public CostumeID As Short '354
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public mou4 As String '364
-        Public Status As Integer '368
-        Public Status2 As Integer '372
-        Public StatusNpcChat As Integer '376
-        Public Unk20 As Integer '380
-        Public Unk21 As Integer '384
-        Public Unk22 As Integer '388
-        Public Unk23 As Integer '392
-        Public ClaimedBy As Integer '396
-        Public Unk24 As Integer '400
+        Public mou4 As String '356
+        Public Status As Integer '360
+        Public Status2 As Integer '364
+        Public StatusNpcChat As Integer '368
+        Public Unk20 As Integer '372
+        Public Unk21 As Integer '376
+        Public Unk22 As Integer '380
+        Public Unk23 As Integer '384
+        Public ClaimedBy As Integer '388
+        Public Unk24 As Integer '392
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation1 As String '404
+        Public Animation1 As String '396
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation2 As String '408
+        Public Animation2 As String '400
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation3 As String '412
+        Public Animation3 As String '404
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation4 As String '416
+        Public Animation4 As String '408
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation5 As String '420
+        Public Animation5 As String '412
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation6 As String '424
+        Public Animation6 As String '416
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation7 As String '428
+        Public Animation7 As String '420
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation8 As String '432
+        Public Animation8 As String '424
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation9 As String '436
+        Public Animation9 As String '428
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation10 As String '440
-        Public AnimationTime As Short '444
-        Public AnimationStep As Short '446
-        Public AnimationPlay As Byte '448
-        Public Unk25 As Byte '449
-        Public Unk26 As Short '450
-        Public Unk27 As Short '452
-        Public Unk28 As Short '454
-        Public EmoteID As Integer '456
-        Public SpawnType As Integer '460
-        Public LSColorRed As Byte '464
-        Public LSColorGreen As Byte '465
-        Public LSColorBlue As Byte '466
-        Public LSUnk As Byte '467
-        Public NameColor As Short '468
+        Public Animation10 As String '432
+        Public AnimationTime As Short '436
+        Public AnimationStep As Short '438
+        Public AnimationPlay As Byte '440
+        Public Unk25 As Byte '441
+        Public Unk26 As Short '442
+        Public Unk27 As Short '444
+        Public Unk28 As Short '446
+        Public EmoteID As Integer '448
+        Public SpawnType As Integer '452
+        Public LSColorRed As Byte '456
+        Public LSColorGreen As Byte '457
+        Public LSColorBlue As Byte '458
+        Public LSUnk As Byte '459
+        Public NameColor As Short '460
         <MarshalAs(UnmanagedType.I1)> _
-        Public CampaignMode As Boolean '470
-        Public Unk29 As Byte '471
-        Public FishingTimer As Short '472
-        Public FishingCastTimer As Short '474
-        Public FishingUnknown0001 As Integer '476
-        Public FishingUnknown0002 As Integer '480
-        Public FishingUnknown0003 As Short '484
+        Public CampaignMode As Boolean '462
+        Public Unk29 As Byte '463
+        Public FishingTimer As Short '464
+        Public FishingCastTimer As Short '466
+        Public FishingUnknown0001 As Integer '468
+        Public FishingUnknown0002 As Integer '472
+        Public FishingUnknown0003 As Short '476
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=14)> _
-        Public Unk30 As Byte() '486
-        Public PCTarget As Short '500
-        Public PetIndex As Short '502
-        Public Unk31 As Short '504
-        Public Unk32 As Byte '506
-        Public BallistaScoreFlag As Byte '507
-        Public PankrationEnabled As Byte '508
-        Public PankrationFlagFlip As Byte '509
-        Public Unk33 As Short '510
-        Public ModelSize As Single '512
-        Public Unk34 As Integer '516
-        Public MonstrosityFlag As Short '520
-        Public Unk35 As Short '522
+        Public Unk30 As Byte() '478
+        Public PCTarget As Short '492
+        Public PetIndex As Short '494
+        Public Unk31 As Short '496
+        Public Unk32 As Byte '498
+        Public BallistaScoreFlag As Byte '499
+        Public PankrationEnabled As Byte '500
+        Public PankrationFlagFlip As Byte '501
+        Public Unk33 As Short '502
+        Public ModelSize As Single '504
+        Public Unk34 As Integer '508
+        Public Unk35 As Short '512
+        Public Unk36 As Short '514
+        Public MonstrosityFlag As Short '516
+        Public Unk37 As Short '518
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=36)> _
-        Public MonstrosityName As String '524
+        Public MonstrosityName As String '520
     End Structure
 
     'Biggest. Struct. Ever.
