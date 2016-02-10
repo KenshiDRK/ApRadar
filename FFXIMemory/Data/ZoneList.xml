@@ -868,15 +868,18 @@
     <!-- Unconfirmed! -->
   </zone>
   <zone name="Escha - Zi'Tha" id="732">
-    <!-- Unconfirmed! -->
+    <dat>\Rom\332\99.DAT</dat>
   </zone>
   <zone name="Escha - Ru'Aun" id="733">
-    <!-- Unconfirmed! -->
+    <dat>\Rom\337\59.DAT</dat>
   </zone>
   <zone name="Desuetia - Empyreal Paradox" id="734">
     <!-- Unconfirmed! -->
   </zone>
   <zone name="Reisenjima" id="735">
+    <dat>\Rom\342\73.DAT</dat>
+  </zone>
+  <zone name="Reisenjima Henge" id="736">
     <!-- Unconfirmed! -->
   </zone>
   <zone name="Reisenjima Sanctorium" id="737">

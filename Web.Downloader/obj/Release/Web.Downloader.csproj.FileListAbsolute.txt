@@ -1,6 +1,0 @@
-C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\bin\Release\Web.Downloader.dll.config
-C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\bin\Release\Web.Downloader.dll
-C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\bin\Release\Web.Downloader.pdb
-C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\obj\Release\Web.Downloader.csprojResolveAssemblyReference.cache
-C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\obj\Release\Web.Downloader.dll
-C:\Users\Jacinto\Desktop\ApRadar-master\Web.Downloader\obj\Release\Web.Downloader.pdb

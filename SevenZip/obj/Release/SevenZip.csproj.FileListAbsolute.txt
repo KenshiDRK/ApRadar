@@ -1,9 +1,0 @@
-C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\SevenZip\bin\Release\SevenZip.dll
-C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\SevenZip\bin\Release\SevenZip.pdb
-C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\SevenZip\obj\Release\ResolveAssemblyReference.cache
-C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\SevenZip\obj\Release\SevenZip.dll
-C:\Users\bhmahler\Documents\Visual Studio 2010\Projects\ApRadar3\SevenZip\obj\Release\SevenZip.pdb
-C:\Users\Jacinto\Desktop\ApRadar-master\SevenZip\bin\Release\SevenZip.dll
-C:\Users\Jacinto\Desktop\ApRadar-master\SevenZip\bin\Release\SevenZip.pdb
-C:\Users\Jacinto\Desktop\ApRadar-master\SevenZip\obj\Release\SevenZip.dll
-C:\Users\Jacinto\Desktop\ApRadar-master\SevenZip\obj\Release\SevenZip.pdb

@@ -1,9 +1,0 @@
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\bin\Release\FFXIMemory.dll
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\bin\Release\FFXIMemory.pdb
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\bin\Release\FFXIMemory.xml
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\obj\Release\FFXIMemory.vbprojResolveAssemblyReference.cache
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\obj\Release\FFXIMemory.Resources.resources
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\obj\Release\FFXIMemory.vbproj.GenerateResource.Cache
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\obj\Release\FFXIMemory.dll
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\obj\Release\FFXIMemory.xml
-C:\Users\Jacinto\Desktop\ApRadar-master\FFXIMemory\obj\Release\FFXIMemory.pdb

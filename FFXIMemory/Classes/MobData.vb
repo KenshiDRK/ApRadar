@@ -23,7 +23,7 @@ Public Class MobData
         _isPacket = False
         If PreloadData Then
             _dataPreLoaded = True
-            MobBlock = MemoryObject.GetByteArray(560)
+            MobBlock = MemoryObject.GetByteArray(564)
         End If
     End Sub
 #End Region
@@ -91,9 +91,9 @@ Public Class MobData
         Status = 360
         Status2 = 364
         ClaimedBy = 388 'Was 340
-        SpawnType = 452 'Was 400
-        PCTarget = 492
-        PetIndex = 494
+        SpawnType = 460 'Was 400
+        PCTarget = 500
+        PetIndex = 502
     End Enum
 
 
@@ -398,38 +398,40 @@ Public Class MobData
         Public Unk27 As Short '444
         Public Unk28 As Short '446
         Public EmoteID As Integer '448
-        Public SpawnType As Integer '452
-        Public LSColorRed As Byte '456
-        Public LSColorGreen As Byte '457
-        Public LSColorBlue As Byte '458
-        Public LSUnk As Byte '459
-        Public NameColor As Short '460
+        Public Unk29 As Integer '452
+        Public Unk30 As Integer '456
+        Public SpawnType As Integer '460
+        Public LSColorRed As Byte '464
+        Public LSColorGreen As Byte '465
+        Public LSColorBlue As Byte '466
+        Public LSUnk As Byte '467
+        Public NameColor As Short '468
         <MarshalAs(UnmanagedType.I1)> _
-        Public CampaignMode As Boolean '462
-        Public Unk29 As Byte '463
-        Public FishingTimer As Short '464
-        Public FishingCastTimer As Short '466
-        Public FishingUnknown0001 As Integer '468
-        Public FishingUnknown0002 As Integer '472
-        Public FishingUnknown0003 As Short '476
+        Public CampaignMode As Boolean '470
+        Public Unk31 As Byte '471
+        Public FishingTimer As Short '472
+        Public FishingCastTimer As Short '4674
+        Public FishingUnknown0001 As Integer '476
+        Public FishingUnknown0002 As Integer '480
+        Public FishingUnknown0003 As Short '484
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=14)> _
-        Public Unk30 As Byte() '478
-        Public PCTarget As Short '492
-        Public PetIndex As Short '494
-        Public Unk31 As Short '496
-        Public Unk32 As Byte '498
-        Public BallistaScoreFlag As Byte '499
-        Public PankrationEnabled As Byte '500
-        Public PankrationFlagFlip As Byte '501
-        Public Unk33 As Short '502
-        Public ModelSize As Single '504
-        Public Unk34 As Integer '508
-        Public Unk35 As Short '512
-        Public Unk36 As Short '514
-        Public MonstrosityFlag As Short '516
-        Public Unk37 As Short '518
+        Public Unk32 As Byte() '486
+        Public PCTarget As Short '500
+        Public PetIndex As Short '502
+        Public Unk33 As Short '504
+        Public Unk34 As Byte '506
+        Public BallistaScoreFlag As Byte '507
+        Public PankrationEnabled As Byte '508
+        Public PankrationFlagFlip As Byte '509
+        Public Unk35 As Short '510
+        Public ModelSize As Single '512
+        Public Unk36 As Integer '516
+        Public Unk37 As Short '520
+        Public Unk38 As Short '522
+        Public MonstrosityFlag As Short '524
+        Public Unk39 As Short '526
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=36)> _
-        Public MonstrosityName As String '520
+        Public MonstrosityName As String '528
     End Structure
 
     'Biggest. Struct. Ever.
@@ -486,129 +488,133 @@ Public Class MobData
         Public Heading2 As Single '228
         Public pPetOwner As UInt32 '232
         'only for permanent pets. charmed mobs do not fill this.
-        Public PetTP As UInt32 '236
-        Public HealthPercent As Byte '240
-        Public Unk06 As Byte '241
-        Public Unk07 As Byte '242
-        Public ModelType As Byte '243
-        Public Race As Byte '244
-        Public Unk08 As Byte '245
-        Public NPCPathingTime As UInt32 '246
-        Public ModelFade As Byte '250
-        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=9)> _
-        Public Unk13 As Byte() '251
-        Public Model As UInt16 '260
-        Public ModelHead As UInt16 '262
-        Public ModelBody As UInt16 '264
-        Public ModelHands As UInt16 '266
-        Public ModelLegs As UInt16 '268
-        Public ModelFeet As UInt16 '270
-        Public ModelMain As UInt16 '272
-        Public ModelSub As UInt16 '274
-        Public ModelRanged As UInt16 '276
+        Public HealthPercent As Byte '236
+        Public Unk06 As Byte '237
+        Public ModelType As Byte '238
+        Public Race As Byte '239
+        Public Unk07 As Byte '240
+        Public Unk08 As UInt16 '241
+        Public Unk09 As Byte '243
+        Public ModelFade As Byte '244
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=7)> _
+        Public Unk13 As Byte() '245
+        Public Model As UInt16 '252
+        Public ModelHead As UInt16 '254
+        Public ModelBody As UInt16 '256
+        Public ModelHands As UInt16 '258
+        Public ModelLegs As UInt16 '260
+        Public ModelFeet As UInt16 '262
+        Public ModelMain As UInt16 '264
+        Public ModelSub As UInt16 '266
+        Public ModelRanged As UInt16 '268
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=14)> _
-        Public Unk14 As Byte() '278
-        Public ActionWaitTimer1 As UInt16 '292
-        Public ActionWaitTimer2 As UInt16 '294
+        Public Unk14 As Byte() '270
+        Public ActionWaitTimer1 As UInt16 '284
+        Public ActionWaitTimer2 As UInt16 '286
         'Added Feb 14th 2011 Patch; Fixed by Jetsam
-        Public Flags1 As UInt32 '296
+        Public Flags1 As UInt32 '288
         'I am well aware these should be combined,
-        Public Flags2 As UInt32 '300
+        Public Flags2 As UInt32 '292
         '  but it is easier for future discoveries
-        Public Flags3 As UInt32 '304
+        Public Flags3 As UInt32 '296
         '  as my documentation and memory dissect
-        Public Flags4 As UInt32 '308
+        Public Flags4 As UInt32 '300
         '  structs have these separated (to spot
-        Public Flags5 As UInt32 '312
+        Public Flags5 As UInt32 '304
         '  flag changes after performing an action).
-        Public Unk15 As Single '316
-        Public Unk16 As UInt32 '320
-        Public Unk17 As UInt16 '324
-        Public Unk18 As UInt32 '326
-        Public NPCSpeechLoop As UInt16 '330
-        Public NPCSpeechFrame As UInt16 '332
+        Public Unk15 As Single '308
+        Public Unk16 As UInt32 '312
+        Public Unk17 As UInt16 '316
+        Public Unk18 As UInt32 '318
+        Public NPCSpeechLoop As UInt16 '322
+        Public NPCSpeechFrame As UInt16 '324
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=18)> _
-        Public Unk19 As Byte() '334
-        Public RunSpeed3 As Single '352
-        Public NPCWalkPos1 As UInt16 '356
-        Public NPCWalkPos2 As UInt16 '358
-        Public NPCWalkMode As UInt16 '360
-        Public CostumeID As UInt16 '362
+        Public Unk19 As Byte() '326
+        Public RunSpeed3 As Single '344
+        Public NPCWalkPos1 As UInt16 '348
+        Public NPCWalkPos2 As UInt16 '350
+        Public NPCWalkMode As UInt16 '352
+        Public CostumeID As UInt16 '354
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public mou4 As String '364
+        Public mou4 As String '356
         'always this. assuming an animation name
-        Public FlagsCombat As UInt32 '368
-        Public FlagsCombatSVR As UInt32 '372
+        Public FlagsCombat As UInt32 '360
+        Public FlagsCombatSVR As UInt32 '364
         'im assuming this is updated after the client asks the server. there is a noticable delay between the two
-        Public StatusNpcChat As UInt32 '376
-        Public Unk20 As UInt32 '380
-        Public Unk21 As UInt32 '384
-        Public Unk22 As UInt32 '388
-        Public Unk23 As UInt32 '392
-        Public ClaimID As UInt32 '396
+        Public StatusNpcChat As UInt32 '368
+        Public Unk20 As UInt32 '372
+        Public Unk21 As UInt32 '376
+        Public Unk22 As UInt32 '380
+        Public Unk23 As UInt32 '384
+        Public ClaimID As UInt32 '388
         'the SERVER id of the player that has claim on the mob. the claim will bounce around to whomever has the most hate. not exactly the same as /assist but it will have to do.
-        Public Unk25 As UInt32 '400
+        Public Unk25 As UInt32 '392
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation1 As String '404
+        Public Animation1 As String '396
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation2 As String '408
+        Public Animation2 As String '400
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation3 As String '412
+        Public Animation3 As String '404
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation4 As String '416
+        Public Animation4 As String '408
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation5 As String '420
+        Public Animation5 As String '412
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation6 As String '424
+        Public Animation6 As String '416
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation7 As String '428
+        Public Animation7 As String '420
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation8 As String '432
+        Public Animation8 As String '424
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation9 As String '436
+        Public Animation9 As String '428
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation10 As String '440
-        Public AnimationTime As UInt16 '444
+        Public Animation10 As String '432
+        Public AnimationTime As UInt16 '436
         'guessed, but something to do with the current animation
-        Public AnimationStep As UInt16 '446
+        Public AnimationStep As UInt16 '438
         'guessed, but something to do with the current animation
-        Public AnimationPlay As Byte '448
-        Public Unk26 As Byte '449
-        Public Unk27 As UInt16 '450
-        Public Unk28 As UInt16 '452
-        Public Unk29 As UInt16 '454
-        Public EmoteID As UInt32 '456
+        Public AnimationPlay As Byte '440
+        Public Unk26 As Byte '441
+        Public Unk27 As UInt16 '442
+        Public Unk28 As UInt16 '444
+        Public Unk29 As UInt16 '446
+        Public EmoteID As UInt32 '448
+        Public Unk30 As Integer '452
+        Public Unk31 As Integer '456
         Public SpawnType As UInt32 '460
         Public LSColorRed As Byte '464
         Public LSColorGreen As Byte '465
         Public LSColorBlue As Byte '466
         Public LSUnk As Byte '467
         Public NameColor As UInt16 '468
-        Public CampaignMode As Byte '470
+        <MarshalAs(UnmanagedType.I1)> _
+        Public CampaignMode As Boolean '470
         'boolean value. 
-        Public Unk30 As Byte '471
+        Public Unk32 As Byte '471
         Public FishingTimer As UInt16 '472
         Public FishingCastTimer As UInt16 '474
         Public FishingUnknown0001 As UInt32 '476
         Public FishingUnknown0002 As UInt32 '480
         Public FishingUnknown0003 As UInt16 '484
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=14)> _
-        Public Unk31 As Byte() '486
+        Public Unk33 As Byte() '486
         Public TargetIndex As UInt16 '500
         Public PetID As UInt16 '502
         'the zone id of the spawn considered this spawns pet.
-        Public Unk32 As UInt16 '504
-        Public Unk33 As Byte '506
+        Public Unk34 As UInt16 '504
+        Public Unk35 As Byte '506
         Public BallistaScoreFlag As Byte '507
         Public PankrationEnabled As Byte '508
         Public PankrationFlagFlip As Byte '509
-        Public Unk34 As UInt16 '510
+        Public Unk36 As UInt16 '510
         Public ModelSize As Single '512
-        Public Unk35 As UInt32 '516
-        Public MonstrosityFlag As UInt16 '520
-        Public Unk36 As UInt16 '522
+        Public Unk37 As UInt32 '516
+        Public Unk38 As UInt16 '520
+        Public Unk39 As UInt16 '522
+        Public MonstrosityFlag As UInt16 '524
+        Public Unk40 As UInt16 '526
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=36)> _
-        Public MonstrosityName As String '524
+        Public MonstrosityName As String '528
     End Structure
 
     Public Class FilterInfo
