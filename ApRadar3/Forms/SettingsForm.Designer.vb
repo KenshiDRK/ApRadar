@@ -183,9 +183,9 @@ Partial Class SettingsForm
         Me.TabPage1.Controls.Add(Me.Label10)
         Me.TabPage1.Controls.Add(Me.cboServer)
         Me.TabPage1.Controls.Add(Me.cboTheme)
-        Me.TabPage1.Controls.Add(Me.ckMapUpdates)
-        Me.TabPage1.Controls.Add(Me.ckBeta)
-        Me.TabPage1.Controls.Add(Me.ckAppUpdates)
+        'Me.TabPage1.Controls.Add(Me.ckMapUpdates)
+        'Me.TabPage1.Controls.Add(Me.ckBeta)
+        'Me.TabPage1.Controls.Add(Me.ckAppUpdates)
         Me.TabPage1.ForeColor = System.Drawing.Color.White
         Me.TabPage1.Location = New System.Drawing.Point(104, 4)
         Me.TabPage1.Name = "TabPage1"
@@ -265,33 +265,33 @@ Partial Class SettingsForm
         '
         'ckMapUpdates
         '
-        Me.ckMapUpdates.AutoSize = True
-        Me.ckMapUpdates.Location = New System.Drawing.Point(84, 60)
-        Me.ckMapUpdates.Name = "ckMapUpdates"
-        Me.ckMapUpdates.Size = New System.Drawing.Size(182, 17)
-        Me.ckMapUpdates.TabIndex = 14
-        Me.ckMapUpdates.Text = "Check for map updates at startup"
-        Me.ckMapUpdates.UseVisualStyleBackColor = True
+        'Me.ckMapUpdates.AutoSize = True
+        'Me.ckMapUpdates.Location = New System.Drawing.Point(84, 60)
+        'Me.ckMapUpdates.Name = "ckMapUpdates"
+        'Me.ckMapUpdates.Size = New System.Drawing.Size(182, 17)
+        'Me.ckMapUpdates.TabIndex = 14
+        'Me.ckMapUpdates.Text = "Check for map updates at startup"
+        'Me.ckMapUpdates.UseVisualStyleBackColor = True
         '
         'ckBeta
         '
-        Me.ckBeta.AutoSize = True
-        Me.ckBeta.Location = New System.Drawing.Point(84, 106)
-        Me.ckBeta.Name = "ckBeta"
-        Me.ckBeta.Size = New System.Drawing.Size(138, 17)
-        Me.ckBeta.TabIndex = 14
-        Me.ckBeta.Text = "Check for Beta Releases"
-        Me.ckBeta.UseVisualStyleBackColor = True
+        'Me.ckBeta.AutoSize = True
+        'Me.ckBeta.Location = New System.Drawing.Point(84, 106)
+        'Me.ckBeta.Name = "ckBeta"
+        'Me.ckBeta.Size = New System.Drawing.Size(138, 17)
+        'Me.ckBeta.TabIndex = 14
+        'Me.ckBeta.Text = "Check for Beta Releases"
+        'Me.ckBeta.UseVisualStyleBackColor = True
         '
         'ckAppUpdates
         '
-        Me.ckAppUpdates.AutoSize = True
-        Me.ckAppUpdates.Location = New System.Drawing.Point(84, 83)
-        Me.ckAppUpdates.Name = "ckAppUpdates"
-        Me.ckAppUpdates.Size = New System.Drawing.Size(214, 17)
-        Me.ckAppUpdates.TabIndex = 14
-        Me.ckAppUpdates.Text = "Check for application updates at startup"
-        Me.ckAppUpdates.UseVisualStyleBackColor = True
+        'Me.ckAppUpdates.AutoSize = True
+        'Me.ckAppUpdates.Location = New System.Drawing.Point(84, 83)
+        'Me.ckAppUpdates.Name = "ckAppUpdates"
+        'Me.ckAppUpdates.Size = New System.Drawing.Size(214, 17)
+        'Me.ckAppUpdates.TabIndex = 14
+        'Me.ckAppUpdates.Text = "Check for application updates at startup"
+        'Me.ckAppUpdates.UseVisualStyleBackColor = True
         '
         'tpApBar
         '
@@ -305,8 +305,8 @@ Partial Class SettingsForm
         Me.tpApBar.Controls.Add(Me.Label12)
         Me.tpApBar.Controls.Add(Me.Label9)
         Me.tpApBar.Controls.Add(Me.nuMaxNews)
-        Me.tpApBar.Controls.Add(Me.nuNewsInterval)
-        Me.tpApBar.Controls.Add(Me.ckNewsUpdates)
+        'Me.tpApBar.Controls.Add(Me.nuNewsInterval)
+        'Me.tpApBar.Controls.Add(Me.ckNewsUpdates)
         Me.tpApBar.ForeColor = System.Drawing.Color.White
         Me.tpApBar.Location = New System.Drawing.Point(104, 4)
         Me.tpApBar.Name = "tpApBar"
@@ -411,27 +411,27 @@ Partial Class SettingsForm
         '
         'nuNewsInterval
         '
-        Me.nuNewsInterval.Increment = New Decimal(New Integer() {15, 0, 0, 0})
-        Me.nuNewsInterval.Location = New System.Drawing.Point(171, 76)
-        Me.nuNewsInterval.Maximum = New Decimal(New Integer() {120, 0, 0, 0})
-        Me.nuNewsInterval.Minimum = New Decimal(New Integer() {15, 0, 0, 0})
-        Me.nuNewsInterval.Name = "nuNewsInterval"
-        Me.nuNewsInterval.Size = New System.Drawing.Size(40, 21)
-        Me.nuNewsInterval.TabIndex = 21
-        Me.nuNewsInterval.Tag = "exclude"
-        Me.nuNewsInterval.Value = New Decimal(New Integer() {30, 0, 0, 0})
+        'Me.nuNewsInterval.Increment = New Decimal(New Integer() {15, 0, 0, 0})
+        'Me.nuNewsInterval.Location = New System.Drawing.Point(171, 76)
+        'Me.nuNewsInterval.Maximum = New Decimal(New Integer() {120, 0, 0, 0})
+        'Me.nuNewsInterval.Minimum = New Decimal(New Integer() {15, 0, 0, 0})
+        'Me.nuNewsInterval.Name = "nuNewsInterval"
+        'Me.nuNewsInterval.Size = New System.Drawing.Size(40, 21)
+        'Me.nuNewsInterval.TabIndex = 21
+        'Me.nuNewsInterval.Tag = "exclude"
+        'Me.nuNewsInterval.Value = New Decimal(New Integer() {30, 0, 0, 0})
         '
         'ckNewsUpdates
         '
-        Me.ckNewsUpdates.AutoSize = True
-        Me.ckNewsUpdates.CheckAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.ckNewsUpdates.Location = New System.Drawing.Point(8, 78)
-        Me.ckNewsUpdates.Name = "ckNewsUpdates"
-        Me.ckNewsUpdates.Size = New System.Drawing.Size(281, 17)
-        Me.ckNewsUpdates.TabIndex = 14
-        Me.ckNewsUpdates.Text = "Check for news updates every                         minutes"
-        Me.ckNewsUpdates.TextAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.ckNewsUpdates.UseVisualStyleBackColor = True
+        'Me.ckNewsUpdates.AutoSize = True
+        'Me.ckNewsUpdates.CheckAlign = System.Drawing.ContentAlignment.TopLeft
+        'Me.ckNewsUpdates.Location = New System.Drawing.Point(8, 78)
+        'Me.ckNewsUpdates.Name = "ckNewsUpdates"
+        'Me.ckNewsUpdates.Size = New System.Drawing.Size(281, 17)
+        'Me.ckNewsUpdates.TabIndex = 14
+        'Me.ckNewsUpdates.Text = "Check for news updates every                         minutes"
+        'Me.ckNewsUpdates.TextAlign = System.Drawing.ContentAlignment.TopLeft
+        'Me.ckNewsUpdates.UseVisualStyleBackColor = True
         '
         'TabPage4
         '

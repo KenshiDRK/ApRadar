@@ -257,12 +257,12 @@ Public Class AppBarForm
             If Not NoBar Then
                 If DebugRun Then DebugForm.AddDebugMessage("Begin rendering the ApBar...", True)
 
-                If DebugRun Then DebugForm.AddDebugMessage("Loading RSS feed...", False)
-                LoadRSS()
-                If My.Settings.AutomaticNewsUpdates Then
-                    NewsTimer.Interval = (My.Settings.NewsCheckInterval * 60 * 1000)
-                    NewsTimer.Start()
-                End If
+                'If DebugRun Then DebugForm.AddDebugMessage("Loading RSS feed...", False)
+                'LoadRSS()
+                'If My.Settings.AutomaticNewsUpdates Then
+                    'NewsTimer.Interval = (My.Settings.NewsCheckInterval * 60 * 1000)
+                    'NewsTimer.Start()
+                'End If
                 If DebugRun Then DebugForm.AppendMessage("  Success!", True)
 
                 ntsSelectProcess.Visible = False
@@ -457,9 +457,9 @@ Public Class AppBarForm
     End Sub
 
 
-    Private Sub tsMapUpdateCheck_Click(ByVal sender As Object, ByVal e As EventArgs) Handles tsMapUpdateCheck.Click, ntsMapUpdates.Click
-        CheckMapVersion(True)
-    End Sub
+    'Private Sub tsMapUpdateCheck_Click(ByVal sender As Object, ByVal e As EventArgs) Handles tsMapUpdateCheck.Click, ntsMapUpdates.Click
+        'CheckMapVersion(True)
+    'End Sub
 
     Private Sub ntsAutoHide_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ntsAutoHide.CheckedChanged
         tsAutoHideBar.Checked = ntsAutoHide.Checked
@@ -744,13 +744,13 @@ Public Class AppBarForm
         End Try
     End Sub
 
-    Private Sub tsRSS_DropDownClosed(ByVal sender As Object, ByVal e As EventArgs) Handles tsRSS.DropDownClosed
-        tsRSS.Image = My.Resources.Rss
-    End Sub
+    'Private Sub tsRSS_DropDownClosed(ByVal sender As Object, ByVal e As EventArgs) Handles tsRSS.DropDownClosed
+        'tsRSS.Image = My.Resources.Rss
+    'End Sub
 
-    Private Sub CheckForNewNewsItemsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CheckForNewNewsItemsToolStripMenuItem.Click
-        LoadRSS()
-    End Sub
+    'Private Sub CheckForNewNewsItemsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CheckForNewNewsItemsToolStripMenuItem.Click
+        'LoadRSS()
+    'End Sub
 
     Private Sub ScanDatsForNewMobsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles tsScanDatsForMobs.Click, ntsScanDatsForNewMobs.Click
         Dim dcd As New DatCheckDialog
@@ -880,9 +880,9 @@ Public Class AppBarForm
         LoadAvailableProcesses()
     End Sub
 
-    Private Sub NewsTimer_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles NewsTimer.Tick
-        LoadRSS()
-    End Sub
+    'Private Sub NewsTimer_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles NewsTimer.Tick
+        'LoadRSS()
+    'End Sub
 
 #End Region
 
@@ -1145,16 +1145,16 @@ Public Class AppBarForm
         tsClock.Visible = My.Settings.ShowClock
         clockSpacer.Visible = My.Settings.ShowClock
 
-        If My.Settings.AutomaticNewsUpdates Then
-            If Not NewsTimer.Enabled Then
-                NewsTimer.Interval = My.Settings.NewsCheckInterval * 60000
-                NewsTimer.Start()
-            End If
-        Else
-            If NewsTimer.Enabled Then
-                NewsTimer.Stop()
-            End If
-        End If
+        'If My.Settings.AutomaticNewsUpdates Then
+            'If Not NewsTimer.Enabled Then
+                'NewsTimer.Interval = My.Settings.NewsCheckInterval * 60000
+                'NewsTimer.Start()
+            'End If
+        'Else
+            'If NewsTimer.Enabled Then
+                'NewsTimer.Stop()
+            'End If
+        'End If
 
         If My.Settings.Monitor = "Primary" Then
 
@@ -1176,7 +1176,7 @@ Public Class AppBarForm
                 End If
             End If
         End If
-        LoadRSS()
+        'LoadRSS()
 
         ApplyTheme()
     End Sub
@@ -1205,46 +1205,46 @@ Public Class AppBarForm
         Next
     End Sub
 
-    Private Sub LoadRSS()
-        Try
-            Dim rss As New RSS
-            rss.LoadFeed("http://apradar.com/external.php?type=RSS2&forumids=13")
-            Dim rti As RSSToolStrip
-            Dim latestDate As Date
-            Dim count As Integer = 0
-            'Clear out any rss entries
-            For i = tsRSS.DropDownItems.Count - 1 To 1 Step -1
-                tsRSS.DropDownItems.RemoveAt(i)
-            Next
+    'Private Sub LoadRSS()
+        'Try
+            'Dim rss As New RSS
+            'rss.LoadFeed("http://apradar.com/external.php?type=RSS2&forumids=13")
+            'Dim rti As RSSToolStrip
+            'Dim latestDate As Date
+            'Dim count As Integer = 0
+            ''Clear out any rss entries
+            'For i = tsRSS.DropDownItems.Count - 1 To 1 Step -1
+                'tsRSS.DropDownItems.RemoveAt(i)
+            'Next
 
-            'Add any new rss items
-            For Each item As RSSItem In rss.FeedItems
-                tsRSS.DropDownItems.Add(New ToolStripSeparator)
-                If item.PubDate > latestDate Then
-                    latestDate = item.PubDate
-                End If
-                rti = New RSSToolStrip()
-                rti.FeedViewer.FeedItem = item
-                AddHandler rti.FeedViewer.lnkTitle.LinkClicked, AddressOf RSS_LinkClicked
+            ''Add any new rss items
+            'For Each item As RSSItem In rss.FeedItems
+                'tsRSS.DropDownItems.Add(New ToolStripSeparator)
+                'If item.PubDate > latestDate Then
+                    'latestDate = item.PubDate
+                'End If
+                'rti = New RSSToolStrip()
+                'rti.FeedViewer.FeedItem = item
+                'AddHandler rti.FeedViewer.lnkTitle.LinkClicked, AddressOf RSS_LinkClicked
 
                 'rti.Height = 135
-                tsRSS.DropDownItems.Add(rti)
+                'tsRSS.DropDownItems.Add(rti)
 
-                count += 1
-                If count = My.Settings.MaxNewsItems Then
-                    Exit For
-                End If
-            Next
+                'count += 1
+                'If count = My.Settings.MaxNewsItems Then
+                    'Exit For
+                'End If
+            'Next
 
 
-            If latestDate > My.Settings.LastRSSDate Then
-                My.Settings.LastRSSDate = latestDate
-                tsRSS.Image = My.Resources.rssNew
-            End If
-        Catch ex As Exception
+            'If latestDate > My.Settings.LastRSSDate Then
+                'My.Settings.LastRSSDate = latestDate
+                'tsRSS.Image = My.Resources.rssNew
+            'End If
+        'Catch ex As Exception
 
-        End Try
-    End Sub
+        'End Try
+    'End Sub
 
     Private Sub SaveWatchList()
         Serializer.SerializeToXML(Of List(Of Integer))(Application.StartupPath & "\Data\WatchList.dat", WatchList)

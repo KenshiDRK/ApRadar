@@ -14,7 +14,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("FFXI Radar")> 
 <Assembly: AssemblyCompany("ApneaSoft")> 
 <Assembly: AssemblyProduct("ApRadar3")> 
-<Assembly: AssemblyCopyright("Copyright ©2006-2011 ApneaSoft")> 
+<Assembly: AssemblyCopyright("Copyright ©2006-2017 ApneaSoft")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)> 
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("3.3.0.31")> 
-<Assembly: AssemblyFileVersion("3.3.0.31")> 
+<Assembly: AssemblyVersion("3.3.0.32")> 
+<Assembly: AssemblyFileVersion("3.3.0.32")> 
 
 <Assembly: NeutralResourcesLanguageAttribute("en-US")> 

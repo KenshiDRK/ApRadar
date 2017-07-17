@@ -53,7 +53,7 @@ Partial Class AboutForm
         Me.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.HeaderPanel.Location = New System.Drawing.Point(0, 0)
         Me.HeaderPanel.Name = "HeaderPanel"
-        Me.HeaderPanel.Padding = New System.Windows.Forms.Padding(5, 0, 6, 0)
+        Me.HeaderPanel.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.HeaderPanel.Size = New System.Drawing.Size(348, 33)
         Me.HeaderPanel.TabIndex = 6
         '
@@ -85,13 +85,13 @@ Partial Class AboutForm
         '
         Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Calibri", 7!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(9, 390)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(324, 39)
         Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Created and Developed by Apnea ©2006-2012 All rights reserved." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "All FFXI content " & _
-    "and images © 2002-2012 SQUARE ENIX CO., LTD.  FINAL FANTASY is a registered trad" & _
+        Me.Label1.Text = "Created by Apnea and Developed by Kenshi ©2006-2017 All rights reserved." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "All FFXI content " & _
+    "and images © 2002-2017 SQUARE ENIX CO., LTD.  FINAL FANTASY is a registered trad" & _
     "emark of Square Enix Co., Ltd."
         '
         'Label2

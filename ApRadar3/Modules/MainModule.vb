@@ -351,11 +351,11 @@ Module MainModule
         End If
     End Function
 
-    Public Sub CheckMapVersion()
-        CheckMapVersion(False)
-    End Sub
+    'Public Sub CheckMapVersion()
+        'CheckMapVersion(False)
+    'End Sub
 
-    Public Sub CheckMapVersion(ByVal IsUserCheck As Boolean)
+    'Public Sub CheckMapVersion(ByVal IsUserCheck As Boolean)
         'NOTE: NEeds to be updated to use a service to get maps etc
         'Try
         '    Using ws As New ValidationServicePortTypeClient()
@@ -465,7 +465,7 @@ Module MainModule
         'Catch ex As Exception
         '    MessageBox.Show(ex.Message)
         'End Try
-    End Sub
+    'End Sub
 
     Public Sub UpdateControlColors(ByVal f As Form)
         Dim ctl As Control = f.GetNextControl(f, True)

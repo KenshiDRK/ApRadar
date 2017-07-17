@@ -31,9 +31,9 @@ Partial Class AppBarForm
         Me.zoneSpacer = New System.Windows.Forms.ToolStripSeparator()
         Me.tsClock = New System.Windows.Forms.ToolStripLabel()
         Me.clockSpacer = New System.Windows.Forms.ToolStripSeparator()
-        Me.tsRSS = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.CheckForNewNewsItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        'Me.tsRSS = New System.Windows.Forms.ToolStripDropDownButton()
+        'Me.CheckForNewNewsItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        'Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsProcess = New System.Windows.Forms.ToolStripDropDownButton()
         Me.tsExit = New System.Windows.Forms.ToolStripButton()
         Me.tsOverlayRadar = New System.Windows.Forms.ToolStripButton()
@@ -58,8 +58,8 @@ Partial Class AppBarForm
         Me.tsScanDatsForMobs = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsDatItemBrowser = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tsMapUpdateCheck = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsCheckForUpdates = New System.Windows.Forms.ToolStripMenuItem()
+        'Me.tsMapUpdateCheck = New System.Windows.Forms.ToolStripMenuItem()
+        'Me.tsCheckForUpdates = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsIniGenerator = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsAbout = New System.Windows.Forms.ToolStripMenuItem()
@@ -97,10 +97,10 @@ Partial Class AppBarForm
         Me.ntsScanDatsForNewMobs = New System.Windows.Forms.ToolStripMenuItem()
         Me.ntsDatItemBrowser = New System.Windows.Forms.ToolStripMenuItem()
         Me.ntsSeperator = New System.Windows.Forms.ToolStripSeparator()
-        Me.ntsMapUpdates = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ntsUpdates = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ntsActivatePro = New System.Windows.Forms.ToolStripMenuItem()
+        'Me.ntsMapUpdates = New System.Windows.Forms.ToolStripMenuItem()
+        'Me.ntsUpdates = New System.Windows.Forms.ToolStripMenuItem()
+        'Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        'Me.ntsActivatePro = New System.Windows.Forms.ToolStripMenuItem()
         Me.ntsAboutApRadar = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProcessSeperator = New System.Windows.Forms.ToolStripSeparator()
         Me.ntsSelectProcess = New System.Windows.Forms.ToolStripMenuItem()
@@ -125,7 +125,8 @@ Partial Class AppBarForm
         Me.CloseMenu.GripMargin = New System.Windows.Forms.Padding(0)
         Me.CloseMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.CloseMenu.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.CloseMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.positionSpacer, Me.tsPosition, Me.tsZone, Me.zoneSpacer, Me.tsClock, Me.clockSpacer, Me.tsRSS, Me.ToolStripSeparator9, Me.tsProcess, Me.tsExit})
+        'Me.CloseMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.positionSpacer, Me.tsPosition, Me.tsZone, Me.zoneSpacer, Me.tsClock, Me.clockSpacer, Me.tsRSS, Me.ToolStripSeparator9, Me.tsProcess, Me.tsExit})
+        Me.CloseMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.positionSpacer, Me.tsPosition, Me.tsZone, Me.zoneSpacer, Me.tsClock, Me.clockSpacer, Me.tsProcess, Me.tsExit})
         Me.CloseMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.CloseMenu.Location = New System.Drawing.Point(327, 0)
         Me.CloseMenu.Name = "CloseMenu"
@@ -169,26 +170,26 @@ Partial Class AppBarForm
         '
         'tsRSS
         '
-        Me.tsRSS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsRSS.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckForNewNewsItemsToolStripMenuItem})
-        Me.tsRSS.Image = Global.ApRadar3.My.Resources.Resources.Rss
-        Me.tsRSS.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.tsRSS.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsRSS.Name = "tsRSS"
-        Me.tsRSS.Size = New System.Drawing.Size(37, 33)
-        Me.tsRSS.Text = "News"
-        Me.tsRSS.ToolTipText = "ApRadar News"
+        'Me.tsRSS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        'Me.tsRSS.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckForNewNewsItemsToolStripMenuItem})
+        'Me.tsRSS.Image = Global.ApRadar3.My.Resources.Resources.Rss
+        'Me.tsRSS.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        'Me.tsRSS.ImageTransparentColor = System.Drawing.Color.Magenta
+        'Me.tsRSS.Name = "tsRSS"
+        'Me.tsRSS.Size = New System.Drawing.Size(37, 33)
+        'Me.tsRSS.Text = "News"
+        'Me.tsRSS.ToolTipText = "ApRadar News"
         '
         'CheckForNewNewsItemsToolStripMenuItem
         '
-        Me.CheckForNewNewsItemsToolStripMenuItem.Name = "CheckForNewNewsItemsToolStripMenuItem"
-        Me.CheckForNewNewsItemsToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
-        Me.CheckForNewNewsItemsToolStripMenuItem.Text = "Check for new news items..."
+        'Me.CheckForNewNewsItemsToolStripMenuItem.Name = "CheckForNewNewsItemsToolStripMenuItem"
+        'Me.CheckForNewNewsItemsToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
+        'Me.CheckForNewNewsItemsToolStripMenuItem.Text = "Check for new news items..."
         '
         'ToolStripSeparator9
         '
-        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 36)
+        'Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        'Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 36)
         '
         'tsProcess
         '
@@ -238,7 +239,8 @@ Partial Class AppBarForm
         'tsApRadar
         '
         Me.tsApRadar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsApRadar.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsMapped, Me.tsOverlay, Me.tsCampingMode, Me.tsChat, Me.tsFFXIRemoteChat, Me.ToolStripSeparator4, Me.tsSpawnAlerts, Me.tsSpawnFilter, Me.ToolStripSeparator12, Me.tsPedometer, Me.ToolStripSeparator14, Me.tsRecipeSearch, Me.tsDatabase, Me.tsCampedMobBrowser, Me.ToolStripSeparator11, Me.tsSettings, Me.tsScanDatsForMobs, Me.tsDatItemBrowser, Me.ToolStripSeparator5, Me.tsMapUpdateCheck, Me.tsCheckForUpdates, Me.tsIniGenerator, Me.ToolStripSeparator3, Me.tsAbout, Me.ToolStripSeparator6, Me.tsAutoHideBar, Me.ExitToolStripMenuItem})
+        'Me.tsApRadar.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsMapped, Me.tsOverlay, Me.tsCampingMode, Me.tsChat, Me.tsFFXIRemoteChat, Me.ToolStripSeparator4, Me.tsSpawnAlerts, Me.tsSpawnFilter, Me.ToolStripSeparator12, Me.tsPedometer, Me.ToolStripSeparator14, Me.tsRecipeSearch, Me.tsDatabase, Me.tsCampedMobBrowser, Me.ToolStripSeparator11, Me.tsSettings, Me.tsScanDatsForMobs, Me.tsDatItemBrowser, Me.ToolStripSeparator5, Me.tsMapUpdateCheck, Me.tsCheckForUpdates, Me.tsIniGenerator, Me.ToolStripSeparator3, Me.tsAbout, Me.ToolStripSeparator6, Me.tsAutoHideBar, Me.ExitToolStripMenuItem})
+        Me.tsApRadar.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsMapped, Me.tsOverlay, Me.tsCampingMode, Me.tsChat, Me.tsFFXIRemoteChat, Me.ToolStripSeparator4, Me.tsSpawnAlerts, Me.tsSpawnFilter, Me.ToolStripSeparator12, Me.tsPedometer, Me.ToolStripSeparator14, Me.tsRecipeSearch, Me.tsDatabase, Me.tsCampedMobBrowser, Me.ToolStripSeparator11, Me.tsSettings, Me.tsScanDatsForMobs, Me.tsDatItemBrowser, Me.ToolStripSeparator5, Me.tsIniGenerator, Me.ToolStripSeparator3, Me.tsAbout, Me.ToolStripSeparator6, Me.tsAutoHideBar, Me.ExitToolStripMenuItem})
         Me.tsApRadar.Image = Global.ApRadar3.My.Resources.Resources.ApRadar_32
         Me.tsApRadar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.tsApRadar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -369,15 +371,15 @@ Partial Class AppBarForm
         '
         'tsMapUpdateCheck
         '
-        Me.tsMapUpdateCheck.Name = "tsMapUpdateCheck"
-        Me.tsMapUpdateCheck.Size = New System.Drawing.Size(209, 22)
-        Me.tsMapUpdateCheck.Text = "Check For Map Updates..."
+        'Me.tsMapUpdateCheck.Name = "tsMapUpdateCheck"
+        'Me.tsMapUpdateCheck.Size = New System.Drawing.Size(209, 22)
+        'Me.tsMapUpdateCheck.Text = "Check For Map Updates..."
         '
         'tsCheckForUpdates
         '
-        Me.tsCheckForUpdates.Name = "tsCheckForUpdates"
-        Me.tsCheckForUpdates.Size = New System.Drawing.Size(209, 22)
-        Me.tsCheckForUpdates.Text = "Check For Updates..."
+        'Me.tsCheckForUpdates.Name = "tsCheckForUpdates"
+        'Me.tsCheckForUpdates.Size = New System.Drawing.Size(209, 22)
+        'Me.tsCheckForUpdates.Text = "Check For Updates..."
         '
         'tsIniGenerator
         '
@@ -533,7 +535,8 @@ Partial Class AppBarForm
         '
         'NotifyMenu
         '
-        Me.NotifyMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ntsMapRadar, Me.ntsOverlayRadar, Me.ntsCampingMode, Me.ntsApRadarChat, Me.ntsFFXIChatServer, Me.ToolStripSeparator7, Me.ntsSpawnAlerts, Me.ntsSpawnFilter, Me.ToolStripSeparator13, Me.ntsRecipeSearch, Me.ntsDatabase, Me.ntsViewTod, Me.ntsSettings, Me.ntsScanDatsForNewMobs, Me.ntsDatItemBrowser, Me.ntsSeperator, Me.ntsMapUpdates, Me.ntsUpdates, Me.ToolStripSeparator8, Me.ntsActivatePro, Me.ntsAboutApRadar, Me.ProcessSeperator, Me.ntsSelectProcess, Me.ToolStripSeparator10, Me.ntsAutoHide, Me.ntsExit})
+        'Me.NotifyMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ntsMapRadar, Me.ntsOverlayRadar, Me.ntsCampingMode, Me.ntsApRadarChat, Me.ntsFFXIChatServer, Me.ToolStripSeparator7, Me.ntsSpawnAlerts, Me.ntsSpawnFilter, Me.ToolStripSeparator13, Me.ntsRecipeSearch, Me.ntsDatabase, Me.ntsViewTod, Me.ntsSettings, Me.ntsScanDatsForNewMobs, Me.ntsDatItemBrowser, Me.ntsSeperator, Me.ntsMapUpdates, Me.ntsUpdates, Me.ToolStripSeparator8, Me.ntsActivatePro, Me.ntsAboutApRadar, Me.ProcessSeperator, Me.ntsSelectProcess, Me.ToolStripSeparator10, Me.ntsAutoHide, Me.ntsExit})
+        Me.NotifyMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ntsMapRadar, Me.ntsOverlayRadar, Me.ntsCampingMode, Me.ntsApRadarChat, Me.ntsFFXIChatServer, Me.ToolStripSeparator7, Me.ntsSpawnAlerts, Me.ntsSpawnFilter, Me.ToolStripSeparator13, Me.ntsRecipeSearch, Me.ntsDatabase, Me.ntsViewTod, Me.ntsSettings, Me.ntsScanDatsForNewMobs, Me.ntsDatItemBrowser, Me.ntsSeperator, Me.ntsAboutApRadar, Me.ProcessSeperator, Me.ntsSelectProcess, Me.ToolStripSeparator10, Me.ntsAutoHide, Me.ntsExit})
         Me.NotifyMenu.Name = "NotifyMenu"
         Me.NotifyMenu.Size = New System.Drawing.Size(208, 480)
         '
@@ -639,26 +642,26 @@ Partial Class AppBarForm
         '
         'ntsMapUpdates
         '
-        Me.ntsMapUpdates.Name = "ntsMapUpdates"
-        Me.ntsMapUpdates.Size = New System.Drawing.Size(207, 22)
-        Me.ntsMapUpdates.Text = "Check for Map Updates..."
+        'Me.ntsMapUpdates.Name = "ntsMapUpdates"
+        'Me.ntsMapUpdates.Size = New System.Drawing.Size(207, 22)
+        'Me.ntsMapUpdates.Text = "Check for Map Updates..."
         '
         'ntsUpdates
         '
-        Me.ntsUpdates.Name = "ntsUpdates"
-        Me.ntsUpdates.Size = New System.Drawing.Size(207, 22)
-        Me.ntsUpdates.Text = "Check for Updates..."
+        'Me.ntsUpdates.Name = "ntsUpdates"
+        'Me.ntsUpdates.Size = New System.Drawing.Size(207, 22)
+        'Me.ntsUpdates.Text = "Check for Updates..."
         '
         'ToolStripSeparator8
         '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(204, 6)
+        'Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        'Me.ToolStripSeparator8.Size = New System.Drawing.Size(204, 6)
         '
         'ntsActivatePro
         '
-        Me.ntsActivatePro.Name = "ntsActivatePro"
-        Me.ntsActivatePro.Size = New System.Drawing.Size(207, 22)
-        Me.ntsActivatePro.Text = "Activate Pro"
+        'Me.ntsActivatePro.Name = "ntsActivatePro"
+        'Me.ntsActivatePro.Size = New System.Drawing.Size(207, 22)
+        'Me.ntsActivatePro.Text = "Activate Pro"
         '
         'ntsAboutApRadar
         '
@@ -776,8 +779,8 @@ Partial Class AppBarForm
     Friend WithEvents processWatchTimer As System.Windows.Forms.Timer
     Friend WithEvents tsCampedMobBrowser As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents tsMapUpdateCheck As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents tsCheckForUpdates As System.Windows.Forms.ToolStripMenuItem
+    'Friend WithEvents tsMapUpdateCheck As System.Windows.Forms.ToolStripMenuItem
+    'Friend WithEvents tsCheckForUpdates As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsSettings As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsFFXIAH As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents positionSpacer As System.Windows.Forms.ToolStripSeparator
@@ -799,10 +802,10 @@ Partial Class AppBarForm
     Friend WithEvents ntsViewTod As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ntsSettings As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ntsSeperator As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ntsMapUpdates As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ntsUpdates As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ntsActivatePro As System.Windows.Forms.ToolStripMenuItem
+    'Friend WithEvents ntsMapUpdates As System.Windows.Forms.ToolStripMenuItem
+    'Friend WithEvents ntsUpdates As System.Windows.Forms.ToolStripMenuItem
+    'Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
+    'Friend WithEvents ntsActivatePro As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ntsAboutApRadar As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProcessSeperator As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ntsSelectProcess As System.Windows.Forms.ToolStripMenuItem
@@ -816,10 +819,10 @@ Partial Class AppBarForm
     Friend WithEvents tsFFXIRemoteChat As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ntsApRadarChat As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ntsFFXIChatServer As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents tsRSS As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents CheckForNewNewsItemsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    'Friend WithEvents tsRSS As System.Windows.Forms.ToolStripDropDownButton
+    'Friend WithEvents CheckForNewNewsItemsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NewsTimer As System.Windows.Forms.Timer
-    Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
+    'Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents tsScanDatsForMobs As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator11 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents testTimer As System.Windows.Forms.Timer
