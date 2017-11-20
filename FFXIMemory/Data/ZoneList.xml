@@ -847,6 +847,8 @@
   <zone name="Reisenjima Sanctorium" id="737">
     <dat>\Rom\342\95.DAT</dat>
   </zone>
+    <dat>\Rom\354\116.DAT</dat>
+  </zone>
   <zone name="Jeuno - Mog House" id="286"></zone>
   <zone name="San d'Oria - Mog House" id="257"></zone>
   <zone name="San d'Oria - Mog House - Floor 2" id="615"></zone>
