@@ -850,6 +850,9 @@
   <zone name="Dynamis - San d'Oria [D]" id="738">
     <dat>\Rom\354\116.DAT</dat>
   </zone>
+  <zone name="Dynamis - Bastok [D]" id="739">
+    <dat>\Rom\355\5.DAT</dat>
+  </zone>
   <zone name="Jeuno - Mog House" id="286"></zone>
   <zone name="San d'Oria - Mog House" id="257"></zone>
   <zone name="San d'Oria - Mog House - Floor 2" id="615"></zone>
