@@ -856,6 +856,9 @@
   <zone name="Dynamis - Windurst [D]" id="740">
     <dat>\Rom\355\39.DAT</dat>
   </zone>
+  <zone name="Dynamis - Jeuno [D]" id="741">
+    <dat>\Rom\355\54.DAT</dat>
+  </zone>
   <zone name="Jeuno - Mog House" id="286"></zone>
   <zone name="San d'Oria - Mog House" id="257"></zone>
   <zone name="San d'Oria - Mog House - Floor 2" id="615"></zone>
