@@ -543,7 +543,7 @@
   <zone name="Walk of Echoes" id="182">
 	<dat>\Rom\26\119.DAT</dat>
   </zone>
-  <zone name="Maquette Abdhaljs-Legion" id="183">
+  <zone name="Maquette Abdhaljs-LegionA" id="183">
 	<dat>\Rom\26\120.DAT</dat>
   </zone>
   <zone name="Lower Delkfutt's Tower" id="184">
@@ -811,6 +811,10 @@
   <zone name="Ra'Kaznar Turris" id="721">
     <dat>\Rom9\6\66.DAT</dat>
   </zone>
+  <zone name="Walk of Echoes [P2]" id="723">
+    <dat>\Rom\361\92.DAT</dat>
+    <dat>\Rom\363\67.DAT</dat>
+  </zone>
   <zone name="Mog Garden" id="724">
     <dat>\Rom\303\36.DAT</dat>
   </zone>
@@ -829,6 +833,9 @@
   <zone name="Feretory" id="729">
     <dat>\Rom\306\61.DAT</dat>
   </zone>
+  <zone name="Maquette Abdhaljs-LegionB" id="731">
+    <dat>\Rom\362\25.DAT</dat>
+  </zone>
   <zone name="Escha - Zi'Tha" id="732">
     <dat>\Rom\332\99.DAT</dat>
   </zone>
@@ -842,7 +849,7 @@
     <dat>\Rom\342\94.DAT</dat>
   </zone>
   <zone name="Reisenjima Henge" id="736">
-    <!-- Unconfirmed! -->
+    <dat>\Rom\353\61.DAT</dat>
   </zone>
   <zone name="Reisenjima Sanctorium" id="737">
     <dat>\Rom\342\95.DAT</dat>
@@ -858,6 +865,10 @@
   </zone>
   <zone name="Dynamis - Jeuno [D]" id="741">
     <dat>\Rom\355\54.DAT</dat>
+  </zone>
+   <zone name="Walk of Echoes [P1]" id="742">
+    <dat>\Rom\361\92.DAT</dat>
+    <dat>\Rom\363\68.DAT</dat>
   </zone>
   <zone name="Jeuno - Mog House" id="286"></zone>
   <zone name="San d'Oria - Mog House" id="257"></zone>
