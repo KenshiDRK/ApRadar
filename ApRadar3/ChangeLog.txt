@@ -1,4 +1,4 @@
-﻿ApRadar 3 ©2006-2010 ApneaSoft All rights reserved.
+﻿ApRadar 3 ©2006-2020 ApneaSoft All rights reserved.
 
 Notes
 Map Radar
@@ -12,6 +12,190 @@ use Page Up and Page Down
 To reset the zoom level to 1, click the Home key while the Map Radar has focus.
 
 Changelog
+3.3.0.33
+- Added Odyssey support
+
+3.3.0.32
+- Added Dynamis-Divergence support
+
+3.3.0.33
+- Added Odyssey support
+
+3.3.0.32
+- Added Dynamis-Divergence support
+
+3.3.0.31
+- Fixed bug in map detection
+
+3.3.0.30
+- Fixed an issue with the spawn alerts where the mobs were not listed properly.
+
+3.3.0.29
+- Fixed issue with displaying mobs after the Feb 14 update.
+
+3.3.0.27 – 3.3.0.28
+- Updated memory scan to fix issue where no map was detected after the 1/21/14 update.
+- Map.ini updated to the version hosted on the windower forums.
+
+3.3.0.26
+- Fixed a bug in the DAT scanner where it would error out at 19% with an overflow
+- Fixed issues with the DAT Item Browser where items were not properly displaying jobs for the newly added jobs
+
+3.3.0.25
+- Fix to address an issue some users were experiencing with no maps displaying
+
+3.3.0.24
+- Fixed issue with target info not displaying properly
+
+3.3.0.23
+- Fixed issue where the new zones were not being found correctly
+
+3.3.0.22
+- Fixed a bug in the ini parser to work correctly with the new maps
+
+3.3.0.21
+- Fixed a bug in the additional map downloader
+- Fixed a bug in the updater that caused the program to fail update with Error 5
+- Added SoA maps
+
+3.3.0.20
+- Minor bug fixes
+- Update to fix Mob Struct
+- *NEW Map Ini Line Generator (BETA) – This is a port of the ini line generator that came in the map pack. This will allow users to generate their own ini entries for zones that are either problematic or are missing entries. This feature is still in beta and is not 100% complete.
+3.3.0.19
+- Fixed bug where multi zone maps were not displaying correctly
+
+3.3.0.18
+- Added small code and UI enhancements
+- Fixed: Changes from December update
+
+3.3.0.15 – 3.3.0.17
+- *NEW Pedometer - The Pedometer will track your distance from the point of starting it
+- *NEW Pedometer function to the mapped radar when tracking VNM – The VNM tracking pedometer will re-zero itself when you heal and will give you the distance traveled since your last heal
+- Fixed bug where certain forms with grids would throw an exception when loading
+- Fixed Nyzul lamp order – added code to prevent it from breaking in the future
+- Fixed issue with spawn alerts not showing mobs for certain zones
+- Fixed minor UI bugs
+- Fixed FFXIAH check in ApRadar Chat to properly display results for the correct server set in global settings
+- Minor code changes in preparation of future additions
+
+3.3.0.14
+- Fixed bug where spawn alert was stealing focus (Really this time, I hope ;)
+- Fixed issue associated with the changes in the latest update.  This should adress the issues with Mob Color, Spawn Alerts, Camped Mob Timers and basically anythign associated with mob display.
+	
+3.3.0.13
+- Fixed bug in the Remote FFXI Chat where the log would scroll uncontrollably on startup
+	
+3.3.0.12
+- Fixed bug in file downloader that was causing an arithmetic overflow
+	
+3.3.0.11
+- Fixed issue where Elitemmo subscribers were not properly validating
+	
+3.3.0.8 - 3.3.0.10
+- Fixes to address issues with the software and map updater
+	
+3.3.0.7
+- Fixed bug where the spawn tracker would steal focus from FFXI
+- Added VNM Tracker – Track VNM locations on the mapped radar.  Available to all Pro Subscribers
+- Added Multi-Threaded Downloader for map pack downloads
+	
+3.3.0.6
+- Added Dat Item Browser - allows searching of items in the dats themselves
+- Fixed bug that caused the application to crash at 9% when scanning dats for new mobs
+- Fixed issue where the radars were not properly hiding from Alt+Tab
+	
+3.3.0.5
+- Fixed bug with spawn alerts where it was stealing focus from FFXi
+- Enhancements to the radar painting methods
+	
+3.3.0.4
+- Fixed a bug with linked radars where mobs would not display or be sent to other linked clients
+	
+3.3.0.3
+- Fixed bug in update code, causing it to always show that an update was available
+	
+3.3.0.2
+- Fixed bug with Mapped Radar filter panel toggle not closing the panel properly
+- Fixed some minor errors that occured when loading the radars. This should greatly increase load time.
+- Fixed spawn alert form so that the controls properly dock to the bottom of the form
+- Fixed FFXIAH searching in the bar
+- Docking has been temporarily removed while I work on a new method to work with the new radars
+	
+3.3.0.1
+- Fixed a bug where ranges were nto displaying properly.
+- Fixed issue where the Mapped Radar would steal focus from FFXI
+	
+3.3.0.0
+- Added alpha blending to the radars
+- Added additional coloring options for objects
+- Added more transparency options to the mapped radar
+- Added feature to show always show your current target on the radars
+- Removed resize constraint on Mapped Radar
+- Improved drawing code to render smoother
+- Optomized the scanning code to reduce processor and memory usage
+- Fixed bug in Mapped Radar where the filter panel would not properly hide and show with the map
+- Fixed bug where a memory leak would occur in certian zones 
+	
+3.2.0.9
+- Fixed bug in 3.2.0.8 where mobs would not diaplay when selected on radars
+	
+3.2.0.8
+- Fixed crashing issue with FFXI Remote Chat
+- Fixed graphics related crashes in radar
+- Added ability to color new mob types
+	NPC Types
+	NPC, Mob, NM (Pro Only), Camped Mobs (Pro Only), Link Mobs (Pro Only)
+	PC Types
+	PC, Party Members, Alliance Members
+- Added single form for setting all colors
+	
+3.2.0.7
+- Fixed issue with Elitemmo Network validation not validating properly
+	
+3.2.0.6
+- Fixed mob array for the changes that came out in the mini update.
+
+3.2.0.5
+- Fixed Party members bug and added party members only feature to the overlay radar.
+- Various bug fixes and code optimizations.
+
+3.2.0.1
+- Linked Radars (Beta).  Now you can create links with your friends running ApRadar so that you can see the mobs in your range and their range.  This feature is still in beta stage and all feedback is welcomed and appreciated.
+- Major rewrite of memory scanning code to adopt the watcher pattern
+- Added global memory scan refresh rate
+- Added all new Abyssea Zones
+- Minor tweaks to both radars
+
+3.1.1.6
+- Minor bug fixes (Thanks for the error reports )
+
+3.1.1.4 – 3.1.1.5
+- Update to fix map updater
+
+3.1.1.2 - 3.1.1.3
+- Updates in preparation for Linked Radars
+
+3.1.1.1
+- Updated Spawn alerts to include a spawn tracker
+- Added out of range spawn detection to Spawn alerts
+- Customizable sounds now available in spawn alerts
+- Prepped for upcoming linked radars feature
+
+3.1.1.0
+- Added Abyssea zones to the zone and DAT list
+- Added Spawn alerts and global spawn watch list
+
+3.1.0.0
+- Updated ToD Timers to correctly count up from 0
+- Added Remote FFXI Chat Feature
+Allows for users to chat in FFXI remotely using the Remote Chat Client
+
+3.0.0.39
+- Added feature to display either solid circles or rings in the mapped radar
+- Updated to work with latest EliteMMO Key
+- Changed the method of storing and parsing ToD dates to attempt to fix the bug where ToD timers are not showing on the radar
+
 3.0.0.38
 - Fixed bug in the filters where only the first ID was being applied
 
