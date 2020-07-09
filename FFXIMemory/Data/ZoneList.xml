@@ -813,7 +813,8 @@
   </zone>
   <zone name="Walk of Echoes [P2]" id="723">
     <dat>\Rom\361\92.DAT</dat>
-    <dat>\Rom\363\67.DAT</dat>
+    <dat>\Rom\363\67.DAT</dat> <!-- Sheol A! -->
+    <dat>\Rom\363\69.DAT</dat> <!-- Sheol B! -->
   </zone>
   <zone name="Mog Garden" id="724">
     <dat>\Rom\303\36.DAT</dat>
@@ -868,7 +869,8 @@
   </zone>
    <zone name="Walk of Echoes [P1]" id="742">
     <dat>\Rom\361\92.DAT</dat>
-    <dat>\Rom\363\68.DAT</dat>
+    <dat>\Rom\363\68.DAT</dat> <!-- Sheol A! -->
+    <dat>\Rom\363\70.DAT</dat> <!-- Sheol B! -->
   </zone>
   <zone name="Jeuno - Mog House" id="286"></zone>
   <zone name="San d'Oria - Mog House" id="257"></zone>
