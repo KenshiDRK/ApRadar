@@ -12,6 +12,11 @@ use Page Up and Page Down
 To reset the zoom level to 1, click the Home key while the Map Radar has focus.
 
 Changelog
+3.3.0.34
+- Fixed issue with scanning zone mob list dats.
+- Fixed issue with view TOD’s on new zones.
+- Changed the app to use primary zones ID.
+
 3.3.0.33
 - Added Odyssey support
 
