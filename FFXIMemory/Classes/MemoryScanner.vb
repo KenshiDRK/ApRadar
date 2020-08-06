@@ -550,6 +550,29 @@ Public Class MemoryScanner
                     _memory.Address = FFXI.MemLocs("MAPBASE")
                 End If
                 CurrentMap = _memory.GetShort()
+                If CurrentMap > 255 Then
+                    If CurrentMap = 290 Then 'bastok mog house floor 1
+                        CurrentMap = 229
+                    ElseIf CurrentMap = 616 Then 'bastok mog house floor 2
+                        CurrentMap = 616
+                    ElseIf CurrentMap = 257 Then 'sandoria mog house floor 1
+                        CurrentMap = 614
+                    ElseIf CurrentMap = 615 Then 'sandoria mog house floor 2
+                        CurrentMap = 615
+                    ElseIf CurrentMap = 288 Then 'windurst mog house floor 1
+                        CurrentMap = 613
+                    ElseIf CurrentMap = 617 Then 'windurst mog house floor 2
+                        CurrentMap = 617
+                    ElseIf CurrentMap = 618 Then 'Mog Patio
+                        CurrentMap = 618
+                    ElseIf CurrentMap = 256 Then 'jeuno mog house
+                        CurrentMap = 612
+                    ElseIf CurrentMap = 292 Then 'adoulin mog house
+                        CurrentMap = 619
+                    Else
+                        CurrentMap = CurrentMap - 444
+                    End If
+                End If
                 If CurrentMap <> _lastMap Then
                     NotifyZoneChanged(_lastMap, CurrentMap)
                     _lastMap = CurrentMap

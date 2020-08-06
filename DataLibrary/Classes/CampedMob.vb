@@ -21,7 +21,7 @@
     
     Public Property ServerID() As Long
     
-    Public Property Zone() As Byte
+    Public Property Zone() As Short
     
     Public Property IsDead() As Boolean
     

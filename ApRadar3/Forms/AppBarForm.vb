@@ -239,7 +239,7 @@ Public Class AppBarForm
             zoneSpacer.Visible = My.Settings.ShowZoneTimer
 
             If GlobalSettings.IsProEnabled Then
-               
+
                 tsCampingMode.Checked = My.Settings.CampingMode
                 ntsCampingMode.Checked = My.Settings.CampingMode
                 tsSpawnAlerts.Checked = My.Settings.StartSpawnAlerts
@@ -247,10 +247,10 @@ Public Class AppBarForm
                 CampedMobManager.LoadData()
                 'Load the global watch list for spawn alerts
                 LoadWatchList()
-           
+
             End If
 
-            
+
             If DebugRun Then DebugForm.AppendMessage("  Success!", True)
 
             'Set the renderers
@@ -260,8 +260,8 @@ Public Class AppBarForm
                 'If DebugRun Then DebugForm.AddDebugMessage("Loading RSS feed...", False)
                 'LoadRSS()
                 'If My.Settings.AutomaticNewsUpdates Then
-                    'NewsTimer.Interval = (My.Settings.NewsCheckInterval * 60 * 1000)
-                    'NewsTimer.Start()
+                'NewsTimer.Interval = (My.Settings.NewsCheckInterval * 60 * 1000)
+                'NewsTimer.Start()
                 'End If
                 If DebugRun Then DebugForm.AppendMessage("  Success!", True)
 
@@ -458,7 +458,7 @@ Public Class AppBarForm
 
 
     'Private Sub tsMapUpdateCheck_Click(ByVal sender As Object, ByVal e As EventArgs) Handles tsMapUpdateCheck.Click, ntsMapUpdates.Click
-        'CheckMapVersion(True)
+    'CheckMapVersion(True)
     'End Sub
 
     Private Sub ntsAutoHide_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ntsAutoHide.CheckedChanged
@@ -745,11 +745,11 @@ Public Class AppBarForm
     End Sub
 
     'Private Sub tsRSS_DropDownClosed(ByVal sender As Object, ByVal e As EventArgs) Handles tsRSS.DropDownClosed
-        'tsRSS.Image = My.Resources.Rss
+    'tsRSS.Image = My.Resources.Rss
     'End Sub
 
     'Private Sub CheckForNewNewsItemsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CheckForNewNewsItemsToolStripMenuItem.Click
-        'LoadRSS()
+    'LoadRSS()
     'End Sub
 
     Private Sub ScanDatsForNewMobsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles tsScanDatsForMobs.Click, ntsScanDatsForNewMobs.Click
@@ -802,7 +802,7 @@ Public Class AppBarForm
                 Else
                     If ThemeHandler.ActiveTheme.DockPosition = DockMode.Top Then
                         If Not Bounds.Contains(Cursor.Position) Then
-                            If (BrowserForm Is Nothing OrElse Not BrowserForm.Visible) AndAlso _
+                            If (BrowserForm Is Nothing OrElse Not BrowserForm.Visible) AndAlso
                             Not tsApRadar.DropDown.Visible AndAlso Not tsSearchProvider.DropDown.Visible _
                             AndAlso Not _isTargetInfoDropped AndAlso Not _isPCInfoDropped AndAlso (_tsOverlayCMS Is Nothing OrElse Not _tsOverlayCMS.Visible) _
                             AndAlso _lostFocusCount >= 10 Then
@@ -817,7 +817,7 @@ Public Class AppBarForm
                         End If
                     Else
                         If Not Bounds.Contains(Cursor.Position) Then
-                            If (BrowserForm Is Nothing OrElse Not BrowserForm.Visible) AndAlso _
+                            If (BrowserForm Is Nothing OrElse Not BrowserForm.Visible) AndAlso
                             Not tsApRadar.DropDown.Visible AndAlso Not tsSearchProvider.DropDown.Visible _
                             AndAlso Not _isTargetInfoDropped AndAlso (_tsOverlayCMS Is Nothing OrElse Not _tsOverlayCMS.Visible) _
                             AndAlso _lostFocusCount >= 10 Then
@@ -843,7 +843,7 @@ Public Class AppBarForm
 
     Private Sub CurrentZoneTimer_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles CurrentZoneTimer.Tick
         If My.Settings.ShowZoneTimer Then
-            tsZone.Text = String.Format("Zone: [{0}] {1} - {2}:{3}:{4}", _currentZone.ToString("X2"), _zoneName, ZoneTimer.Elapsed.Hours.ToString("00"), ZoneTimer.Elapsed.Minutes.ToString("00"), ZoneTimer.Elapsed.Seconds.ToString("00"))
+            tsZone.Text = String.Format("Zone: [{0}] {1} - {2}:{3}:{4}", _currentZone.ToString(), _zoneName, ZoneTimer.Elapsed.Hours.ToString("00"), ZoneTimer.Elapsed.Minutes.ToString("00"), ZoneTimer.Elapsed.Seconds.ToString("00"))
         End If
         If My.Settings.ShowClock Then
             tsClock.Text = Date.Now.ToLongTimeString
@@ -881,7 +881,7 @@ Public Class AppBarForm
     End Sub
 
     'Private Sub NewsTimer_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles NewsTimer.Tick
-        'LoadRSS()
+    'LoadRSS()
     'End Sub
 
 #End Region
@@ -1097,7 +1097,7 @@ Public Class AppBarForm
 
             'If there is only one process we go ahead and select it.
             If processMenu.DropDownItems.Count = 1 AndAlso processMenu.DropDownItems(0).Tag <> _currentProcessID Then
-                If Not processMenu.DropDownItems(0).Text.StartsWith("PlayOnline") AndAlso _
+                If Not processMenu.DropDownItems(0).Text.StartsWith("PlayOnline") AndAlso
                 Not processMenu.DropDownItems(0).Text.StartsWith("[") Then
                     processMenu.DropDownItems(0).PerformClick()
                 End If
@@ -1146,14 +1146,14 @@ Public Class AppBarForm
         clockSpacer.Visible = My.Settings.ShowClock
 
         'If My.Settings.AutomaticNewsUpdates Then
-            'If Not NewsTimer.Enabled Then
-                'NewsTimer.Interval = My.Settings.NewsCheckInterval * 60000
-                'NewsTimer.Start()
-            'End If
+        'If Not NewsTimer.Enabled Then
+        'NewsTimer.Interval = My.Settings.NewsCheckInterval * 60000
+        'NewsTimer.Start()
+        'End If
         'Else
-            'If NewsTimer.Enabled Then
-                'NewsTimer.Stop()
-            'End If
+        'If NewsTimer.Enabled Then
+        'NewsTimer.Stop()
+        'End If
         'End If
 
         If My.Settings.Monitor = "Primary" Then
@@ -1206,44 +1206,44 @@ Public Class AppBarForm
     End Sub
 
     'Private Sub LoadRSS()
-        'Try
-            'Dim rss As New RSS
-            'rss.LoadFeed("http://apradar.com/external.php?type=RSS2&forumids=13")
-            'Dim rti As RSSToolStrip
-            'Dim latestDate As Date
-            'Dim count As Integer = 0
-            ''Clear out any rss entries
-            'For i = tsRSS.DropDownItems.Count - 1 To 1 Step -1
-                'tsRSS.DropDownItems.RemoveAt(i)
-            'Next
+    'Try
+    'Dim rss As New RSS
+    'rss.LoadFeed("http://apradar.com/external.php?type=RSS2&forumids=13")
+    'Dim rti As RSSToolStrip
+    'Dim latestDate As Date
+    'Dim count As Integer = 0
+    ''Clear out any rss entries
+    'For i = tsRSS.DropDownItems.Count - 1 To 1 Step -1
+    'tsRSS.DropDownItems.RemoveAt(i)
+    'Next
 
-            ''Add any new rss items
-            'For Each item As RSSItem In rss.FeedItems
-                'tsRSS.DropDownItems.Add(New ToolStripSeparator)
-                'If item.PubDate > latestDate Then
-                    'latestDate = item.PubDate
-                'End If
-                'rti = New RSSToolStrip()
-                'rti.FeedViewer.FeedItem = item
-                'AddHandler rti.FeedViewer.lnkTitle.LinkClicked, AddressOf RSS_LinkClicked
+    ''Add any new rss items
+    'For Each item As RSSItem In rss.FeedItems
+    'tsRSS.DropDownItems.Add(New ToolStripSeparator)
+    'If item.PubDate > latestDate Then
+    'latestDate = item.PubDate
+    'End If
+    'rti = New RSSToolStrip()
+    'rti.FeedViewer.FeedItem = item
+    'AddHandler rti.FeedViewer.lnkTitle.LinkClicked, AddressOf RSS_LinkClicked
 
-                'rti.Height = 135
-                'tsRSS.DropDownItems.Add(rti)
+    'rti.Height = 135
+    'tsRSS.DropDownItems.Add(rti)
 
-                'count += 1
-                'If count = My.Settings.MaxNewsItems Then
-                    'Exit For
-                'End If
-            'Next
+    'count += 1
+    'If count = My.Settings.MaxNewsItems Then
+    'Exit For
+    'End If
+    'Next
 
 
-            'If latestDate > My.Settings.LastRSSDate Then
-                'My.Settings.LastRSSDate = latestDate
-                'tsRSS.Image = My.Resources.rssNew
-            'End If
-        'Catch ex As Exception
+    'If latestDate > My.Settings.LastRSSDate Then
+    'My.Settings.LastRSSDate = latestDate
+    'tsRSS.Image = My.Resources.rssNew
+    'End If
+    'Catch ex As Exception
 
-        'End Try
+    'End Try
     'End Sub
 
     Private Sub SaveWatchList()
@@ -1274,10 +1274,10 @@ Public Class AppBarForm
                 'LightSteelBlue is the standatrd
                 tsTargetInfo.ForeColor = ThemeHandler.PCColor
 #If DEBUG Then
-                tsTargetInfo.Text = String.Format("PC [0x{0}] {1} - HP: {2}% ", _tData.ID.ToString("X"), _
+                tsTargetInfo.Text = String.Format("PC [{0}] {1} - HP: {2}% ", _tData.ID.ToString(), _
                                                      _tData.Name, _tData.HP, _tData.MobBase)
 #Else
-                tsTargetInfo.Text = String.Format("PC [0x{0}] {1} - HP: {2}% ", _tData.ID.ToString("X"), _
+                tsTargetInfo.Text = String.Format("PC [{0}] {1} - HP: {2}% ", _tData.ID.ToString(),
                                                      _tData.Name, _tData.HP, _tData.MobBase)
 #End If
                 If _tData.ID <> _lastTargetId Then
@@ -1296,11 +1296,11 @@ Public Class AppBarForm
                 tsTargetInfo.ForeColor = ThemeHandler.NPCColor
 
 #If DEBUG Then
-                tsTargetInfo.Text = String.Format("NPC [0x{0}] {1} HP: {2}% ", _tData.ID.ToString("X"), _
+                tsTargetInfo.Text = String.Format("NPC [{0}] {1} HP: {2}% ", _tData.ID.ToString(), _
                                                      _tData.Name, _tData.HP, _tData.MobBase)
 
 #Else
-                tsTargetInfo.Text = String.Format("NPC [0x{0}] {1} HP: {2}% ", _tData.ID.ToString("X"), _
+                tsTargetInfo.Text = String.Format("NPC [{0}] {1} HP: {2}% ", _tData.ID.ToString(),
                                                      _tData.Name, _tData.HP, _tData.MobBase)
 #End If
 
@@ -1308,7 +1308,7 @@ Public Class AppBarForm
                     '_targetInfoData = BuildMobInfo()
                     _mdf.Zone = _currentZone
                     Dim name As String = _tData.Name
-                    _mob = (From mob In DataAccess.MobData.Mobs _
+                    _mob = (From mob In DataAccess.MobData.Mobs
                             Where mob.MobName = name And mob.Zone = _mdf.Zone).FirstOrDefault
                     If _mob Is Nothing Then
                         tsAddMob.Visible = True
@@ -1461,8 +1461,8 @@ Public Class AppBarForm
                                                _pData.Y.ToString("0.000"), _pData.Z.ToString("0.000"), _
                                                Math.Round(RadiansToDegrees(_pData.Direction), 2), GetHeading(_pData.Direction), _pData.MobBase)
 #Else
-            tsPosition.Text = String.Format("X: {0} Y: {1} Z: {2} [{3}° {4}]", _pData.X.ToString("0.000"), _
-                                               _pData.Y.ToString("0.000"), _pData.Z.ToString("0.000"), _
+            tsPosition.Text = String.Format("X: {0} Y: {1} Z: {2} [{3}° {4}]", _pData.X.ToString("0.000"),
+                                               _pData.Y.ToString("0.000"), _pData.Z.ToString("0.000"),
                                                Math.Round(RadiansToDegrees(_pData.Direction), 2), GetHeading(_pData.Direction), _pData.MobBase)
 #End If
 
@@ -1508,7 +1508,7 @@ Public Class AppBarForm
 
 #Region " CAMPING MODE METHODS "
     Private Shared Function ValidateCampledMob(ByVal Name As String) As Boolean
-        Return Name.Trim <> String.Empty AndAlso Name <> "NPC" AndAlso Name <> "Moogle" AndAlso _
+        Return Name.Trim <> String.Empty AndAlso Name <> "NPC" AndAlso Name <> "Moogle" AndAlso
         Not Name.StartsWith("Door:") AndAlso Name <> "Home Point"
     End Function
 
@@ -1546,5 +1546,9 @@ Public Class AppBarForm
     Private Sub tsIniGenerator_Click(sender As Object, e As EventArgs) Handles tsIniGenerator.Click
         Dim igf As New IniGeneratorForm
         igf.Show()
+    End Sub
+
+    Private Sub tsZone_Click(sender As Object, e As EventArgs) Handles tsZone.Click
+
     End Sub
 End Class
