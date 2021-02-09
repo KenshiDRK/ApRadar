@@ -816,6 +816,7 @@
     <dat>\Rom\363\67.DAT</dat> <!-- Sheol A! -->
     <dat>\Rom\363\69.DAT</dat> <!-- Sheol B! -->
     <dat>\Rom\363\71.DAT</dat> <!-- Sheol C! -->
+    <dat>\Rom\364\110.DAT</dat> <!-- Sheol Gaol! -->
   </zone>
   <zone name="Mog Garden" id="280">
     <dat>\Rom\303\36.DAT</dat>
@@ -873,6 +874,7 @@
     <dat>\Rom\363\68.DAT</dat> <!-- Sheol A! -->
     <dat>\Rom\363\70.DAT</dat> <!-- Sheol B! -->
     <dat>\Rom\363\72.DAT</dat> <!-- Sheol C! -->
+    <dat>\Rom\364\111.DAT</dat> <!-- Sheol Gaol! -->
   </zone>
   <zone name="Jeuno - Mog House" id="612"></zone>
   <zone name="San d'Oria - Mog House" id="614"></zone>
