@@ -12,6 +12,9 @@ use Page Up and Page Down
 To reset the zoom level to 1, click the Home key while the Map Radar has focus.
 
 Changelog
+3.3.0.35
+- Fix for February 10, 2022 FFXI Update
+
 3.3.0.34
 - Fixed issue with scanning zone mob list dats.
 - Fixed issue with view TOD’s on new zones.
