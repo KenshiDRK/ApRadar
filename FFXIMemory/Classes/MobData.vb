@@ -324,7 +324,7 @@ Public Class MobData
         Public Race As Byte '239
         Public AttackTimer As Byte '240
         Public Unk10 As Short '241
-        Public Unk11 As byte '243
+        Public Unk11 As Byte '243
         Public Fade As Byte '244
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=7)> _
         Public Unk13 As Byte() '245

@@ -161,12 +161,15 @@ Public Class Chat
     ''' <remarks></remarks>
     Private Function Initialize() As Boolean
         If _pol Is Nothing Then
-            _pol = FFXIMemory.Memory.FindProcess("pol")
-            If Not _pol Is Nothing Then
-                Return Initialize(_pol)
-            Else
-                Return False
-            End If
+            Dim Instance() As String = {"pol", "xiloader", "wingsloader", "edenxi"}
+            For Each value As String In Instance
+                _pol = FFXIMemory.Memory.FindProcess(value)
+                If Not _pol Is Nothing Then
+                    Return Initialize(_pol)
+                Else
+                    Return False
+                End If
+            Next
         End If
 
         Return True

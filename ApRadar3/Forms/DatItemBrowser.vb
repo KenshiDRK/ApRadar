@@ -317,7 +317,7 @@ Public Class DatItemBrowser
         If Me.dgItems.SelectedRows.Count > 0 Then
             Dim row As Item = TryCast(Me.dgItems.SelectedRows(0).DataBoundItem, Item)
             If Not row Is Nothing Then
-                Dim url As String = String.Format("http://www.ffxiah.com/item/{0}/", row.GetFieldValue("id"))
+                Dim url As String = String.Format("https://www.ffxiah.com/item/{0}/", row.GetFieldValue("id"))
                 AppBarForm.BrowserForm.Top = AppBarForm.Bottom
                 AppBarForm.BrowserForm.Browser.Navigate(url)
                 AppBarForm.BrowserForm.Show()

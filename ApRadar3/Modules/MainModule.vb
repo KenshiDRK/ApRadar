@@ -8,10 +8,10 @@ Imports System.Reflection
 
 Module MainModule
 #Region " CONSTANTS "
-    Public Const Alla As String = "http://ffxi.allakhazam.com/search.html?q={0}"
-    Public Const wiki As String = "http://wiki.ffxiclopedia.org/wiki/Special:Search?search={0}"
-    Public Const ffxiah As String = "http://www.ffxiah.com/search/item?sid={1}&search_q={0}"
-    Public Const ffxiahItemUrl As String = "http://www.ffxiah.com/item/{0}/"
+    Public Const Alla As String = "https://ffxi.allakhazam.com/search.html?q={0}"
+    Public Const wiki As String = "https://ffxiclopedia.fandom.com/wiki/Special:Search?query={0}"
+    Public Const ffxiah As String = "https://www.ffxiah.com/search/item?q={0}"
+    Public Const ffxiahItemUrl As String = "https://www.ffxiah.com/item/{0}/"
     Public Const HeadingBlock As Integer = 45
 
     Public LicensePath As String = String.Format("{0}\ApneaSoft.ApRadar3.license", Application.StartupPath)
@@ -110,86 +110,86 @@ Module MainModule
         Public Unk18 As Integer '318
         Public NpcSpeechLoop As Short '322
         Public NPCSpeechFrame As Short '324
-        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=18)> _
+        <MarshalAs(UnmanagedType.ByValArray, SizeConst:=22)> _
         Public Unk19 As Byte() '326
-        Public Speed As Single '344
-        Public NPCWalkPos1 As Short '348
-        Public NPCWalkPos2 As Short '350
-        Public NPCWalkMode As Short '352
-        Public CostumeID As Short '354
+        Public Speed As Single '348
+        Public NPCWalkPos1 As Short '352
+        Public NPCWalkPos2 As Short '354
+        Public NPCWalkMode As Short '356
+        Public CostumeID As Short '358
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public mou4 As String '356
-        Public Status As Integer '360
-        Public Status2 As Integer '364
-        Public StatusNpcChat As Integer '368
-        Public Unk20 As Integer '372
-        Public Unk21 As Integer '376
-        Public Unk22 As Integer '380
-        Public Unk23 As Integer '384
-        Public ClaimedBy As Integer '388
-        Public Unk24 As Integer '392
+        Public mou4 As String '360
+        Public Status As Integer '364
+        Public Status2 As Integer '368
+        Public StatusNpcChat As Integer '372
+        Public Unk20 As Integer '376
+        Public Unk21 As Integer '380
+        Public Unk22 As Integer '384
+        Public Unk23 As Integer '388
+        Public ClaimedBy As Integer '392
+        Public Unk24 As Integer '396
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation1 As String '396
+        Public Animation1 As String '400
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation2 As String '400
+        Public Animation2 As String '404
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation3 As String '404
+        Public Animation3 As String '408
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation4 As String '408
+        Public Animation4 As String '412
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation5 As String '412
+        Public Animation5 As String '416
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation6 As String '416
+        Public Animation6 As String '420
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation7 As String '420
+        Public Animation7 As String '424
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation8 As String '424
+        Public Animation8 As String '428
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation9 As String '428
+        Public Animation9 As String '432
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> _
-        Public Animation10 As String '432
-        Public AnimationTime As Short '436
-        Public AnimationStep As Short '438
-        Public AnimationPlay As Byte '440
-        Public Unk25 As Byte '441
-        Public Unk26 As Short '442
-        Public Unk27 As Short '444
-        Public Unk28 As Short '446
-        Public EmoteID As Integer '448
-        Public Unk29 As Integer '452
-        Public Unk30 As Integer '456
-        Public SpawnType As Integer '460
-        Public LSColorRed As Byte '464
-        Public LSColorGreen As Byte '465
-        Public LSColorBlue As Byte '466
-        Public LSUnk As Byte '467
-        Public NameColor As Short '468
+        Public Animation10 As String '436
+        Public AnimationTime As Short '440
+        Public AnimationStep As Short '442
+        Public AnimationPlay As Byte '444
+        Public Unk25 As Byte '445
+        Public Unk26 As Short '446
+        Public Unk27 As Short '448
+        Public Unk28 As Short '450
+        Public EmoteID As Integer '452
+        Public Unk29 As Integer '456
+        Public Unk30 As Integer '460
+        Public SpawnType As Integer '464
+        Public LSColorRed As Byte '468
+        Public LSColorGreen As Byte '469
+        Public LSColorBlue As Byte '470
+        Public LSUnk As Byte '471
+        Public NameColor As Short '472
         <MarshalAs(UnmanagedType.I1)> _
-        Public CampaignMode As Boolean '470
-        Public Unk31 As Byte '471
-        Public FishingTimer As Short '472
-        Public FishingCastTimer As Short '4674
-        Public FishingUnknown0001 As Integer '476
-        Public FishingUnknown0002 As Integer '480
-        Public FishingUnknown0003 As Short '484
+        Public CampaignMode As Boolean '474
+        Public Unk31 As Byte '475
+        Public FishingTimer As Short '476
+        Public FishingCastTimer As Short '478
+        Public FishingUnknown0001 As Integer '480
+        Public FishingUnknown0002 As Integer '484
+        Public FishingUnknown0003 As Short '488
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=14)> _
-        Public Unk32 As Byte() '486
-        Public PCTarget As Short '500
-        Public PetIndex As Short '502
-        Public Unk33 As Short '504
-        Public Unk34 As Byte '506
-        Public BallistaScoreFlag As Byte '507
-        Public PankrationEnabled As Byte '508
-        Public PankrationFlagFlip As Byte '509
-        Public Unk35 As Short '510
-        Public ModelSize As Single '512
-        Public Unk36 As Integer '516
-        Public Unk37 As Short '520
-        Public Unk38 As Short '522
-        Public MonstrosityFlag As Short '524
-        Public Unk39 As Short '526
+        Public Unk32 As Byte() '490
+        Public PCTarget As Short '504
+        Public PetIndex As Short '506
+        Public Unk33 As Short '508
+        Public Unk34 As Byte '510
+        Public BallistaScoreFlag As Byte '511
+        Public PankrationEnabled As Byte '512
+        Public PankrationFlagFlip As Byte '513
+        Public Unk35 As Short '514
+        Public ModelSize As Single '516
+        Public Unk36 As Integer '520
+        Public Unk37 As Short '524
+        Public Unk38 As Short '526
+        Public MonstrosityFlag As Short '528
+        Public Unk39 As Short '530
         <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=36)> _
-        Public MonstrosityName As String '528
+        Public MonstrosityName As String '532
     End Structure
 #End Region
 

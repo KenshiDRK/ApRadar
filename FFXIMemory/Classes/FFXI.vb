@@ -8,7 +8,10 @@ Public Class FFXI
     End Sub
 
     Public Sub New()
-        _pol = Memory.FindProcess("pol")
+        Dim Instance() As String = {"pol", "xiloader", "wingsloader", "edenxi"}
+        For Each value As String In Instance
+            _pol = Memory.FindProcess(value)
+        Next
     End Sub
 
     Private _pol As Process

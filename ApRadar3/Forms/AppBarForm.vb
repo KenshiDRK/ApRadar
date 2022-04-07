@@ -1042,7 +1042,7 @@ Public Class AppBarForm
     ''' <remarks></remarks>
     Private Sub LoadAvailableProcesses()
         'Get the current list of availabel processes
-        _pList = From p In Process.GetProcesses Where p.ProcessName = "pol"
+        _pList = From p In Process.GetProcesses Where p.ProcessName = "pol" Or p.ProcessName = "xiloader" Or p.ProcessName =  "wingsloader" Or p.ProcessName =  "edenxi"
 
         Dim processMenu As Object
 
