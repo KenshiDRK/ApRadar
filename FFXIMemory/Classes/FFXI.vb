@@ -47,7 +47,7 @@ Public Class FFXI
         If Not POL Is Nothing Then
             Try
                 For Each m As ProcessModule In POL.Modules
-                    If m.ModuleName = "FFXiMain.dll" Then
+                    If m.ModuleName.ToLower = "ffximain.dll" Then
                         Return True
                     End If
                 Next

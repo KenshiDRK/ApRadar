@@ -16,7 +16,7 @@ Public Class Memory
     End Sub
 
     Public Sub New(ByVal ProcessName As String)
-        Me._Process = findProcess(ProcessName)
+        Me._Process = FindProcess(ProcessName)
     End Sub
 
     Public Sub New()
@@ -49,7 +49,7 @@ Public Class Memory
     Public Shared Function GetModule(ByVal ModuleName As String, ByVal ProcessInstance As Process) As ProcessModule
         Try
             Dim result = (From m In ProcessInstance.Modules.OfType(Of ProcessModule)() _
-                          Where m.ModuleName = ModuleName Select m).FirstOrDefault
+                          Where m.ModuleName.ToLower = ModuleName.ToLower Select m).FirstOrDefault
             Return result
         Catch ex As Exception
             Return Nothing
