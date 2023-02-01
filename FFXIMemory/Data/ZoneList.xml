@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <zonelist>
   <zone name="Unknown" id="0">
-		<dat></dat>
+	  <dat></dat>
 	</zone>
   <zone name="Phanauet Channel" id="1">
     <dat>\Rom3\2\111.DAT</dat>
@@ -208,424 +208,428 @@
     <dat>\Rom4\1\68.DAT</dat>
   </zone>
   <zone name="Chocobo Circuit" id="70">
-	<dat>\Rom4\1\69.DAT</dat>
+	  <dat>\Rom4\1\69.DAT</dat>
   </zone>
   <zone name="The Colosseum" id="71">
-	<dat>\Rom4\1\70.DAT</dat>
+	  <dat>\Rom4\1\70.DAT</dat>
   </zone>
   <zone name="Alzadaal Undersea Ruins" id="72">
-	<dat>\Rom4\1\71.DAT</dat>
+	  <dat>\Rom4\1\71.DAT</dat>
   </zone>
   <zone name="Zhayolm Remnants" id="73">
-	<dat>\Rom4\1\72.DAT</dat>
+	  <dat>\Rom4\1\72.DAT</dat>
   </zone>
   <zone name="Arrapago Remnants" id="74">
-	<dat>\Rom4\1\73.DAT</dat>
+	  <dat>\Rom4\1\73.DAT</dat>
   </zone>
   <zone name="Bhaflau Remnants" id="75">
-	<dat>\Rom4\1\74.DAT</dat>
+	  <dat>\Rom4\1\74.DAT</dat>
   </zone>
   <zone name="Silver Sea Remnants" id="76">
-	<dat>\Rom4\1\75.DAT</dat>
+    <dat>\Rom4\1\75.DAT</dat>
   </zone>
   <zone name="Nyzul Isle" id="77">
- 	<dat>\Rom4\1\76.DAT</dat>
+ 	  <dat>\Rom4\1\76.DAT</dat>
   </zone>
   <zone name="Hazhalm Testing Grounds" id="78">
-	<dat>\Rom4\1\77.DAT</dat>
+	  <dat>\Rom4\1\77.DAT</dat>
   </zone>
   <zone name="Caedarva Mire" id="79">
-	<dat>\Rom4\1\78.DAT</dat>
+	  <dat>\Rom4\1\78.DAT</dat>
   </zone>
   <zone name="Southern San d'Oria [S]" id="80">
-	<dat>\Rom\26\17.DAT</dat>
+	  <dat>\Rom\26\17.DAT</dat>
   </zone>
   <zone name="East Ronfaure [S]" id="81">
-	<dat>\Rom\26\18.DAT</dat>  
+	  <dat>\Rom\26\18.DAT</dat>  
   </zone>
   <zone name="Jugner Forest [S]" id="82">
-	<dat>\Rom\26\19.DAT</dat>
+	  <dat>\Rom\26\19.DAT</dat>
   </zone>
   <zone name="Vunkerl Inlet [S]" id="83">
     <dat>\Rom\26\20.DAT</dat>
   </zone>
   <zone name="Batallia Downs [S]" id="84">
-	<dat>\Rom\26\21.DAT</dat>
+	  <dat>\Rom\26\21.DAT</dat>
   </zone>
   <zone name="La Vaule [S]" id="85">
-	<dat>\Rom\26\22.DAT</dat>
+	  <dat>\Rom\26\22.DAT</dat>
   </zone>
   <zone name="Everbloom Hollow" id="86">
-	<dat>\Rom\26\23.DAT</dat>
+	  <dat>\Rom\26\23.DAT</dat>
   </zone>
   <zone name="Bastok Markets [S]" id="87">
-	<dat>\Rom\26\24.DAT</dat>
+	  <dat>\Rom\26\24.DAT</dat>
   </zone>
   <zone name="North Gustaberg [S]" id="88">
-	<dat>\Rom\26\25.DAT</dat>
+	  <dat>\Rom\26\25.DAT</dat>
   </zone>
   <zone name="Grauberg [S]" id="89">
     <dat>\Rom\26\26.DAT</dat>
   </zone>
   <zone name="Pashhow Marshlands [S]" id="90">
-	<dat>\Rom\26\27.DAT</dat>
+	  <dat>\Rom\26\27.DAT</dat>
   </zone>
   <zone name="Rolanberry Fields [S]" id="91">
-	<dat>\Rom\26\28.DAT</dat>
+	  <dat>\Rom\26\28.DAT</dat>
   </zone>
   <zone name="Beadeaux [S]" id="92">
-	<dat>\Rom\26\29.DAT</dat>
+	  <dat>\Rom\26\29.DAT</dat>
   </zone>
   <zone name="Ruhotz Silvermines" id="93">
-	<dat>\Rom\26\30.DAT</dat>
+	  <dat>\Rom\26\30.DAT</dat>
   </zone>
   <zone name="Windurst Waters [S]" id="94">
-	<dat>\Rom\26\31.DAT</dat>
+	  <dat>\Rom\26\31.DAT</dat>
   </zone>
   <zone name="West Sarutabaruta [S]" id="95">
-	<dat>\Rom\26\32.DAT</dat>
+	  <dat>\Rom\26\32.DAT</dat>
   </zone>
   <zone name="Fort Karugo-Narugo [S]" id="96">
-	<dat>\Rom\26\33.DAT</dat>
+	  <dat>\Rom\26\33.DAT</dat>
   </zone>
   <zone name="Meriphataud Mountains [S]" id="97">
-	<dat>\Rom\26\34.DAT</dat>
+	  <dat>\Rom\26\34.DAT</dat>
   </zone>
   <zone name="Sauromugue Champaign [S]" id="98">
-	<dat>\Rom\26\35.DAT</dat>
+	  <dat>\Rom\26\35.DAT</dat>
   </zone>
   <zone name="Castle Oztroja [S]" id="99">
-	<dat>\Rom\26\36.DAT</dat>
+	  <dat>\Rom\26\36.DAT</dat>
   </zone>
   <zone name="West Ronfaure" id="100">
-	<dat>\Rom\26\37.DAT</dat>
+	  <dat>\Rom\26\37.DAT</dat>
   </zone>
   <zone name="East Ronfaure" id="101">
-	<dat>\Rom\26\38.DAT</dat>
+	  <dat>\Rom\26\38.DAT</dat>
   </zone>
   <zone name="La Theine Plateau" id="102">
-	<dat>\Rom\26\39.DAT</dat>
+	  <dat>\Rom\26\39.DAT</dat>
   </zone>
   <zone name="Valkurm Dunes" id="103">
-	<dat>\Rom\26\40.DAT</dat>
+	  <dat>\Rom\26\40.DAT</dat>
   </zone>
   <zone name="Jugner Forest" id="104">
-	<dat>\Rom\26\41.DAT</dat>
+	  <dat>\Rom\26\41.DAT</dat>
   </zone>
   <zone name="Batallia Downs" id="105">
-	<dat>\Rom\26\42.DAT</dat>
+	  <dat>\Rom\26\42.DAT</dat>
   </zone>
   <zone name="North Gustaberg" id="106">
-	<dat>\Rom\26\43.DAT</dat>
+	  <dat>\Rom\26\43.DAT</dat>
   </zone>
   <zone name="South Gustaberg" id="107">
-	<dat>\Rom\26\44.DAT</dat>
+	  <dat>\Rom\26\44.DAT</dat>
   </zone>
   <zone name="Konschtat Highlands" id="108">
     <dat>\Rom\26\45.DAT</dat>
   </zone>
   <zone name="Pashhow Marshlands" id="109">
-	<dat>\Rom\26\46.DAT</dat>
+	  <dat>\Rom\26\46.DAT</dat>
   </zone>
   <zone name="Rolanberry Fields" id="110">
-	<dat>\Rom\26\47.DAT</dat>
+	  <dat>\Rom\26\47.DAT</dat>
   </zone>
   <zone name="Beaucedine Glacier" id="111">
-	<dat>\Rom\26\48.DAT</dat>
+	  <dat>\Rom\26\48.DAT</dat>
   </zone>
   <zone name="Xarcabard" id="112">
-	<dat>\Rom\26\49.DAT</dat>
+	  <dat>\Rom\26\49.DAT</dat>
   </zone>
   <zone name="Cape Teriggan" id="113">
-	<dat>\Rom2\13\95.DAT</dat>
+	  <dat>\Rom2\13\95.DAT</dat>
   </zone>
   <zone name="Eastern Altepa Desert" id="114">
-	<dat>\Rom2\13\96.DAT</dat>
+	  <dat>\Rom2\13\96.DAT</dat>
   </zone>
   <zone name="West Sarutabaruta" id="115">
-	<dat>\Rom\26\52.DAT</dat>
+	  <dat>\Rom\26\52.DAT</dat>
   </zone>
   <zone name="East Sarutabaruta" id="116">
-	<dat>\Rom\26\53.DAT</dat>
+	  <dat>\Rom\26\53.DAT</dat>
   </zone>
   <zone name="Tahrongi Canyon" id="117">
-	<dat>\Rom\26\54.DAT</dat>
+	  <dat>\Rom\26\54.DAT</dat>
   </zone>
   <zone name="Buburimu Peninsula" id="118">
-	<dat>\Rom\26\55.DAT</dat>
+	  <dat>\Rom\26\55.DAT</dat>
   </zone>
   <zone name="Meriphataud Mountains" id="119">
-	<dat>\Rom\26\56.DAT</dat>
+	  <dat>\Rom\26\56.DAT</dat>
   </zone>
   <zone name="Sauromugue Champaign" id="120">
-	<dat>\Rom\26\57.DAT</dat>
+	  <dat>\Rom\26\57.DAT</dat>
   </zone>
   <zone name="The Sanctuary of Zi'Tah" id="121">
-	<dat>\Rom2\13\97.DAT</dat>
+	  <dat>\Rom2\13\97.DAT</dat>
   </zone>
   <zone name="Ro'Maeve" id="122">
-	<dat>\Rom2\13\98.DAT</dat>
+	  <dat>\Rom2\13\98.DAT</dat>
   </zone>
   <zone name="Yuhtunga Jungle" id="123">
-	<dat>\Rom2\13\99.DAT</dat>
+	  <dat>\Rom2\13\99.DAT</dat>
   </zone>
   <zone name="Yhoator Jungle" id="124">
-	<dat>\Rom2\13\100.DAT</dat>
+	  <dat>\Rom2\13\100.DAT</dat>
   </zone>
   <zone name="Western Altepa Desert" id="125">
-	<dat>\Rom2\13\101.DAT</dat>
+	  <dat>\Rom2\13\101.DAT</dat>
   </zone>
   <zone name="Qufim Island" id="126">
-	<dat>\Rom\26\63.DAT</dat>
+	  <dat>\Rom\26\63.DAT</dat>
   </zone>
   <zone name="Behemoth's Dominion" id="127">
-	<dat>\Rom\26\64.DAT</dat>
+	  <dat>\Rom\26\64.DAT</dat>
   </zone>
   <zone name="Valley of Sorrows" id="128">
-	<dat>\Rom2\13\102.DAT</dat>
+	  <dat>\Rom2\13\102.DAT</dat>
   </zone>
   <zone name="Ghoyu's Reverie" id="129">
-	<dat>\Rom\26\66.DAT</dat>
+	  <dat>\Rom\26\66.DAT</dat>
   </zone>
   <zone name="Ru'Aun Gardens" id="130">
-	<dat>\Rom2\13\103.DAT</dat>
+	  <dat>\Rom2\13\103.DAT</dat>
   </zone>
   <zone name="Mordion Gaol" id="131">
-	<dat>\Rom\26\68.DAT</dat>
+	  <dat>\Rom\26\68.DAT</dat>
   </zone>
   <zone name="Abyssea - LaTheine" id="132">
     <dat>\Rom\26\69.DAT</dat>
   </zone>
+  <zone name="Outer Ra'Kaznar [U2]" id="133">
+    <dat>\Rom9\8\71.DAT</dat>
+    <dat>\Rom\373\60.DAT</dat>
+  </zone>
   <zone name="Dynamis - Beaucedine" id="134">
-	<dat>\Rom2\13\104.DAT</dat>
+	  <dat>\Rom2\13\104.DAT</dat>
   </zone>
   <zone name="Dynamis - Xarcabard" id="135">
-	<dat>\Rom2\13\105.DAT</dat>
+	  <dat>\Rom2\13\105.DAT</dat>
   </zone>
   <zone name="Beaucedine Glacier [S]" id="136">
-	<dat>\Rom\26\73.DAT</dat>
+	  <dat>\Rom\26\73.DAT</dat>
   </zone>
   <zone name="Xarcabard [S]" id="137">
-	<dat>\Rom\26\74.DAT</dat>
+	  <dat>\Rom\26\74.DAT</dat>
   </zone>
   <zone name="Castle Zvahl Baileys [S]" id="138">
-	<dat>\Rom\26\75.DAT</dat>
+	  <dat>\Rom\26\75.DAT</dat>
   </zone>
   <zone name="Horlais Peak" id="139">
-	<dat>\Rom\26\76.DAT</dat>
+	  <dat>\Rom\26\76.DAT</dat>
   </zone>
   <zone name="Ghelsba Outpost" id="140">
-	<dat>\Rom\26\77.DAT</dat>
+	  <dat>\Rom\26\77.DAT</dat>
   </zone>
   <zone name="Fort Ghelsba" id="141">
-	<dat>\Rom\26\78.DAT</dat>
+	  <dat>\Rom\26\78.DAT</dat>
   </zone>
   <zone name="Yughott Grotto" id="142">
-	<dat>\Rom\26\79.DAT</dat>
+	  <dat>\Rom\26\79.DAT</dat>
   </zone>
   <zone name="Palborough Mines" id="143">
-	<dat>\Rom\26\80.DAT</dat>
+	  <dat>\Rom\26\80.DAT</dat>
   </zone>
   <zone name="Waughroon Shrine" id="144">
-	<dat>\Rom\26\81.DAT</dat>
+	  <dat>\Rom\26\81.DAT</dat>
   </zone>
   <zone name="Giddeus" id="145">
-	<dat>\Rom\26\82.DAT</dat>
+	  <dat>\Rom\26\82.DAT</dat>
   </zone>
   <zone name="Balga's Dais" id="146">
-	<dat>\Rom\26\83.DAT</dat>
+	  <dat>\Rom\26\83.DAT</dat>
   </zone>
   <zone name="Beadeaux" id="147">
-	<dat>\Rom\26\84.DAT</dat>
+	  <dat>\Rom\26\84.DAT</dat>
   </zone>
   <zone name="Qulun Dome" id="148">
-	<dat>\Rom\26\85.DAT</dat>
+	  <dat>\Rom\26\85.DAT</dat>
   </zone>
   <zone name="Davoi" id="149">
-	<dat>\Rom\26\86.DAT</dat>
+	  <dat>\Rom\26\86.DAT</dat>
   </zone>
   <zone name="Monastic Cavern" id="150">
-	<dat>\Rom\26\87.DAT</dat>
+	  <dat>\Rom\26\87.DAT</dat>
   </zone>
   <zone name="Castle Oztroja" id="151">
-	<dat>\Rom\26\88.DAT</dat>
+	  <dat>\Rom\26\88.DAT</dat>
   </zone>
   <zone name="Altar Room" id="152">
-	<dat>\Rom\26\89.DAT</dat>
+	  <dat>\Rom\26\89.DAT</dat>
   </zone>
   <zone name="The Boyahda Tree" id="153">
-	<dat>\Rom2\13\106.DAT</dat>
+	  <dat>\Rom2\13\106.DAT</dat>
   </zone>
   <zone name="Dragon's Aery" id="154">
-	<dat>\Rom2\13\107.DAT</dat>
+	  <dat>\Rom2\13\107.DAT</dat>
   </zone>
   <zone name="Castle Zvahl Keep [S]" id="155">
-	<dat>\Rom\26\92.DAT</dat>
+	  <dat>\Rom\26\92.DAT</dat>
   </zone>
   <zone name="Throne Room [S]" id="156">
-	<dat>\Rom\26\93.DAT</dat>
+	  <dat>\Rom\26\93.DAT</dat>
   </zone>
   <zone name="Middle Delkfutt's Tower" id="157">
-	<dat>\Rom\26\94.DAT</dat>
+	  <dat>\Rom\26\94.DAT</dat>
   </zone>
   <zone name="Upper Delkfutt's Tower" id="158">
-	<dat>\Rom\26\95.DAT</dat>
+	  <dat>\Rom\26\95.DAT</dat>
   </zone>
   <zone name="Temple of Uggalepih" id="159">
-	<dat>\Rom2\13\108.DAT</dat>
+	  <dat>\Rom2\13\108.DAT</dat>
   </zone>
   <zone name="Den of Rancor" id="160">
-	<dat>\Rom2\13\109.DAT</dat>
+	  <dat>\Rom2\13\109.DAT</dat>
   </zone>
   <zone name="Castle Zvahl Baileys" id="161">
-	<dat>\Rom\26\98.DAT</dat>
+	  <dat>\Rom\26\98.DAT</dat>
   </zone>
   <zone name="Castle Zvahl Keep" id="162">
-	<dat>\Rom\26\99.DAT</dat>
+	  <dat>\Rom\26\99.DAT</dat>
   </zone>
   <zone name="Sacrificial Chamber" id="163">
-	<dat>\Rom2\13\110.DAT</dat>
+	  <dat>\Rom2\13\110.DAT</dat>
   </zone>
   <zone name="Garlaige Citadel [S]" id="164">
-	<dat>\Rom\26\101.DAT</dat>
+	  <dat>\Rom\26\101.DAT</dat>
   </zone>
   <zone name="Throne Room" id="165">
-	<dat>\Rom\26\102.DAT</dat>
+	  <dat>\Rom\26\102.DAT</dat>
   </zone>
   <zone name="Ranguemont Pass" id="166">
-	<dat>\Rom\26\103.DAT</dat>
+	  <dat>\Rom\26\103.DAT</dat>
   </zone>
   <zone name="Bostaunieux Oubliette" id="167">
-	<dat>\Rom\26\104.DAT</dat>
+	  <dat>\Rom\26\104.DAT</dat>
   </zone>
   <zone name="Chamber of Oracles" id="168">
-	<dat>\Rom2\13\111.DAT</dat>
+	  <dat>\Rom2\13\111.DAT</dat>
   </zone>
   <zone name="Toraimarai Canal" id="169">
-	<dat>\Rom\26\106.DAT</dat>
+	  <dat>\Rom\26\106.DAT</dat>
   </zone>
   <zone name="Full Moon Fountain" id="170">
-	<dat>\Rom2\13\112.DAT</dat>
+	  <dat>\Rom2\13\112.DAT</dat>
   </zone>
   <zone name="Crawlers' Nest [S]" id="171">
-	<dat>\Rom\26\108.DAT</dat>
+	  <dat>\Rom\26\108.DAT</dat>
   </zone>
   <zone name="Zeruhn Mines" id="172">
-	<dat>\Rom\26\109.DAT</dat>
+	  <dat>\Rom\26\109.DAT</dat>
   </zone>
   <zone name="Korroloka Tunnel" id="173">
-	<dat>\Rom2\13\113.DAT</dat>
+	  <dat>\Rom2\13\113.DAT</dat>
   </zone>
   <zone name="Kuftal Tunnel" id="174">
-	<dat>\Rom2\13\114.DAT</dat>
+	  <dat>\Rom2\13\114.DAT</dat>
   </zone>
   <zone name="The Eldieme Necropolis [S]" id="175">
-	<dat>\Rom\26\112.DAT</dat>
+	  <dat>\Rom\26\112.DAT</dat>
   </zone>
   <zone name="Sea Serpent Grotto" id="176">
-	<dat>\Rom2\13\115.DAT</dat>
+	  <dat>\Rom2\13\115.DAT</dat>
   </zone>
   <zone name="Ve'Lugannon Palace" id="177">
-	<dat>\Rom2\13\116.DAT</dat>
+	  <dat>\Rom2\13\116.DAT</dat>
   </zone>
   <zone name="The Shrine of Ru'Avitau" id="178">
-	<dat>\Rom2\13\117.DAT</dat>
+	  <dat>\Rom2\13\117.DAT</dat>
   </zone>
   <zone name="Stellar Fulcrum" id="179">
-	<dat>\Rom2\13\118.DAT</dat>
+	  <dat>\Rom2\13\118.DAT</dat>
   </zone>
   <zone name="La'Loff Amphitheater" id="180">
-	<dat>\Rom2\13\119.DAT</dat>
+	  <dat>\Rom2\13\119.DAT</dat>
   </zone>
   <zone name="The Celestial Nexus" id="181">
-	<dat>\Rom2\13\120.DAT</dat>
+	  <dat>\Rom2\13\120.DAT</dat>
   </zone>
   <zone name="Walk of Echoes" id="182">
-	<dat>\Rom\26\119.DAT</dat>
+	  <dat>\Rom\26\119.DAT</dat>
   </zone>
   <zone name="Maquette Abdhaljs-LegionA" id="183">
-	<dat>\Rom\26\120.DAT</dat>
+	  <dat>\Rom\26\120.DAT</dat>
   </zone>
   <zone name="Lower Delkfutt's Tower" id="184">
-	<dat>\Rom\26\121.DAT</dat>
+	  <dat>\Rom\26\121.DAT</dat>
   </zone>
   <zone name="Dynamis - San d'Oria" id="185">
-	<dat>\Rom2\13\121.DAT</dat>
+	  <dat>\Rom2\13\121.DAT</dat>
   </zone>
   <zone name="Dynamis - Bastok" id="186">
-	<dat>\Rom2\13\122.DAT</dat>
+	  <dat>\Rom2\13\122.DAT</dat>
   </zone>
   <zone name="Dynamis - Windurst" id="187">
-	<dat>\Rom2\13\123.DAT</dat>
+	  <dat>\Rom2\13\123.DAT</dat>
   </zone>
   <zone name="Dynamis - Jeuno" id="188">
-	<dat>\Rom2\13\124.DAT</dat>
+	  <dat>\Rom2\13\124.DAT</dat>
   </zone>
   <zone name="King Ranperre's Tomb" id="190">
-	<dat>\Rom\26\127.DAT</dat>
+	  <dat>\Rom\26\127.DAT</dat>
   </zone>
   <zone name="Dangruf Wadi" id="191">
-	<dat>\Rom\27\0.DAT</dat>
+	  <dat>\Rom\27\0.DAT</dat>
   </zone>
   <zone name="Inner Horutoto Ruins" id="192">
-	<dat>\Rom\27\1.DAT</dat>
+	  <dat>\Rom\27\1.DAT</dat>
   </zone>
   <zone name="Ordelle's Caves" id="193">
-	<dat>\Rom\27\2.DAT</dat>
+	  <dat>\Rom\27\2.DAT</dat>
   </zone>
   <zone name="Outer Horutoto Ruins" id="194">
-	<dat>\Rom\27\3.DAT</dat>
+	  <dat>\Rom\27\3.DAT</dat>
   </zone>
   <zone name="The Eldieme Necropolis" id="195">
-	<dat>\Rom\27\4.DAT</dat>
+	  <dat>\Rom\27\4.DAT</dat>
   </zone>
   <zone name="Gusgen Mines" id="196">
-	<dat>\Rom\27\5.DAT</dat>
+	  <dat>\Rom\27\5.DAT</dat>
   </zone>
   <zone name="Crawlers' Nest" id="197">
-	<dat>\Rom\27\6.DAT</dat>
+	  <dat>\Rom\27\6.DAT</dat>
   </zone>
   <zone name="Maze of Shakhrami" id="198">
-	<dat>\Rom\27\7.DAT</dat>
+	  <dat>\Rom\27\7.DAT</dat>
   </zone>
   <zone name="Garlaige Citadel" id="200">
-	<dat>\Rom\27\9.DAT</dat>
+	  <dat>\Rom\27\9.DAT</dat>
   </zone>
   <zone name="Cloister of Gales" id="201">
-	<dat>\Rom2\13\125.DAT</dat>
+	  <dat>\Rom2\13\125.DAT</dat>
   </zone>
   <zone name="Cloister of Storms" id="202">
-	<dat>\Rom2\13\126.DAT</dat>
+	  <dat>\Rom2\13\126.DAT</dat>
   </zone>
   <zone name="Cloister of Frost" id="203">
-	<dat>\Rom2\13\127.DAT</dat>
+	  <dat>\Rom2\13\127.DAT</dat>
   </zone>
   <zone name="Fei'Yin" id="204">
-	<dat>\Rom\27\13.DAT</dat>
+	  <dat>\Rom\27\13.DAT</dat>
   </zone>
   <zone name="Ifrit's Cauldron" id="205">
-	<dat>\Rom2\14\0.DAT</dat>
+	  <dat>\Rom2\14\0.DAT</dat>
   </zone>
   <zone name="Qu'Bia Arena" id="206">
-	<dat>\Rom\27\15.DAT</dat>
+	  <dat>\Rom\27\15.DAT</dat>
   </zone>
   <zone name="Cloister of Flames" id="207">
-	<dat>\Rom2\14\1.DAT</dat>
+	  <dat>\Rom2\14\1.DAT</dat>
   </zone>
   <zone name="Quicksand Caves" id="208">
-	<dat>\Rom2\14\2.DAT</dat>
+	  <dat>\Rom2\14\2.DAT</dat>
   </zone>
   <zone name="Cloister of Tremors" id="209">
-	<dat>\Rom2\14\3.DAT</dat>
+	  <dat>\Rom2\14\3.DAT</dat>
   </zone>
   <zone name="Cloister of Tides" id="211">
-	<dat>\Rom2\14\4.DAT</dat>
+	  <dat>\Rom2\14\4.DAT</dat>
   </zone>
   <zone name="Gustav Tunnel" id="212">
-	<dat>\Rom2\14\5.DAT</dat>
+	  <dat>\Rom2\14\5.DAT</dat>
   </zone>
   <zone name="Labyrinth of Onzozo" id="213">
-	<dat>\Rom2\14\6.DAT</dat>
+	  <dat>\Rom2\14\6.DAT</dat>
   </zone>
   <zone name="Whitegate - Mog House" id="214"></zone>
   <zone name="Abyssea - Attohwa" id="215"> <!-- D7 -->
@@ -641,109 +645,112 @@
     <dat>\Rom\27\27.DAT</dat>
   </zone>
   <zone name="Ship bound for Selbina" id="220">
-	<dat>\Rom\27\29.DAT</dat>
+	  <dat>\Rom\27\29.DAT</dat>
   </zone>
   <zone name="Ship bound for Mhaura" id="221">
-	<dat>\Rom\27\30.DAT</dat>
+	  <dat>\Rom\27\30.DAT</dat>
   </zone>
   <zone name="Provenance" id="222">
-	<dat>\Rom\27\31.DAT</dat>
+	  <dat>\Rom\27\31.DAT</dat>
   </zone>
   <zone name="San d'Oria-Jeuno Airship" id="223">
-	<dat>\Rom\27\32.DAT</dat>
+	  <dat>\Rom\27\32.DAT</dat>
   </zone>
   <zone name="Bastok-Jeuno Airship" id="224">
-	<dat>\Rom\27\33.DAT</dat>
+	  <dat>\Rom\27\33.DAT</dat>
   </zone>
   <zone name="Windurst-Jeuno Airship" id="225">
-	<dat>\Rom\27\34.DAT</dat>
+	  <dat>\Rom\27\34.DAT</dat>
   </zone>
   <zone name="Kazham-Jeuno Airship" id="226">
-	<dat>\Rom2\14\7.DAT</dat>
+	  <dat>\Rom2\14\7.DAT</dat>
   </zone>
   <zone name="Ship bound for Selbina" id="227">
-	<dat>\Rom\27\36.DAT</dat>
+	  <dat>\Rom\27\36.DAT</dat>
   </zone>
   <zone name="Ship bound for Mhaura" id="228">
-	<dat>\Rom\27\37.DAT</dat>
+	  <dat>\Rom\27\37.DAT</dat>
+  </zone>
+  <zone name="Throne Room [V]" id="229">
+    <dat>\Rom\27\38.DAT</dat>
   </zone>
   <zone name="Southern San d'Oria" id="230">
-	<dat>\Rom\27\39.DAT</dat>
+	  <dat>\Rom\27\39.DAT</dat>
   </zone>
   <zone name="Northern San d'Oria" id="231">
-	<dat>\Rom\27\40.DAT</dat>
+	  <dat>\Rom\27\40.DAT</dat>
   </zone>
   <zone name="Port San d'Oria" id="232">
-	<dat>\Rom\27\41.DAT</dat>
+	  <dat>\Rom\27\41.DAT</dat>
   </zone>
   <zone name="Chateau d'Oraguille" id="233">
-	<dat>\Rom\27\42.DAT</dat>
+	  <dat>\Rom\27\42.DAT</dat>
   </zone>
   <zone name="Bastok Mines" id="234">
-	<dat>\Rom\27\43.DAT</dat>
+	  <dat>\Rom\27\43.DAT</dat>
   </zone>
   <zone name="Bastok Markets" id="235">
-	<dat>\Rom\27\44.DAT</dat>
+	  <dat>\Rom\27\44.DAT</dat>
   </zone>
   <zone name="Port Bastok" id="236">
-	<dat>\Rom\27\45.DAT</dat>
+	  <dat>\Rom\27\45.DAT</dat>
   </zone>
   <zone name="Metalworks" id="237">
-	<dat>\Rom\27\46.DAT</dat>
+	  <dat>\Rom\27\46.DAT</dat>
   </zone>
   <zone name="Windurst Waters" id="238">
-	<dat>\Rom\27\47.DAT</dat>
+	  <dat>\Rom\27\47.DAT</dat>
   </zone>
   <zone name="Windurst Walls" id="239">
-	<dat>\Rom\27\48.DAT</dat>
+	  <dat>\Rom\27\48.DAT</dat>
   </zone>
   <zone name="Port Windurst" id="240">
     <dat>\Rom\27\49.DAT></dat>
   </zone>
   <zone name="Windurst Woods" id="241">
-	<dat>\Rom\27\50.DAT</dat>
+	  <dat>\Rom\27\50.DAT</dat>
   </zone>
   <zone name="Heavens Tower" id="242">
-	<dat>\Rom\27\51.DAT</dat>
+	  <dat>\Rom\27\51.DAT</dat>
   </zone>
   <zone name="Ru'Lude Gardens" id="243">
-	<dat>\Rom\27\52.DAT</dat>
+	  <dat>\Rom\27\52.DAT</dat>
   </zone>
   <zone name="Upper Jeuno" id="244">
-	<dat>\Rom\27\53.DAT</dat>
+	  <dat>\Rom\27\53.DAT</dat>
   </zone>
   <zone name="Lower Jeuno" id="245">
-	<dat>\Rom\27\54.DAT</dat>
+	  <dat>\Rom\27\54.DAT</dat>
   </zone>
   <zone name="Port Jeuno" id="246">
-	<dat>\Rom\27\55.DAT</dat>
+	  <dat>\Rom\27\55.DAT</dat>
   </zone>
   <zone name="Rabao" id="247">
-	<dat>\Rom2\14\8.DAT</dat>
+	  <dat>\Rom2\14\8.DAT</dat>
   </zone>
   <zone name="Selbina" id="248">
-	<dat>\Rom\27\57.DAT</dat>
+	  <dat>\Rom\27\57.DAT</dat>
   </zone>
   <zone name="Mhaura" id="249">
-	<dat>\Rom\27\58.DAT</dat>
+	  <dat>\Rom\27\58.DAT</dat>
   </zone>
   <zone name="Kazham" id="250">
-	<dat>\Rom2\14\9.DAT</dat>
+	  <dat>\Rom2\14\9.DAT</dat>
   </zone>
   <zone name="Hall of the Gods" id="251">
-	<dat>\Rom2\14\10.DAT</dat>
+	  <dat>\Rom2\14\10.DAT</dat>
   </zone>
   <zone name="Norg" id="252">
-	<dat>\Rom2\14\11.DAT</dat>
+	  <dat>\Rom2\14\11.DAT</dat>
   </zone>
   <zone name="Abyssea - Uleguerand" id="253">
-	<dat>\Rom\27\62.DAT</dat>
+	  <dat>\Rom\27\62.DAT</dat>
   </zone>
   <zone name="Abyssea - Grauberg" id="254">
-	<dat>\Rom\27\63.DAT</dat>
+	  <dat>\Rom\27\63.DAT</dat>
   </zone>
   <zone name="Abyssea - Empyreal Paradox" id="255">
-	<dat>\Rom\27\64.DAT</dat>
+	  <dat>\Rom\27\64.DAT</dat>
   </zone>
   <zone name="Western Adoulin" id="256">
     <dat>\Rom9\6\45.DAT</dat>
@@ -802,14 +809,18 @@
   <zone name="Outer Ra'Kaznar" id="274">
     <dat>\Rom9\6\63.DAT</dat>
   </zone>
-  <zone name="Outer Ra'Kaznar [U]" id="275">
+  <zone name="Outer Ra'Kaznar [U1]" id="275">
     <dat>\Rom9\6\64.DAT</dat>
+    <dat>\Rom\373\59.DAT</dat>
   </zone>
   <zone name="Ra'Kaznar Inner Court" id="276">
     <dat>\Rom9\6\65.DAT</dat>
   </zone>
   <zone name="Ra'Kaznar Turris" id="277">
     <dat>\Rom9\6\66.DAT</dat>
+  </zone>
+  <zone name="Gwora - Corridor" id="278">
+    <dat>\Rom\376\2.DAT</dat>
   </zone>
   <zone name="Walk of Echoes [P2]" id="279">
     <dat>\Rom\361\92.DAT</dat>
@@ -828,7 +839,7 @@
     <dat>\Rom\315\115.DAT</dat>
   </zone>
   <zone name="Silver Knife" id="283">
-    <!-- Unconfirmed! -->
+    <dat>\Rom\374\101.DAT</dat>
   </zone>
   <zone name="Celennia Wexworth Memorial Library" id="284">
     <dat>\Rom\303\37.DAT</dat>
@@ -883,7 +894,7 @@
   <zone name="Windurst - Mog House" id="613"></zone>
   <zone name="Windurst - Mog House - Floor 2" id="617"></zone>
   <zone name="Windurst - Mog House [S]" id="219"></zone>
-  <zone name="Bastok - Mog House" id="229"></zone>
+  <zone name="Bastok - Mog House" id="210"></zone>
   <zone name="Bastok - Mog House - Floor 2" id="616"></zone>
   <zone name="Bastok - Mog House [S]" id="199"></zone>
   <zone name="Adoulin - Mog House" id="619"></zone>

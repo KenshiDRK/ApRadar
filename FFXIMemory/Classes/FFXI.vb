@@ -8,7 +8,7 @@ Public Class FFXI
     End Sub
 
     Public Sub New()
-        Dim Instance() As String = {"pol", "xiloader", "wingsloader", "edenxi"}
+        Dim Instance() As String = {"pol", "xiloader", "wingsloader", "edenxi", "horizon-loader"}
         For Each value As String In Instance
             _pol = Memory.FindProcess(value)
         Next
@@ -21,7 +21,7 @@ Public Class FFXI
         End Get
         Set(ByVal value As Process)
             _pol = value
-            If Not value Is Nothing Then
+            If value IsNot Nothing Then
                 _locs = New MemLocs(_pol).locs
             End If
         End Set
