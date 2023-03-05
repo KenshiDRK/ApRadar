@@ -565,6 +565,9 @@
   <zone name="Dynamis - Jeuno" id="188">
 	  <dat>\Rom2\13\124.DAT</dat>
   </zone>
+   <zone name="Outer Ra'Kaznar [U3]" id="189">
+    <dat>\Rom\376\31.DAT</dat>
+  </zone>
   <zone name="King Ranperre's Tomb" id="190">
 	  <dat>\Rom\26\127.DAT</dat>
   </zone>
@@ -890,7 +893,7 @@
   <zone name="Jeuno - Mog House" id="612"></zone>
   <zone name="San d'Oria - Mog House" id="614"></zone>
   <zone name="San d'Oria - Mog House - Floor 2" id="615"></zone>
-  <zone name="San d'Oria - Mog House [S]" id="189"></zone>
+  <zone name="San d'Oria - Mog House [S]" id="745"></zone>
   <zone name="Windurst - Mog House" id="613"></zone>
   <zone name="Windurst - Mog House - Floor 2" id="617"></zone>
   <zone name="Windurst - Mog House [S]" id="219"></zone>

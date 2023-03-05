@@ -569,6 +569,8 @@ Public Class MemoryScanner
                         CurrentMap = 612
                     ElseIf CurrentMap = 292 Then 'adoulin mog house
                         CurrentMap = 619
+                    ElseIf CurrentMap = 745 Then 'sandoria [S] mog house
+                        CurrentMap = 745
                     Else
                         CurrentMap = CurrentMap - 444
                     End If

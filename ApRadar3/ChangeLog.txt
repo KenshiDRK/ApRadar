@@ -1,4 +1,4 @@
-﻿ApRadar 3 ©2006-2022 ApneaSoft All rights reserved.
+﻿ApRadar 3 ©2006-2023 ApneaSoft All rights reserved.
 
 Notes
 Map Radar
@@ -12,7 +12,11 @@ use Page Up and Page Down
 To reset the zoom level to 1, click the Home key while the Map Radar has focus.
 
 Changelog
+3.3.0.37
+- Update for Sortie maps
+
 3.3.0.36
+- Changed some maps and zones due to the addition of new zones in the February 2023 Update.
 - Updated Crawlers's Nest and Crawlers's Nest [S] maps
 - Support for some private servers (Not tested)
 

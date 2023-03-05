@@ -90,8 +90,8 @@ Partial Class AboutForm
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(324, 39)
         Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Created by Apnea and Developed by Kenshi ©2006-2022 All rights reserved." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "All FFXI content " & _
-    "and images © 2002-2022 SQUARE ENIX CO., LTD.  FINAL FANTASY is a registered trad" & _
+        Me.Label1.Text = "Created by Apnea and Developed by Kenshi ©2006-2023 All rights reserved." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "All FFXI content " & _
+    "and images © 2002-2023 SQUARE ENIX CO., LTD.  FINAL FANTASY is a registered trad" & _
     "emark of Square Enix Co., Ltd."
         '
         'Label2
