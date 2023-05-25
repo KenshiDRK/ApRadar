@@ -883,12 +883,15 @@
   <zone name="Dynamis - Jeuno [D]" id="297">
     <dat>\Rom\355\54.DAT</dat>
   </zone>
-   <zone name="Walk of Echoes [P1]" id="298">
+  <zone name="Walk of Echoes [P1]" id="298">
     <dat>\Rom\361\92.DAT</dat>
     <dat>\Rom\363\68.DAT</dat> <!-- Sheol A! -->
     <dat>\Rom\363\70.DAT</dat> <!-- Sheol B! -->
     <dat>\Rom\363\72.DAT</dat> <!-- Sheol C! -->
     <dat>\Rom\364\111.DAT</dat> <!-- Sheol Gaol! -->
+  </zone>
+  <zone name="Walk of Echoes [P1]" id="299">
+    <dat>\Rom\378\106.DAT</dat>
   </zone>
   <zone name="Jeuno - Mog House" id="612"></zone>
   <zone name="San d'Oria - Mog House" id="614"></zone>

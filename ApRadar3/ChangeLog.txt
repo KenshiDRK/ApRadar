@@ -12,6 +12,9 @@ use Page Up and Page Down
 To reset the zoom level to 1, click the Home key while the Map Radar has focus.
 
 Changelog
+3.3.0.38
+- Added new map
+
 3.3.0.37
 - Update for Sortie maps
 
